@@ -743,6 +743,231 @@
     </div>
   </div>
 </section>
+
+
+
+<!-- ==================== NEWS & EVENTS CAROUSEL SECTION ==================== -->
+<section class="bg-white py-16 lg:py-24 overflow-hidden">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-8 items-start">
+
+      <!-- ==================== CỘT TRÁI: HEADER & CONTROLS (25%) ==================== -->
+      <div class="lg:col-span-3 text-left">
+        <!-- Heading -->
+        <h2 class="text-2xl lg:text-3xl font-bold text-gray-900 leading-tight tracking-tight">
+          TIN TỨC &amp; SỰ KIỆN
+        </h2>
+
+        <!-- Accent line -->
+        <div class="mt-4 h-1 w-14 rounded-full bg-brand"></div>
+
+        <!-- Description -->
+        <p class="mt-5 text-sm text-gray-600 leading-relaxed">
+          Cập nhật liên tục các thông tin chiêu sinh, lịch khai giảng hàng tháng, ưu đãi học phí và các hoạt động học tập, ngoại khóa mới nhất tại hệ thống các chi nhánh Điểm 10+.
+        </p>
+
+        <!-- Action & Controls -->
+        <div class="mt-7 flex items-center justify-between gap-3">
+          <!-- Xem tất cả -->
+          <a href="#" class="group inline-flex items-center gap-2 px-4 py-2.5 rounded-md border border-gray-300 bg-white hover:bg-brand-soft hover:border-brand hover:text-brand text-[13px] font-semibold text-gray-800 transition-colors duration-300">
+            <span>Xem Tất Cả</span>
+            <i data-lucide="arrow-up-right" class="w-4 h-4 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5"></i>
+          </a>
+
+          <!-- Slider Controls -->
+          <div class="flex items-center gap-2">
+            <button id="newsPrevBtn" aria-label="Tin trước" class="w-10 h-10 rounded-full border border-gray-300 bg-white hover:bg-brand hover:border-brand hover:text-white flex items-center justify-center text-gray-600 transition-all duration-300 disabled:opacity-40 disabled:cursor-not-allowed disabled:hover:bg-white disabled:hover:border-gray-300 disabled:hover:text-gray-600">
+              <i data-lucide="chevron-left" class="w-5 h-5"></i>
+            </button>
+            <button id="newsNextBtn" aria-label="Tin tiếp theo" class="w-10 h-10 rounded-full border border-gray-300 bg-white hover:bg-brand hover:border-brand hover:text-white flex items-center justify-center text-gray-600 transition-all duration-300 disabled:opacity-40 disabled:cursor-not-allowed disabled:hover:bg-white disabled:hover:border-gray-300 disabled:hover:text-gray-600">
+              <i data-lucide="chevron-right" class="w-5 h-5"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- ==================== CỘT PHẢI: CAROUSEL (75%) ==================== -->
+      <div class="lg:col-span-9 relative">
+        <!-- Carousel viewport -->
+        <div id="newsCarousel" class="flex gap-5 overflow-x-auto scroll-smooth pb-4 scrollbar-none snap-x snap-mandatory -mr-4 pr-4 lg:-mr-8 lg:pr-8">
+
+          <!-- ========== THẺ 1 ========== -->
+          <article class="group relative shrink-0 w-[280px] sm:w-[320px] h-[420px] rounded-2xl overflow-hidden snap-start cursor-pointer shadow-md hover:shadow-xl transition-shadow duration-300">
+            <!-- Ảnh nền -->
+            <img
+              src="images/lop-hoc.jpg"
+              alt="Tuyển sinh tháng 11 tại Điểm 10+"
+              class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+            />
+            <!-- Overlay gradient -->
+            <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/35 to-black/10"></div>
+            <!-- Bo góc đặc biệt góc trên trái (lớn hơn) -->
+            <div class="absolute top-0 left-0 w-16 h-16 bg-white rounded-br-[3rem] pointer-events-none"></div>
+
+            <!-- Nội dung đáy thẻ -->
+            <div class="absolute inset-x-0 bottom-0 p-6 z-10 text-left">
+              <!-- Category & Date -->
+              <p class="text-[11px] font-semibold tracking-[0.15em] text-white/80 uppercase">
+                Tin Tức &nbsp;•&nbsp; 04 Nov 2026
+              </p>
+              <!-- Title -->
+              <h3 class="mt-2 text-[16px] lg:text-[17px] font-bold text-white leading-snug line-clamp-3">
+                Tuyển Sinh Tháng 11 Tại Điểm 10+ — Ưu Đãi Học Phí Đến 25%
+              </h3>
+              <!-- Badge -->
+              <span class="inline-block mt-3 px-3 py-1 rounded-md bg-brand-dark text-white text-[11px] font-semibold">
+                Ưu đãi 25% học phí
+              </span>
+            </div>
+          </article>
+
+          <!-- ========== THẺ 2 ========== -->
+          <article class="group relative shrink-0 w-[280px] sm:w-[320px] h-[420px] rounded-2xl overflow-hidden snap-start cursor-pointer shadow-md hover:shadow-xl transition-shadow duration-300">
+            <img
+              src="images/nghien-cuu-1.jpg"
+              alt="Điểm 10+ tròn 11 tuổi"
+              class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+            />
+            <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/35 to-black/10"></div>
+            <div class="absolute top-0 left-0 w-16 h-16 bg-white rounded-br-[3rem] pointer-events-none"></div>
+
+            <div class="absolute inset-x-0 bottom-0 p-6 z-10 text-left">
+              <p class="text-[11px] font-semibold tracking-[0.15em] text-white/80 uppercase">
+                Sự Kiện &nbsp;•&nbsp; 30 Sep 2026
+              </p>
+              <h3 class="mt-2 text-[16px] lg:text-[17px] font-bold text-white leading-snug line-clamp-3">
+                Điểm 10+ Tròn 11 Tuổi – Mừng Sinh Nhật, Ưu Đãi Hấp Dẫn
+              </h3>
+              <span class="inline-block mt-3 px-3 py-1 rounded-md bg-brand-dark text-white text-[11px] font-semibold">
+                Sinh nhật 11 năm
+              </span>
+            </div>
+          </article>
+
+          <!-- ========== THẺ 3 ========== -->
+          <article class="group relative shrink-0 w-[280px] sm:w-[320px] h-[420px] rounded-2xl overflow-hidden snap-start cursor-pointer shadow-md hover:shadow-xl transition-shadow duration-300">
+            <img
+              src="images/nghien-cuu-ai.jpg"
+              alt="Lịch học chi tiết tại các chi nhánh"
+              class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+            />
+            <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/35 to-black/10"></div>
+            <div class="absolute top-0 left-0 w-16 h-16 bg-white rounded-br-[3rem] pointer-events-none"></div>
+
+            <div class="absolute inset-x-0 bottom-0 p-6 z-10 text-left">
+              <p class="text-[11px] font-semibold tracking-[0.15em] text-white/80 uppercase">
+                Tin Tức &nbsp;•&nbsp; 15 Oct 2026
+              </p>
+              <h3 class="mt-2 text-[16px] lg:text-[17px] font-bold text-white leading-snug line-clamp-3">
+                Lịch Học Chi Tiết Tại Các Chi Nhánh Điểm 10+ Tháng Mới
+              </h3>
+              <span class="inline-block mt-3 px-3 py-1 rounded-md bg-brand-dark text-white text-[11px] font-semibold">
+                Tháng 11.2026
+              </span>
+            </div>
+          </article>
+
+          <!-- ========== THẺ 4 ========== -->
+          <article class="group relative shrink-0 w-[280px] sm:w-[320px] h-[420px] rounded-2xl overflow-hidden snap-start cursor-pointer shadow-md hover:shadow-xl transition-shadow duration-300">
+            <img
+              src="images/rung-sinh-hoc.jpg"
+              alt="Học online tại Điểm 10+"
+              class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+            />
+            <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/35 to-black/10"></div>
+            <div class="absolute top-0 left-0 w-16 h-16 bg-white rounded-br-[3rem] pointer-events-none"></div>
+
+            <div class="absolute inset-x-0 bottom-0 p-6 z-10 text-left">
+              <p class="text-[11px] font-semibold tracking-[0.15em] text-white/80 uppercase">
+                Tin Tức &nbsp;•&nbsp; 08 Oct 2026
+              </p>
+              <h3 class="mt-2 text-[16px] lg:text-[17px] font-bold text-white leading-snug line-clamp-3">
+                Học Online Tại Điểm 10+ Có Gì? Tiện Lợi &amp; Hiệu Quả Tại Nhà
+              </h3>
+              <span class="inline-block mt-3 px-3 py-1 rounded-md bg-brand-dark text-white text-[11px] font-semibold">
+                Lớp Online
+              </span>
+            </div>
+          </article>
+
+          <!-- ========== THẺ 5 (bonus để test cuộn) ========== -->
+          <article class="group relative shrink-0 w-[280px] sm:w-[320px] h-[420px] rounded-2xl overflow-hidden snap-start cursor-pointer shadow-md hover:shadow-xl transition-shadow duration-300">
+            <img
+              src="images/phong-thong-minh.jpg"
+              alt="Hoạt động ngoại khóa"
+              class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+            />
+            <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/35 to-black/10"></div>
+            <div class="absolute top-0 left-0 w-16 h-16 bg-white rounded-br-[3rem] pointer-events-none"></div>
+
+            <div class="absolute inset-x-0 bottom-0 p-6 z-10 text-left">
+              <p class="text-[11px] font-semibold tracking-[0.15em] text-white/80 uppercase">
+                Hoạt Động &nbsp;•&nbsp; 20 Sep 2026
+              </p>
+              <h3 class="mt-2 text-[16px] lg:text-[17px] font-bold text-white leading-snug line-clamp-3">
+                Ngoại Khóa Cuối Tuần — Học Mà Chơi, Chơi Mà Học Cùng Điểm 10+
+              </h3>
+              <span class="inline-block mt-3 px-3 py-1 rounded-md bg-brand-dark text-white text-[11px] font-semibold">
+                Ngoại khóa
+              </span>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  /* Ẩn scrollbar nhưng vẫn cuộn được */
+  .scrollbar-none { -ms-overflow-style: none; scrollbar-width: none; }
+  .scrollbar-none::-webkit-scrollbar { display: none; }
+
+  /* Clamp tiêu đề tối đa 3 dòng */
+  .line-clamp-3 {
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+</style>
+
+<script>
+  // ===== Carousel controls =====
+  (function () {
+    const carousel = document.getElementById('newsCarousel');
+    const prevBtn = document.getElementById('newsPrevBtn');
+    const nextBtn = document.getElementById('newsNextBtn');
+    if (!carousel) return;
+
+    // Cuộn 1 thẻ (card width + gap)
+    function getScrollStep() {
+      const card = carousel.querySelector('article');
+      if (!card) return 300;
+      const styles = window.getComputedStyle(carousel);
+      const gap = parseInt(styles.columnGap || styles.gap || '20', 10);
+      return card.offsetWidth + gap;
+    }
+
+    function updateButtonState() {
+      const maxScroll = carousel.scrollWidth - carousel.clientWidth;
+      prevBtn.disabled = carousel.scrollLeft <= 4;
+      nextBtn.disabled = carousel.scrollLeft >= maxScroll - 4;
+    }
+
+    prevBtn.addEventListener('click', () => {
+      carousel.scrollBy({ left: -getScrollStep(), behavior: 'smooth' });
+    });
+    nextBtn.addEventListener('click', () => {
+      carousel.scrollBy({ left: getScrollStep(), behavior: 'smooth' });
+    });
+
+    carousel.addEventListener('scroll', updateButtonState);
+    window.addEventListener('resize', updateButtonState);
+    updateButtonState();
+  })();
+</script>
   <div class="h-[120vh]"></div>
 
   <!-- ==================== SCRIPT ==================== -->
