@@ -743,7 +743,182 @@
     </div>
   </div>
 </section>
+<!-- ==================== GALLERY SECTION (MOSAIC - RED BRAND) ==================== -->
+<section class="relative bg-gradient-to-br from-brand-deeper via-brand-dark to-brand py-16 lg:py-24 overflow-hidden">
 
+  <!-- Decorative blobs mờ (vàng + trắng nhẹ để tương phản trên nền đỏ) -->
+  <div class="absolute -top-40 -left-40 w-[30rem] h-[30rem] bg-gold/15 rounded-full blur-3xl pointer-events-none"></div>
+  <div class="absolute -bottom-40 -right-40 w-[30rem] h-[30rem] bg-white/10 rounded-full blur-3xl pointer-events-none"></div>
+  <!-- Vân chấm bi nhẹ để nền đỡ phẳng -->
+  <div class="absolute inset-0 opacity-[0.07] pointer-events-none" style="background-image: radial-gradient(circle, #fff 1px, transparent 1px); background-size: 22px 22px;"></div>
+
+  <!-- ===== NÚT CLOSE (Góc trên trái) ===== -->
+  <!-- <button
+    type="button"
+    aria-label="Đóng gallery"
+    class="absolute top-5 left-5 lg:top-7 lg:left-7 z-20 group w-11 h-11 rounded-full bg-white/15 backdrop-blur-md border border-white/30 hover:bg-white hover:border-white flex items-center justify-center text-white hover:text-brand transition-all duration-300 hover:scale-110 shadow-lg"
+  >
+    <i data-lucide="x" class="w-5 h-5 transition-transform duration-300 group-hover:rotate-90"></i>
+  </button> -->
+
+  <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+    <!-- ===== HEADER / SLOGAN ===== -->
+    <div class="text-center max-w-3xl mx-auto">
+      <!-- Tag -->
+      <p class="text-[12px] font-semibold tracking-[0.4em] text-white/75 uppercase">
+        Gallery
+      </p>
+
+      <!-- Main quote -->
+      <h2 class="mt-4 text-2xl sm:text-3xl lg:text-4xl xl:text-[42px] font-extrabold text-white leading-tight tracking-tight drop-shadow">
+        Great teachers make great students.
+      </h2>
+
+      <!-- Sub quote -->
+      <div class="mt-4 flex items-center justify-center gap-3 flex-wrap text-white text-sm sm:text-base font-semibold tracking-wide">
+        <span>Dream</span>
+        <span class="w-px h-4 bg-white/60"></span>
+        <span>Plan</span>
+        <span class="w-px h-4 bg-white/60"></span>
+        <span>Fly</span>
+      </div>
+
+      <!-- Accent line vàng -->
+      <div class="mt-6 mx-auto h-1 w-16 rounded-full bg-gold"></div>
+    </div>
+
+    <!-- ===== PHOTO GRID (MOSAIC) ===== -->
+    <div class="mt-12 lg:mt-16 grid grid-cols-2 sm:grid-cols-2 md:grid-cols-6 lg:grid-cols-12 gap-3 sm:gap-4">
+
+      <!-- ========== HÀNG 1 ========== -->
+
+      <!-- Ảnh 1 - Ngang lớn (trái) -->
+      <figure class="group relative col-span-2 sm:col-span-1 md:col-span-2 lg:col-span-3 rounded-xl overflow-hidden h-40 sm:h-48 lg:h-56 cursor-pointer ring-1 ring-white/10">
+        <img
+          src="images/giang-vien-1.jpg"
+          alt="Học sinh đọc tài liệu và làm việc với laptop"
+          class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+          loading="lazy"
+        />
+        <div class="absolute inset-0 bg-black/0 group-hover:bg-black/30 transition-colors duration-300"></div>
+      </figure>
+
+      <!-- Ảnh 2 - Ngang nhỏ -->
+      <figure class="group relative col-span-1 sm:col-span-1 md:col-span-2 lg:col-span-3 rounded-xl overflow-hidden h-40 sm:h-48 lg:h-56 cursor-pointer ring-1 ring-white/10">
+        <img
+          src="images/giang-vien-2.jpg"
+          alt="Khoảnh khắc ghi chép tài liệu trên bàn"
+          class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+          loading="lazy"
+        />
+        <div class="absolute inset-0 bg-black/0 group-hover:bg-black/30 transition-colors duration-300"></div>
+      </figure>
+
+      <!-- Ảnh 3 - Ngang mô tả lớp học -->
+      <figure class="group relative col-span-1 sm:col-span-1 md:col-span-2 lg:col-span-3 rounded-xl overflow-hidden h-40 sm:h-48 lg:h-56 cursor-pointer ring-1 ring-white/10">
+        <img
+          src="images/giang-vien-3.jpg"
+          alt="Giảng viên hướng dẫn trực tiếp học viên"
+          class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+          loading="lazy"
+        />
+        <div class="absolute inset-0 bg-black/0 group-hover:bg-black/30 transition-colors duration-300"></div>
+      </figure>
+
+      <!-- Ảnh 4 - Cột đứng lớn (phải), chiếm 2 hàng -->
+      <figure class="group relative col-span-2 sm:col-span-1 md:col-span-6 lg:col-span-3 md:row-span-2 lg:row-span-2 rounded-xl overflow-hidden h-64 sm:h-72 md:h-auto lg:h-auto cursor-pointer ring-1 ring-white/10">
+        <img
+          src="images/giang-vien-4.jpg"
+          alt="Học viên đeo kính tập trung đọc sách"
+          class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+          loading="lazy"
+        />
+        <div class="absolute inset-0 bg-black/0 group-hover:bg-black/30 transition-colors duration-300"></div>
+      </figure>
+
+      <!-- ========== HÀNG 2 ========== -->
+
+      <!-- Ảnh 5 - Nữ sinh viên học tập -->
+      <figure class="group relative col-span-1 sm:col-span-1 md:col-span-2 lg:col-span-3 rounded-xl overflow-hidden h-40 sm:h-48 lg:h-56 cursor-pointer ring-1 ring-white/10">
+        <img
+          src="images/giang-vien-5.jpg"
+          alt="Nữ sinh viên cặm cụi học tập"
+          class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+          loading="lazy"
+        />
+        <div class="absolute inset-0 bg-black/0 group-hover:bg-black/30 transition-colors duration-300"></div>
+      </figure>
+
+      <!-- Ảnh 6 - Học viên mỉm cười -->
+      <figure class="group relative col-span-1 sm:col-span-1 md:col-span-2 lg:col-span-3 rounded-xl overflow-hidden h-40 sm:h-48 lg:h-56 cursor-pointer ring-1 ring-white/10">
+        <img
+          src="images/giang-vien-6.jpg"
+          alt="Học viên mỉm cười trong buổi học trực tuyến"
+          class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+          loading="lazy"
+        />
+        <div class="absolute inset-0 bg-black/0 group-hover:bg-black/30 transition-colors duration-300"></div>
+      </figure>
+
+      <!-- Ảnh 7 - Cận cảnh đôi tay mở tài liệu -->
+      <figure class="group relative col-span-2 sm:col-span-1 md:col-span-2 lg:col-span-3 rounded-xl overflow-hidden h-40 sm:h-48 lg:h-56 cursor-pointer ring-1 ring-white/10">
+        <img
+          src="images/giang-vien-7.jpg"
+          alt="Cận cảnh đôi tay thảo luận, mở tài liệu"
+          class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+          loading="lazy"
+        />
+        <div class="absolute inset-0 bg-black/0 group-hover:bg-black/30 transition-colors duration-300"></div>
+      </figure>
+
+      <!-- ========== HÀNG 3 (bonus - ảnh tràn viền chờ cuộn) ========== -->
+
+      <!-- Ảnh 8 - Ngang rộng -->
+      <figure class="group relative col-span-2 sm:col-span-2 md:col-span-3 lg:col-span-5 rounded-xl overflow-hidden h-40 sm:h-48 lg:h-56 cursor-pointer ring-1 ring-white/10">
+        <img
+          src="images/giang-vien-8.jpg"
+          alt="Hoạt động học tập tại Điểm 10+"
+          class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+          loading="lazy"
+        />
+        <div class="absolute inset-0 bg-black/0 group-hover:bg-black/30 transition-colors duration-300"></div>
+      </figure>
+
+      <!-- Ảnh 9 - Vuông vừa -->
+      <figure class="group relative col-span-1 sm:col-span-1 md:col-span-2 lg:col-span-3 rounded-xl overflow-hidden h-40 sm:h-48 lg:h-56 cursor-pointer ring-1 ring-white/10">
+        <img
+          src="images/giang-vien-9.jpg"
+          alt="Không gian học tập tại chi nhánh"
+          class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+          loading="lazy"
+        />
+        <div class="absolute inset-0 bg-black/0 group-hover:bg-black/30 transition-colors duration-300"></div>
+      </figure>
+
+      <!-- Ảnh 10 - Ngang nhỏ -->
+      <figure class="group relative col-span-1 sm:col-span-1 md:col-span-1 lg:col-span-4 rounded-xl overflow-hidden h-40 sm:h-48 lg:h-56 cursor-pointer ring-1 ring-white/10">
+        <img
+          src="images/giang-vien-10.jpg"
+          alt="Khoảnh khắc lớp học Điểm 10+"
+          class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+          loading="lazy"
+        />
+        <div class="absolute inset-0 bg-black/0 group-hover:bg-black/30 transition-colors duration-300"></div>
+      </figure>
+
+    </div>
+
+    <!-- ===== DẢI GỢI Ý CUỘN ===== -->
+    <div class="mt-10 flex items-center justify-center gap-2 text-white/60 text-xs">
+      <span class="w-8 h-px bg-white/30"></span>
+      <span>Cuộn để xem thêm</span>
+      <i data-lucide="chevron-down" class="w-4 h-4 animate-bounce"></i>
+      <span class="w-8 h-px bg-white/30"></span>
+    </div>
+
+  </div>
+</section>
 
 
 <!-- ==================== NEWS & EVENTS CAROUSEL SECTION ==================== -->
