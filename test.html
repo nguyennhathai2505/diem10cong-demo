@@ -1,89 +1,293 @@
-<!DOCTYPE html>
-<html lang="vi">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Section Demo Layout with Header</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-</head>
-<body class="bg-gray-100 font-sans">
+<!-- ==================== TESTIMONIALS SECTION ==================== -->
+<section class="relative bg-gradient-to-br from-[#0B2447] via-[#0F2D5C] to-brand-deeper py-16 lg:py-24 overflow-hidden">
 
-    <!-- Header Section (White Background) -->
-    <header class="bg-white border-b border-gray-200 sticky top-0 z-50">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
-            <!-- Logo -->
-            <div class="flex items-center gap-2">
-                <div class="w-10 h-10 bg-red-600 rounded-lg flex items-center justify-center text-white font-bold text-xl">
-                    L
-                </div>
-                <span class="text-xl font-bold text-gray-900">BrandLogo</span>
-            </div>
+  <!-- Vân chấm bi nhẹ -->
+  <div class="absolute inset-0 opacity-[0.05] pointer-events-none" style="background-image: radial-gradient(circle, #fff 1px, transparent 1px); background-size: 24px 24px;"></div>
 
-            <!-- Navigation Links -->
-            <nav class="hidden md:flex items-center gap-8 font-medium text-gray-600">
-                <a href="#" class="hover:text-red-600 transition-colors">Trang chủ</a>
-                <a href="#" class="hover:text-red-600 transition-colors">Giới thiệu</a>
-                <a href="#" class="hover:text-red-600 transition-colors">Dịch vụ</a>
-                <a href="#" class="hover:text-red-600 transition-colors">Sản phẩm</a>
-                <a href="#" class="hover:text-red-600 transition-colors">Liên hệ</a>
-            </nav>
+  <!-- Blob trang trí mờ -->
+  <div class="absolute -top-40 -right-40 w-[28rem] h-[28rem] bg-brand/20 rounded-full blur-3xl pointer-events-none"></div>
+  <div class="absolute -bottom-40 -left-40 w-[28rem] h-[28rem] bg-gold/10 rounded-full blur-3xl pointer-events-none"></div>
 
-            <!-- Action Button -->
-            <div class="flex items-center gap-4">
-                <button class="bg-red-600 hover:bg-red-700 text-white font-medium px-5 py-2.5 rounded-lg transition duration-200 shadow-sm">
-                    Tư vấn ngay
-                </button>
-            </div>
+  <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+    <!-- ==================== HEADER ==================== -->
+    <div class="max-w-3xl">
+      <h2 class="text-2xl sm:text-3xl lg:text-[40px] font-extrabold text-white leading-[1.2] tracking-tight">
+        Thước đo chất lượng quan trọng nhất<br class="hidden sm:block" />
+        của chúng tôi là <span class="text-gold">sự hài lòng</span> của<br class="hidden sm:block" />
+        quý phụ huynh &amp; học sinh
+      </h2>
+
+      <!-- Rating Summary Badge -->
+      <div class="mt-6 inline-flex flex-wrap items-center gap-3 px-4 py-2.5 rounded-full bg-white/10 backdrop-blur-md border border-white/15">
+        <div class="flex items-center gap-1.5">
+          <span class="text-xl font-extrabold text-white leading-none">4.9</span>
+          <div class="flex items-center gap-0.5 text-gold">
+            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+          </div>
         </div>
-    </header>
-
-    <!-- Section 1: Red Background -->
-    <section class="relative bg-red-600 pt-16 pb-20 px-4 sm:px-6 lg:px-8">
-        <!-- Inner White Div: Expanded width (max-w-7xl) while staying inside section padding -->
-        <div class="relative max-w-7xl mx-auto bg-white rounded-2xl shadow-2xl p-8 sm:p-12 -mb-48 z-10">
-            
-            <!-- Grid 2 columns -->
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-                
-                <!-- Left Grid: Content Info -->
-                <div class="space-y-4">
-                    <span class="inline-block bg-red-100 text-red-600 text-xs font-semibold uppercase tracking-wider px-3 py-1 rounded-full">
-                        Thông tin chi tiết
-                    </span>
-                    <h2 class="text-3xl sm:text-4xl font-bold text-gray-900 leading-tight">
-                        Tiêu đề nổi bật cho bài viết hoặc sản phẩm
-                    </h2>
-                    <p class="text-gray-600 text-base sm:text-lg leading-relaxed">
-                        Mô tả ngắn gọn về thông tin cần truyền tải. Thẻ div màu trắng hiện tại đã được mở rộng chiều rộng tối đa, tạo không gian thoáng hơn nhưng vẫn giữ lề padding hai bên để không tràn khỏi Section 1.
-                    </p>
-                    <div class="pt-2">
-                        <button class="bg-red-600 hover:bg-red-700 text-white font-medium px-8 py-3 rounded-lg transition duration-200 shadow-md">
-                            Khám phá ngay
-                        </button>
-                    </div>
-                </div>
-
-                <!-- Right Grid: Vertical Image protruding out of white div & section 1 -->
-                <div class="relative flex justify-center md:justify-end">
-                    <!-- Vertical Image with offset positioning -->
-                    <div class="relative -mb-32 md:-mb-64 w-full max-w-xs sm:max-w-sm z-20">
-                        <img 
-                            src="https://picsum.photos/450/650" 
-                            alt="Vertical Illustration" 
-                            class="w-full h-[450px] sm:h-[500px] rounded-2xl shadow-2xl object-cover ring-4 ring-white"
-                        />
-                    </div>
-                </div>
-
+        <span class="w-px h-5 bg-white/20"></span>
+        <span class="text-[13px] font-medium text-white/85">
+          <span class="font-bold text-white">185</span> đánh giá
+        </span>
+        <span class="w-px h-5 bg-white/20 hidden sm:block"></span>
+        <div class="hidden sm:flex items-center gap-2">
+          <span class="text-[11px] text-white/60 font-medium uppercase tracking-wider">Trên</span>
+          <div class="flex items-center gap-1.5">
+            <div class="w-6 h-6 rounded-md bg-white/10 flex items-center justify-center">
+              <svg class="w-3.5 h-3.5 fill-current text-white" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
             </div>
+            <div class="w-6 h-6 rounded-md bg-white/10 flex items-center justify-center">
+              <svg class="w-3.5 h-3.5 fill-current text-white" viewBox="0 0 24 24"><path d="M12 0C5.373 0 0 5.373 0 12c0 2.006.498 3.894 1.375 5.555L.043 23.957l6.557-1.314A11.94 11.94 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm5.977 16.851c-.238.666-1.393 1.275-1.917 1.32-.524.045-1.016.245-3.415-.706-2.884-1.152-4.71-4.13-4.855-4.32-.144-.19-1.157-1.539-1.157-2.936 0-1.397.733-2.084 1.005-2.371.272-.286.594-.358.793-.358.198 0 .397.002.571.011.183.008.428-.07.667.513.245.595.831 2.03.905 2.178.073.148.122.32.024.516-.099.196-.148.318-.297.49-.148.173-.31.386-.443.519-.148.147-.303.307-.13.601.173.294.771 1.271 1.656 2.059 1.137 1.012 2.094 1.325 2.389 1.475.295.148.469.124.642-.074.173-.198.741-.865.94-1.162.198-.297.397-.247.667-.148.272.099 1.717.81 2.012.957.295.148.492.222.566.346.074.123.074.716-.164 1.382z"/></svg>
+            </div>
+            <div class="w-6 h-6 rounded-md bg-white/10 flex items-center justify-center">
+              <svg class="w-3.5 h-3.5 fill-current text-white" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+            </div>
+          </div>
         </div>
-    </section>
+      </div>
 
-    <!-- Section 2: Flowing container below -->
-    <section class="bg-gray-100 pt-72 pb-24 px-4 text-center">
-        <h3 class="text-xl font-semibold text-gray-700">Section tiếp theo (Phía bên dưới)</h3>
-        <p class="text-gray-500 mt-2">Nội dung này nằm dưới để minh họa khối trắng rộng hơn cùng ảnh dọc nhô ra hẳn bên ngoài.</p>
-    </section>
+      <p class="mt-3 text-[12.5px] text-white/60">
+        Đánh giá được tổng hợp từ Google, Facebook và Zalo của phụ huynh &amp; học sinh Điểm 10+
+      </p>
+    </div>
 
-</body>
-</html>
+    <!-- ==================== TESTIMONIAL CARDS ==================== -->
+    <div class="mt-10 lg:mt-12 relative">
+
+      <!-- NÚT PREV (bên trái) -->
+      <button id="testimonialPrev"
+        aria-label="Đánh giá trước"
+        class="hidden lg:flex absolute -left-5 xl:-left-6 top-1/2 -translate-y-1/2 z-20 w-11 h-11 rounded-full bg-white/10 hover:bg-white border border-white/25 hover:border-white text-white hover:text-brand shadow-lg backdrop-blur-md items-center justify-center transition-all duration-300 disabled:opacity-40 disabled:cursor-not-allowed disabled:hover:bg-white/10 disabled:hover:text-white disabled:hover:border-white/25">
+        <i data-lucide="chevron-left" class="w-5 h-5"></i>
+      </button>
+
+      <!-- NÚT NEXT (bên phải) -->
+      <button id="testimonialNext"
+        aria-label="Đánh giá tiếp theo"
+        class="hidden lg:flex absolute -right-5 xl:-right-6 top-1/2 -translate-y-1/2 z-20 w-11 h-11 rounded-full bg-white/10 hover:bg-white border border-white/25 hover:border-white text-white hover:text-brand shadow-lg backdrop-blur-md items-center justify-center transition-all duration-300 disabled:opacity-40 disabled:cursor-not-allowed disabled:hover:bg-white/10 disabled:hover:text-white disabled:hover:border-white/25">
+        <i data-lucide="chevron-right" class="w-5 h-5"></i>
+      </button>
+
+      <!-- Slider container -->
+      <div id="testimonialCarousel" class="flex gap-5 overflow-x-auto scroll-smooth pb-4 scrollbar-none snap-x snap-mandatory -mr-4 pr-4 lg:-mr-8 lg:pr-8">
+
+        <!-- ========== CARD 1 ========== -->
+        <article class="shrink-0 w-[85%] sm:w-[calc((100%-1.25rem)/2)] lg:w-[calc((100%-3.75rem)/4)] snap-start bg-white rounded-2xl p-6 shadow-xl shadow-black/30 flex flex-col">
+          <div class="flex items-start gap-3">
+            <img src="images/avatar-phu-huynh-01.jpg" alt="Chị Nguyễn Thu Hà" class="w-12 h-12 rounded-full object-cover ring-2 ring-brand-soft shrink-0" loading="lazy" />
+            <div class="flex-1 min-w-0">
+              <p class="text-[14px] font-bold text-gray-900 leading-tight">Chị Nguyễn Thu Hà</p>
+              <p class="text-[11.5px] text-gray-500 mt-0.5">Phụ huynh HS lớp 9 · Quận 5</p>
+              <div class="flex items-center gap-0.5 mt-1.5 text-gold">
+                <i data-lucide="star" class="w-3.5 h-3.5 fill-current"></i>
+                <i data-lucide="star" class="w-3.5 h-3.5 fill-current"></i>
+                <i data-lucide="star" class="w-3.5 h-3.5 fill-current"></i>
+                <i data-lucide="star" class="w-3.5 h-3.5 fill-current"></i>
+                <i data-lucide="star" class="w-3.5 h-3.5 fill-current"></i>
+              </div>
+            </div>
+          </div>
+          <p class="text-[11px] text-gray-400 mt-3">15/10/2026</p>
+          <p class="mt-3 text-[13px] text-gray-700 leading-relaxed flex-1">
+            Con mình trước đây rất sợ môn Toán, điểm trung bình chỉ 5-6. Sau 6 tháng học tại Điểm 10+, cháu đã tự tin hơn hẳn và đạt 8.5 điểm cuối kỳ. Thầy cô rất tận tâm, thường xuyên báo tiến độ cho phụ huynh.
+          </p>
+          <a href="#" class="mt-4 inline-flex items-center gap-1.5 text-[11.5px] font-semibold text-brand hover:text-brand-dark transition-colors">
+            <i data-lucide="external-link" class="w-3 h-3"></i>
+            Liên kết nguồn
+          </a>
+        </article>
+
+        <!-- ========== CARD 2 ========== -->
+        <article class="shrink-0 w-[85%] sm:w-[calc((100%-1.25rem)/2)] lg:w-[calc((100%-3.75rem)/4)] snap-start bg-white rounded-2xl p-6 shadow-xl shadow-black/30 flex flex-col">
+          <div class="flex items-start gap-3">
+            <img src="images/avatar-hoc-sinh-02.jpg" alt="Em Trần Minh Anh" class="w-12 h-12 rounded-full object-cover ring-2 ring-brand-soft shrink-0" loading="lazy" />
+            <div class="flex-1 min-w-0">
+              <p class="text-[14px] font-bold text-gray-900 leading-tight">Em Trần Minh Anh</p>
+              <p class="text-[11.5px] text-gray-500 mt-0.5">Học sinh lớp 12 · Quận 3</p>
+              <div class="flex items-center gap-0.5 mt-1.5 text-gold">
+                <i data-lucide="star" class="w-3.5 h-3.5 fill-current"></i>
+                <i data-lucide="star" class="w-3.5 h-3.5 fill-current"></i>
+                <i data-lucide="star" class="w-3.5 h-3.5 fill-current"></i>
+                <i data-lucide="star" class="w-3.5 h-3.5 fill-current"></i>
+                <i data-lucide="star" class="w-3.5 h-3.5 fill-current"></i>
+              </div>
+            </div>
+          </div>
+          <p class="text-[11px] text-gray-400 mt-3">02/10/2026</p>
+          <p class="mt-3 text-[13px] text-gray-700 leading-relaxed flex-1">
+            Lớp Luyện thi chuyên của thầy cô cực kỳ chất lượng. Kiến thức được hệ thống lại rõ ràng, có nhiều mẹo giải nhanh rất hữu ích. Em đỗ vào lớp 10 chuyên Lý của trường Phổ thông Năng khiếu, đúng nguyện vọng!
+          </p>
+          <a href="#" class="mt-4 inline-flex items-center gap-1.5 text-[11.5px] font-semibold text-brand hover:text-brand-dark transition-colors">
+            <i data-lucide="external-link" class="w-3 h-3"></i>
+            Liên kết nguồn
+          </a>
+        </article>
+
+        <!-- ========== CARD 3 ========== -->
+        <article class="shrink-0 w-[85%] sm:w-[calc((100%-1.25rem)/2)] lg:w-[calc((100%-3.75rem)/4)] snap-start bg-white rounded-2xl p-6 shadow-xl shadow-black/30 flex flex-col">
+          <div class="flex items-start gap-3">
+            <img src="images/avatar-phu-huynh-03.jpg" alt="Anh Lê Văn Tuấn" class="w-12 h-12 rounded-full object-cover ring-2 ring-brand-soft shrink-0" loading="lazy" />
+            <div class="flex-1 min-w-0">
+              <p class="text-[14px] font-bold text-gray-900 leading-tight">Anh Lê Văn Tuấn</p>
+              <p class="text-[11.5px] text-gray-500 mt-0.5">Phụ huynh HS lớp 7 · Quận 10</p>
+              <div class="flex items-center gap-0.5 mt-1.5 text-gold">
+                <i data-lucide="star" class="w-3.5 h-3.5 fill-current"></i>
+                <i data-lucide="star" class="w-3.5 h-3.5 fill-current"></i>
+                <i data-lucide="star" class="w-3.5 h-3.5 fill-current"></i>
+                <i data-lucide="star" class="w-3.5 h-3.5 fill-current"></i>
+                <i data-lucide="star" class="w-3.5 h-3.5 fill-current"></i>
+              </div>
+            </div>
+          </div>
+          <p class="text-[11px] text-gray-400 mt-3">28/09/2026</p>
+          <p class="mt-3 text-[13px] text-gray-700 leading-relaxed flex-1">
+            Điều tôi hài lòng nhất là sự linh hoạt — con tôi học lớp nhỏ 6-8 em, thầy cô theo sát từng bạn. Cơ sở vật chất sạch sẽ, máy lạnh, gần nhà nên rất tiện. Học phí hợp lý so với chất lượng nhận được.
+          </p>
+          <a href="#" class="mt-4 inline-flex items-center gap-1.5 text-[11.5px] font-semibold text-brand hover:text-brand-dark transition-colors">
+            <i data-lucide="external-link" class="w-3 h-3"></i>
+            Liên kết nguồn
+          </a>
+        </article>
+
+        <!-- ========== CARD 4 ========== -->
+        <article class="shrink-0 w-[85%] sm:w-[calc((100%-1.25rem)/2)] lg:w-[calc((100%-3.75rem)/4)] snap-start bg-white rounded-2xl p-6 shadow-xl shadow-black/30 flex flex-col">
+          <div class="flex items-start gap-3">
+            <img src="images/avatar-phu-huynh-04.jpg" alt="Chị Phạm Mai Phương" class="w-12 h-12 rounded-full object-cover ring-2 ring-brand-soft shrink-0" loading="lazy" />
+            <div class="flex-1 min-w-0">
+              <p class="text-[14px] font-bold text-gray-900 leading-tight">Chị Phạm Mai Phương</p>
+              <p class="text-[11.5px] text-gray-500 mt-0.5">Phụ huynh HS lớp 4 · Quận Tân Bình</p>
+              <div class="flex items-center gap-0.5 mt-1.5 text-gold">
+                <i data-lucide="star" class="w-3.5 h-3.5 fill-current"></i>
+                <i data-lucide="star" class="w-3.5 h-3.5 fill-current"></i>
+                <i data-lucide="star" class="w-3.5 h-3.5 fill-current"></i>
+                <i data-lucide="star" class="w-3.5 h-3.5 fill-current"></i>
+                <i data-lucide="star" class="w-3.5 h-3.5 fill-current"></i>
+              </div>
+            </div>
+          </div>
+          <p class="text-[11px] text-gray-400 mt-3">20/09/2026</p>
+          <p class="mt-3 text-[13px] text-gray-700 leading-relaxed flex-1">
+            Bé nhà mình học lớp Tiền Tiểu học, từ chỗ chưa biết đọc đã đọc thông viết thạo sau 3 tháng. Cô giáo rất kiên nhẫn, nhẹ nhàng. Bé đi học về nhà kể chuyện vui lắm, không còn sợ học nữa.
+          </p>
+          <a href="#" class="mt-4 inline-flex items-center gap-1.5 text-[11.5px] font-semibold text-brand hover:text-brand-dark transition-colors">
+            <i data-lucide="external-link" class="w-3 h-3"></i>
+            Liên kết nguồn
+          </a>
+        </article>
+
+        <!-- ========== CARD 5 ========== -->
+        <article class="shrink-0 w-[85%] sm:w-[calc((100%-1.25rem)/2)] lg:w-[calc((100%-3.75rem)/4)] snap-start bg-white rounded-2xl p-6 shadow-xl shadow-black/30 flex flex-col">
+          <div class="flex items-start gap-3">
+            <img src="images/avatar-hoc-sinh-05.jpg" alt="Em Võ Hoàng Nam" class="w-12 h-12 rounded-full object-cover ring-2 ring-brand-soft shrink-0" loading="lazy" />
+            <div class="flex-1 min-w-0">
+              <p class="text-[14px] font-bold text-gray-900 leading-tight">Em Võ Hoàng Nam</p>
+              <p class="text-[11.5px] text-gray-500 mt-0.5">Học sinh lớp 11 · Quận Bình Thạnh</p>
+              <div class="flex items-center gap-0.5 mt-1.5 text-gold">
+                <i data-lucide="star" class="w-3.5 h-3.5 fill-current"></i>
+                <i data-lucide="star" class="w-3.5 h-3.5 fill-current"></i>
+                <i data-lucide="star" class="w-3.5 h-3.5 fill-current"></i>
+                <i data-lucide="star" class="w-3.5 h-3.5 fill-current"></i>
+                <i data-lucide="star" class="w-3.5 h-3.5 fill-current"></i>
+              </div>
+            </div>
+          </div>
+          <p class="text-[11px] text-gray-400 mt-3">12/09/2026</p>
+          <p class="mt-3 text-[13px] text-gray-700 leading-relaxed flex-1">
+            Lớp học online của Điểm 10+ chất lượng không kém học trực tiếp. Thầy dạy Hóa rất dễ hiểu, có nhiều ví dụ thực tế. Em từ mất gốc Hóa đã đạt 8 điểm sau một học kỳ. Highly recommend!
+          </p>
+          <a href="#" class="mt-4 inline-flex items-center gap-1.5 text-[11.5px] font-semibold text-brand hover:text-brand-dark transition-colors">
+            <i data-lucide="external-link" class="w-3 h-3"></i>
+            Liên kết nguồn
+          </a>
+        </article>
+
+      </div>
+
+      <!-- ===== PAGINATION DOTS ===== -->
+      <div class="mt-8 flex items-center justify-center gap-2" id="testimonialDots"></div>
+
+    </div>
+  </div>
+</section>
+
+<style>
+  .scrollbar-none { -ms-overflow-style: none; scrollbar-width: none; }
+  .scrollbar-none::-webkit-scrollbar { display: none; }
+</style>
+
+<script>
+  // ===== Testimonial slider =====
+  (function () {
+    const carousel = document.getElementById('testimonialCarousel');
+    const dotsContainer = document.getElementById('testimonialDots');
+    const prevBtn = document.getElementById('testimonialPrev');
+    const nextBtn = document.getElementById('testimonialNext');
+    if (!carousel || !dotsContainer) return;
+
+    const cards = carousel.querySelectorAll('article');
+
+    function getScrollStep() {
+      const card = cards[0];
+      const styles = window.getComputedStyle(carousel);
+      const gap = parseInt(styles.columnGap || styles.gap || '20', 10);
+      return card.offsetWidth + gap;
+    }
+
+    // Render dots
+    function renderDots() {
+      dotsContainer.innerHTML = '';
+      const step = getScrollStep();
+      const maxScroll = carousel.scrollWidth - carousel.clientWidth;
+      const totalDots = Math.ceil(maxScroll / step) + 1;
+
+      for (let i = 0; i < totalDots; i++) {
+        const dot = document.createElement('button');
+        dot.setAttribute('aria-label', `Trang ${i + 1}`);
+        dot.className = 'w-2 h-2 rounded-full bg-white/30 hover:bg-white/60 transition-all duration-300';
+        dot.addEventListener('click', () => {
+          carousel.scrollTo({ left: i * step, behavior: 'smooth' });
+        });
+        dotsContainer.appendChild(dot);
+      }
+      updateState();
+    }
+
+    // Update dots + button states
+    function updateState() {
+      const step = getScrollStep();
+      const activeIndex = Math.round(carousel.scrollLeft / step);
+      const dots = dotsContainer.querySelectorAll('button');
+      dots.forEach((d, i) => {
+        if (i === activeIndex) {
+          d.classList.add('bg-gold', 'w-6');
+          d.classList.remove('bg-white/30');
+        } else {
+          d.classList.remove('bg-gold', 'w-6');
+          d.classList.add('bg-white/30');
+        }
+      });
+
+      // Button disabled states
+      const maxScroll = carousel.scrollWidth - carousel.clientWidth;
+      prevBtn.disabled = carousel.scrollLeft <= 4;
+      nextBtn.disabled = carousel.scrollLeft >= maxScroll - 4;
+    }
+
+    // Button click
+    prevBtn.addEventListener('click', () => {
+      carousel.scrollBy({ left: -getScrollStep(), behavior: 'smooth' });
+    });
+    nextBtn.addEventListener('click', () => {
+      carousel.scrollBy({ left: getScrollStep(), behavior: 'smooth' });
+    });
+
+    carousel.addEventListener('scroll', updateState);
+    window.addEventListener('resize', renderDots);
+    renderDots();
+  })();
+</script>
