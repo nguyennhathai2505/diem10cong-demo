@@ -167,7 +167,7 @@
           <!-- ===== Ở GIỮA: MENU ===== -->
           <nav class="hidden lg:flex items-center gap-1">
             <!-- GIỚI THIỆU -->
-            <a href="#" class="nav-link px-3.5 py-2 rounded-md text-[14.5px] font-semibold text-gray-800">
+            <a href="gioi-thieu.html" class="nav-link px-3.5 py-2 rounded-md text-[14.5px] font-semibold text-gray-800">
               Giới thiệu
             </a>
 
@@ -292,7 +292,7 @@
     <!-- Drawer Content -->
     <div class="flex-1 overflow-y-auto py-4 px-3">
       <nav class="flex flex-col gap-1">
-        <a href="#" class="flex items-center gap-3 px-4 py-3 rounded-lg text-[15px] font-semibold text-gray-800 hover:bg-brand-soft hover:text-brand transition">
+        <a href="gioi-thieu.html" class="flex items-center gap-3 px-4 py-3 rounded-lg text-[15px] font-semibold text-gray-800 hover:bg-brand-soft hover:text-brand transition">
           <i data-lucide="info" class="w-4 h-4 text-gray-400"></i> Giới thiệu
         </a>
 
@@ -1397,7 +1397,7 @@
             <!-- Overlay gradient -->
             <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/35 to-black/10"></div>
             <!-- Bo góc đặc biệt góc trên trái (lớn hơn) -->
-            <div class="absolute top-0 left-0 w-16 h-16 bg-white rounded-br-[3rem] pointer-events-none"></div>
+            <!-- <div class="absolute top-0 left-0 w-16 h-16 bg-white rounded-br-[3rem] pointer-events-none"></div> -->
 
             <!-- Nội dung đáy thẻ -->
             <div class="absolute inset-x-0 bottom-0 p-6 z-10 text-left">
@@ -1424,7 +1424,7 @@
               class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
             />
             <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/35 to-black/10"></div>
-            <div class="absolute top-0 left-0 w-16 h-16 bg-white rounded-br-[3rem] pointer-events-none"></div>
+            <!-- <div class="absolute top-0 left-0 w-16 h-16 bg-white rounded-br-[3rem] pointer-events-none"></div> -->
 
             <div class="absolute inset-x-0 bottom-0 p-6 z-10 text-left">
               <p class="text-[11px] font-semibold tracking-[0.15em] text-white/80 uppercase">
@@ -1447,7 +1447,7 @@
               class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
             />
             <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/35 to-black/10"></div>
-            <div class="absolute top-0 left-0 w-16 h-16 bg-white rounded-br-[3rem] pointer-events-none"></div>
+            <!-- <div class="absolute top-0 left-0 w-16 h-16 bg-white rounded-br-[3rem] pointer-events-none"></div> -->
 
             <div class="absolute inset-x-0 bottom-0 p-6 z-10 text-left">
               <p class="text-[11px] font-semibold tracking-[0.15em] text-white/80 uppercase">
@@ -1470,7 +1470,7 @@
               class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
             />
             <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/35 to-black/10"></div>
-            <div class="absolute top-0 left-0 w-16 h-16 bg-white rounded-br-[3rem] pointer-events-none"></div>
+            <!-- <div class="absolute top-0 left-0 w-16 h-16 bg-white rounded-br-[3rem] pointer-events-none"></div> -->
 
             <div class="absolute inset-x-0 bottom-0 p-6 z-10 text-left">
               <p class="text-[11px] font-semibold tracking-[0.15em] text-white/80 uppercase">
@@ -1493,7 +1493,7 @@
               class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
             />
             <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/35 to-black/10"></div>
-            <div class="absolute top-0 left-0 w-16 h-16 bg-white rounded-br-[3rem] pointer-events-none"></div>
+            <!-- <div class="absolute top-0 left-0 w-16 h-16 bg-white rounded-br-[3rem] pointer-events-none"></div> -->
 
             <div class="absolute inset-x-0 bottom-0 p-6 z-10 text-left">
               <p class="text-[11px] font-semibold tracking-[0.15em] text-white/80 uppercase">
@@ -1530,40 +1530,262 @@
 
 <script>
   // ===== Carousel controls =====
-  (function () {
-    const carousel = document.getElementById('newsCarousel');
-    const prevBtn = document.getElementById('newsPrevBtn');
-    const nextBtn = document.getElementById('newsNextBtn');
-    if (!carousel) return;
 
-    // Cuộn 1 thẻ (card width + gap)
-    function getScrollStep() {
-      const card = carousel.querySelector('article');
-      if (!card) return 300;
-      const styles = window.getComputedStyle(carousel);
-      const gap = parseInt(styles.columnGap || styles.gap || '20', 10);
-      return card.offsetWidth + gap;
-    }
-
-    function updateButtonState() {
-      const maxScroll = carousel.scrollWidth - carousel.clientWidth;
-      prevBtn.disabled = carousel.scrollLeft <= 4;
-      nextBtn.disabled = carousel.scrollLeft >= maxScroll - 4;
-    }
-
-    prevBtn.addEventListener('click', () => {
-      carousel.scrollBy({ left: -getScrollStep(), behavior: 'smooth' });
-    });
-    nextBtn.addEventListener('click', () => {
-      carousel.scrollBy({ left: getScrollStep(), behavior: 'smooth' });
-    });
-
-    carousel.addEventListener('scroll', updateButtonState);
-    window.addEventListener('resize', updateButtonState);
-    updateButtonState();
-  })();
 </script>
-  <div class="h-[120vh]"></div>
+  <!-- <div class="h-[120vh]"></div> -->
+
+
+
+
+<!-- ==================== FOOTER SECTION ==================== -->
+<footer class="relative bg-gradient-to-br from-[#0B2447] via-[#0F2D5C] to-[#0B2447] text-white mt-16 lg:mt-24">
+
+  <!-- Bo tròn góc trên trái (điểm nhấn hình học) -->
+  <!-- <div class="absolute -top-8 left-0 w-32 h-16 lg:w-48 lg:h-20 bg-white rounded-br-[100%] pointer-events-none"></div> -->
+
+  <!-- Blob trang trí mờ -->
+  <div class="absolute -top-32 right-0 w-[28rem] h-[28rem] bg-brand/15 rounded-full blur-3xl pointer-events-none"></div>
+  <div class="absolute bottom-0 -left-32 w-96 h-96 bg-gold/10 rounded-full blur-3xl pointer-events-none"></div>
+
+  <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-12 lg:pt-16">
+
+    <!-- ==================== HEADER CỦA FOOTER ==================== -->
+    <div class="grid grid-cols-1 md:grid-cols-3 items-center gap-8 pb-10 border-b border-white/10">
+
+      <!-- ===== CÁNH TRÁI: SOCIAL ICONS ===== -->
+      <div class="flex items-center justify-center md:justify-start gap-2.5">
+        <a href="#" aria-label="Facebook" class="group w-10 h-10 rounded-lg bg-white/10 hover:bg-white border border-white/15 hover:border-white flex items-center justify-center text-white hover:text-[#0B2447] transition-all duration-300 hover:-translate-y-0.5">
+          <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+        </a>
+        <a href="#" aria-label="Twitter / X" class="group w-10 h-10 rounded-lg bg-white/10 hover:bg-white border border-white/15 hover:border-white flex items-center justify-center text-white hover:text-[#0B2447] transition-all duration-300 hover:-translate-y-0.5">
+          <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+        </a>
+        <a href="#" aria-label="Instagram" class="group w-10 h-10 rounded-lg bg-white/10 hover:bg-white border border-white/15 hover:border-white flex items-center justify-center text-white hover:text-[#0B2447] transition-all duration-300 hover:-translate-y-0.5">
+          <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+        </a>
+        <a href="#" aria-label="YouTube" class="group w-10 h-10 rounded-lg bg-white/10 hover:bg-white border border-white/15 hover:border-white flex items-center justify-center text-white hover:text-[#0B2447] transition-all duration-300 hover:-translate-y-0.5">
+          <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+        </a>
+        <a href="#" aria-label="Zalo" class="group w-10 h-10 rounded-lg bg-white/10 hover:bg-white border border-white/15 hover:border-white flex items-center justify-center text-white hover:text-[#0B2447] transition-all duration-300 hover:-translate-y-0.5">
+          <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M12 0C5.373 0 0 5.373 0 12c0 2.006.498 3.894 1.375 5.555L.043 23.957l6.557-1.314A11.94 11.94 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm5.977 16.851c-.238.666-1.393 1.275-1.917 1.32-.524.045-1.016.245-3.415-.706-2.884-1.152-4.71-4.13-4.855-4.32-.144-.19-1.157-1.539-1.157-2.936 0-1.397.733-2.084 1.005-2.371.272-.286.594-.358.793-.358.198 0 .397.002.571.011.183.008.428-.07.667.513.245.595.831 2.03.905 2.178.073.148.122.32.024.516-.099.196-.148.318-.297.49-.148.173-.31.386-.443.519-.148.147-.303.307-.13.601.173.294.771 1.271 1.656 2.059 1.137 1.012 2.094 1.325 2.389 1.475.295.148.469.124.642-.074.173-.198.741-.865.94-1.162.198-.297.397-.247.667-.148.272.099 1.717.81 2.012.957.295.148.492.222.566.346.074.123.074.716-.164 1.382z"/></svg>
+        </a>
+      </div>
+
+      <!-- ===== Ở GIỮA: LOGO ===== -->
+      <div class="flex justify-center">
+        <a href="#" class="flex flex-col items-center gap-2 group">
+          <div class="w-16 h-16 lg:w-20 lg:h-20 rounded-full bg-white flex items-center justify-center shadow-2xl ring-4 ring-white/20 group-hover:scale-105 transition-transform duration-300 overflow-hidden p-1.5">
+            <img
+              src="logo.png"
+              alt="Logo Trung Tâm Điểm 10+"
+              class="w-full h-full object-contain"
+              onerror="this.style.display='none'; this.nextElementSibling.style.display='block';"
+            />
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-10 h-10 text-brand hidden" style="display:none" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M5 16L3 5l5.5 5L12 4l3.5 6L21 5l-2 11H5zm14 3c0 .6-.4 1-1 1H6c-.6 0-1-.4-1-1v-1h14v1z"/>
+            </svg>
+          </div>
+          <div class="text-center leading-tight">
+            <p class="text-[13px] font-extrabold tracking-wide text-white">TRUNG TÂM ĐIỂM 10+</p>
+            <p class="text-[10.5px] text-white/60 mt-0.5">Vững kiến thức, chắc tư duy</p>
+          </div>
+        </a>
+      </div>
+
+      <!-- ===== CÁNH PHẢI: NEWSLETTER ===== -->
+      <div class="flex flex-col items-center md:items-end gap-2.5">
+        <p class="text-[12px] font-bold tracking-[0.15em] text-white/80 uppercase">
+          Đăng ký nhận tin
+        </p>
+        <form id="newsletterForm" class="w-full max-w-xs">
+          <div class="relative flex items-center bg-white/10 backdrop-blur-md border border-white/20 rounded-lg overflow-hidden focus-within:border-gold transition-colors">
+            <i data-lucide="mail" class="absolute left-3 w-4 h-4 text-white/60 pointer-events-none"></i>
+            <input
+              type="email"
+              required
+              placeholder="Email của bạn..."
+              class="flex-1 bg-transparent pl-10 pr-2 py-2.5 text-white placeholder-white/50 text-sm outline-none"
+            />
+            <button type="submit"
+              class="m-1 px-4 py-1.5 rounded-md bg-white hover:bg-gold text-[#0B2447] hover:text-white text-[12.5px] font-bold uppercase tracking-wide transition-colors duration-200">
+              Gửi
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <!-- ==================== NỘI DUNG CHÍNH: 3 CỘT ==================== -->
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 lg:gap-8 py-12 lg:py-14">
+
+      <!-- ===== CỘT 1: GIỚI THIỆU ===== -->
+      <div>
+        <h3 class="text-[15px] font-bold text-white leading-snug mb-1">
+          Trung Tâm Bồi Dưỡng Văn Hóa Điểm 10+
+        </h3>
+        <p class="text-[12px] font-medium text-gold uppercase tracking-wider mb-4">
+          Vững kiến thức, chắc tư duy
+        </p>
+        <p class="text-[13.5px] text-white/75 leading-relaxed">
+          Với hơn <span class="text-white font-semibold">11 năm kinh nghiệm</span>, Điểm 10+ là địa chỉ tin cậy chuyên bồi dưỡng văn hóa các môn <span class="text-white font-semibold">Toán - Lý - Hóa</span> cho học sinh Tiểu học, THCS và THPT tại TP.HCM. Chúng tôi cam kết mang đến phương pháp giảng dạy <span class="text-gold font-semibold">"Hướng mục tiêu - Cá nhân hóa"</span>, giúp mỗi học sinh làm chủ kiến thức, xóa mất gốc và bứt phá điểm số một cách bền vững.
+        </p>
+        <p class="mt-3 text-[13.5px] text-white/75 leading-relaxed">
+          Đội ngũ giáo viên giàu kinh nghiệm, cơ sở vật chất hiện đại cùng hệ thống <span class="text-white font-semibold">8 chi nhánh</span> khắp các quận — sẵn sàng đồng hành cùng quý phụ huynh và học sinh trên hành trình chinh phục tri thức.
+        </p>
+      </div>
+
+      <!-- ===== CỘT 2: THÔNG TIN LIÊN HỆ ===== -->
+      <div>
+        <h3 class="text-[15px] font-bold text-white mb-5 inline-flex items-center gap-2">
+          <span class="w-6 h-0.5 bg-gold rounded-full"></span>
+          Thông tin liên hệ
+        </h3>
+        <ul class="space-y-4">
+          <!-- Địa chỉ -->
+          <li class="flex items-start gap-3 group">
+            <div class="w-9 h-9 rounded-lg bg-white/10 border border-white/15 flex items-center justify-center shrink-0 group-hover:bg-brand group-hover:border-brand transition-colors">
+              <i data-lucide="map-pin" class="w-4 h-4 text-white"></i>
+            </div>
+            <div class="pt-1">
+              <p class="text-[11px] font-bold text-white/50 uppercase tracking-wider mb-0.5">Trụ sở chính</p>
+              <p class="text-[13.5px] text-white/85 leading-relaxed">
+                123 Nguyễn Văn Cừ, Phường 4, Quận 5, TP.HCM
+              </p>
+            </div>
+          </li>
+
+          <!-- Hotline -->
+          <li class="flex items-start gap-3 group">
+            <div class="w-9 h-9 rounded-lg bg-white/10 border border-white/15 flex items-center justify-center shrink-0 group-hover:bg-brand group-hover:border-brand transition-colors">
+              <i data-lucide="phone" class="w-4 h-4 text-white"></i>
+            </div>
+            <div class="pt-1">
+              <p class="text-[11px] font-bold text-white/50 uppercase tracking-wider mb-0.5">Hotline</p>
+              <a href="tel:0933398787" class="text-[13.5px] font-semibold text-white hover:text-gold transition-colors">
+                0933 39 87 87
+              </a>
+            </div>
+          </li>
+
+          <!-- Email -->
+          <li class="flex items-start gap-3 group">
+            <div class="w-9 h-9 rounded-lg bg-white/10 border border-white/15 flex items-center justify-center shrink-0 group-hover:bg-brand group-hover:border-brand transition-colors">
+              <i data-lucide="mail" class="w-4 h-4 text-white"></i>
+            </div>
+            <div class="pt-1">
+              <p class="text-[11px] font-bold text-white/50 uppercase tracking-wider mb-0.5">Email</p>
+              <a href="mailto:tvkh.diem10cong@gmail.com" class="text-[13.5px] text-white/85 hover:text-gold transition-colors break-all">
+                tvkh.diem10cong@gmail.com
+              </a>
+            </div>
+          </li>
+
+          <!-- Giờ làm việc -->
+          <li class="flex items-start gap-3 group">
+            <div class="w-9 h-9 rounded-lg bg-white/10 border border-white/15 flex items-center justify-center shrink-0 group-hover:bg-brand group-hover:border-brand transition-colors">
+              <i data-lucide="clock" class="w-4 h-4 text-white"></i>
+            </div>
+            <div class="pt-1">
+              <p class="text-[11px] font-bold text-white/50 uppercase tracking-wider mb-0.5">Giờ làm việc</p>
+              <p class="text-[13.5px] text-white/85">
+                T2 - T7: 8:00 - 21:00 · CN: 8:00 - 17:00
+              </p>
+            </div>
+          </li>
+        </ul>
+      </div>
+
+      <!-- ===== CỘT 3: LIÊN KẾT NHANH ===== -->
+      <div>
+        <h3 class="text-[15px] font-bold text-white mb-5 inline-flex items-center gap-2">
+          <span class="w-6 h-0.5 bg-gold rounded-full"></span>
+          Liên kết nhanh
+        </h3>
+        <ul class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-1 gap-x-6 gap-y-2.5">
+          <li>
+            <a href="#" class="group inline-flex items-center gap-2 text-[13.5px] text-white/75 hover:text-white transition-colors">
+              <i data-lucide="chevron-right" class="w-3.5 h-3.5 text-brand group-hover:text-gold transition-colors"></i>
+              <span>Giới thiệu</span>
+            </a>
+          </li>
+          <li>
+            <a href="#" class="group inline-flex items-center gap-2 text-[13.5px] text-white/75 hover:text-white transition-colors">
+              <i data-lucide="chevron-right" class="w-3.5 h-3.5 text-brand group-hover:text-gold transition-colors"></i>
+              <span>Hệ thống cơ sở</span>
+            </a>
+          </li>
+          <li>
+            <a href="#" class="group inline-flex items-center gap-2 text-[13.5px] text-white/75 hover:text-white transition-colors">
+              <i data-lucide="chevron-right" class="w-3.5 h-3.5 text-brand group-hover:text-gold transition-colors"></i>
+              <span>Các khóa học</span>
+            </a>
+          </li>
+          <li>
+            <a href="#" class="group inline-flex items-center gap-2 text-[13.5px] text-white/75 hover:text-white transition-colors">
+              <i data-lucide="chevron-right" class="w-3.5 h-3.5 text-brand group-hover:text-gold transition-colors"></i>
+              <span>Thư viện tài liệu</span>
+            </a>
+          </li>
+          <li>
+            <a href="#" class="group inline-flex items-center gap-2 text-[13.5px] text-white/75 hover:text-white transition-colors">
+              <i data-lucide="chevron-right" class="w-3.5 h-3.5 text-brand group-hover:text-gold transition-colors"></i>
+              <span>Tin tức &amp; Sự kiện</span>
+            </a>
+          </li>
+          <li>
+            <a href="#" class="group inline-flex items-center gap-2 text-[13.5px] text-white/75 hover:text-white transition-colors">
+              <i data-lucide="chevron-right" class="w-3.5 h-3.5 text-brand group-hover:text-gold transition-colors"></i>
+              <span>Gallery hoạt động</span>
+            </a>
+          </li>
+          <li>
+            <a href="#" class="group inline-flex items-center gap-2 text-[13.5px] text-white/75 hover:text-white transition-colors">
+              <i data-lucide="chevron-right" class="w-3.5 h-3.5 text-brand group-hover:text-gold transition-colors"></i>
+              <span>Tuyển sinh</span>
+            </a>
+          </li>
+          <li>
+            <a href="#" class="group inline-flex items-center gap-2 text-[13.5px] text-white/75 hover:text-white transition-colors">
+              <i data-lucide="chevron-right" class="w-3.5 h-3.5 text-brand group-hover:text-gold transition-colors"></i>
+              <span>Cơ hội việc làm</span>
+            </a>
+          </li>
+          <li>
+            <a href="#" class="group inline-flex items-center gap-2 text-[13.5px] text-white/75 hover:text-white transition-colors">
+              <i data-lucide="chevron-right" class="w-3.5 h-3.5 text-brand group-hover:text-gold transition-colors"></i>
+              <span>Liên hệ</span>
+            </a>
+          </li>
+          <li>
+            <a href="#" class="group inline-flex items-center gap-2 text-[13.5px] text-white/75 hover:text-white transition-colors">
+              <i data-lucide="chevron-right" class="w-3.5 h-3.5 text-brand group-hover:text-gold transition-colors"></i>
+              <span>Sitemap</span>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- ==================== COPYRIGHT & LEGAL BAR ==================== -->
+    <div class="border-t border-white/10 py-6 flex flex-col sm:flex-row items-center justify-between gap-3 text-center sm:text-left">
+      <!-- Bên trái: Copyright -->
+      <p class="text-[12.5px] text-white/60">
+        © <span id="footerYear">2026</span> Trung Tâm Bồi Dưỡng Văn Hóa Điểm 10+.
+        <span class="hidden sm:inline">Bảo lưu mọi quyền.</span>
+      </p>
+
+      <!-- Bên phải: Legal links -->
+      <div class="flex items-center gap-1 text-[12.5px]">
+        <a href="#" class="text-white/60 hover:text-gold transition-colors">Điều khoản dịch vụ</a>
+        <span class="text-white/25">·</span>
+        <a href="#" class="text-white/60 hover:text-gold transition-colors">Chính sách bảo mật</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+
 
   <!-- ==================== SCRIPT ==================== -->
   <script>
@@ -1609,6 +1831,40 @@
       submenu.classList.toggle('open');
       submenuIcon.classList.toggle('rotate-180');
     });
+
+
+      (function () {
+    const carousel = document.getElementById('newsCarousel');
+    const prevBtn = document.getElementById('newsPrevBtn');
+    const nextBtn = document.getElementById('newsNextBtn');
+    if (!carousel) return;
+
+    // Cuộn 1 thẻ (card width + gap)
+    function getScrollStep() {
+      const card = carousel.querySelector('article');
+      if (!card) return 300;
+      const styles = window.getComputedStyle(carousel);
+      const gap = parseInt(styles.columnGap || styles.gap || '20', 10);
+      return card.offsetWidth + gap;
+    }
+
+    function updateButtonState() {
+      const maxScroll = carousel.scrollWidth - carousel.clientWidth;
+      prevBtn.disabled = carousel.scrollLeft <= 4;
+      nextBtn.disabled = carousel.scrollLeft >= maxScroll - 4;
+    }
+
+    prevBtn.addEventListener('click', () => {
+      carousel.scrollBy({ left: -getScrollStep(), behavior: 'smooth' });
+    });
+    nextBtn.addEventListener('click', () => {
+      carousel.scrollBy({ left: getScrollStep(), behavior: 'smooth' });
+    });
+
+    carousel.addEventListener('scroll', updateButtonState);
+    window.addEventListener('resize', updateButtonState);
+    updateButtonState();
+  })();
   </script>
 </body>
 </html>
