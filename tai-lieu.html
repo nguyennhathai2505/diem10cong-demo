@@ -1,0 +1,819 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tài Liệu Học Tập | Trung Tâm Điểm 10+</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: { sans: ['Inter', 'sans-serif'] },
+          colors: {
+            brand: { DEFAULT: '#DC2626', dark: '#B91C1C', deeper: '#990000', soft: '#FEE2E2', border: '#FCA5A5' },
+            gold: '#F59E0B',
+          },
+        }
+      }
+    }
+  </script>
+  <style>
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Inter', sans-serif; }
+    .nav-link { position: relative; transition: color .2s ease, background-color .2s ease; }
+    .nav-link:hover { color: #DC2626; background-color: #FEE2E2; }
+    .dropdown-panel { opacity: 0; visibility: hidden; transform: translateY(10px); transition: opacity .25s ease, transform .25s ease, visibility .25s; }
+    .group:hover .dropdown-panel { opacity: 1; visibility: visible; transform: translateY(0); }
+    .hamburger-line { transition: transform .3s ease, opacity .3s ease; }
+    .hamburger.active .line-1 { transform: translateY(7px) rotate(45deg); }
+    .hamburger.active .line-2 { opacity: 0; }
+    .hamburger.active .line-3 { transform: translateY(-7px) rotate(-45deg); }
+    .drawer { transition: transform .35s cubic-bezier(.4,0,.2,1); transform: translateX(100%); }
+    .drawer.open { transform: translateX(0); }
+    .backdrop { transition: opacity .3s ease; }
+    .mobile-submenu { max-height: 0; overflow: hidden; transition: max-height .35s ease; }
+    .mobile-submenu.open { max-height: 400px; }
+    .doc-card-hidden { display: none !important; }
+    .line-clamp-2 { display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+    .line-clamp-3 { display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; }
+  </style>
+</head>
+<body class="bg-white text-gray-800 antialiased">
+
+  <!-- ===== STICKY HEADER (copy từ file trước — giữ nguyên) ===== -->
+  <!-- [DÁN NGUYÊN HEADER 2 TẦNG + MOBILE DRAWER Ở ĐÂY] -->
+  <!-- Bạn copy từ <header id="mainHeader">...</header> và <div id="drawerBackdrop">...</div> + <aside id="mobileDrawer">...</aside> trong file trước -->
+  <header id="mainHeader" class="sticky top-0 z-50 bg-white transition-shadow duration-300">
+
+    <!-- ===================================================== -->
+    <!-- ===== TẦNG 1: TOP BAR (Thông báo & Tiện ích) ===== -->
+    <!-- ===================================================== -->
+    <div class="bg-brand-dark text-white">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex items-center justify-between h-9 text-[12.5px] font-medium gap-4">
+
+          <!-- BÊN TRÁI: Thông báo -->
+          <div class="flex items-center gap-2 min-w-0">
+            <i data-lucide="megaphone" class="w-3.5 h-3.5 text-gold shrink-0"></i>
+            <p class="truncate">
+              <span class="hidden sm:inline">Khai giảng lớp mới & Ưu đãi học phí đến </span>
+              <span class="font-bold text-gold">25%</span>
+              <span class="hidden sm:inline"> tháng này</span>
+              <span class="hidden md:inline"> — Đăng ký học thử miễn phí ngay!</span>
+            </p>
+          </div>
+
+          <!-- BÊN PHẢI: Liên hệ + Social -->
+          <div class="flex items-center gap-4 shrink-0">
+            <!-- Email (ẩn trên mobile nhỏ) -->
+            <a href="mailto:tvkh.diem10cong@gmail.com" class="hidden lg:flex items-center gap-1.5 hover:text-gold transition-colors">
+              <i data-lucide="mail" class="w-3.5 h-3.5"></i>
+              <span>tvkh.diem10cong@gmail.com</span>
+            </a>
+
+            <!-- Hotline -->
+            <a href="tel:0933398787" class="hidden sm:flex items-center gap-1.5 hover:text-gold transition-colors">
+              <i data-lucide="phone" class="w-3.5 h-3.5"></i>
+              <span class="font-semibold">0933 39 87 87</span>
+            </a>
+
+            <!-- Divider -->
+            <span class="hidden sm:block w-px h-4 bg-white/25"></span>
+
+            <!-- Social icons -->
+            <div class="flex items-center gap-2.5">
+              <a href="#" aria-label="Facebook" class="hover:text-gold transition-colors hover:scale-110 transform duration-200">
+                <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+              </a>
+              <a href="#" aria-label="TikTok" class="hover:text-gold transition-colors hover:scale-110 transform duration-200">
+                <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5 20.1a6.34 6.34 0 0 0 10.86-4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1-.1z"/></svg>
+              </a>
+              <a href="#" aria-label="Zalo" class="hover:text-gold transition-colors hover:scale-110 transform duration-200">
+                <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M12 0C5.373 0 0 5.373 0 12c0 2.006.498 3.894 1.375 5.555L.043 23.957l6.557-1.314A11.94 11.94 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm5.977 16.851c-.238.666-1.393 1.275-1.917 1.32-.524.045-1.016.245-3.415-.706-2.884-1.152-4.71-4.13-4.855-4.32-.144-.19-1.157-1.539-1.157-2.936 0-1.397.733-2.084 1.005-2.371.272-.286.594-.358.793-.358.198 0 .397.002.571.011.183.008.428-.07.667.513.245.595.831 2.03.905 2.178.073.148.122.32.024.516-.099.196-.148.318-.297.49-.148.173-.31.386-.443.519-.148.147-.303.307-.13.601.173.294.771 1.271 1.656 2.059 1.137 1.012 2.094 1.325 2.389 1.475.295.148.469.124.642-.074.173-.198.741-.865.94-1.162.198-.297.397-.247.667-.148.272.099 1.717.81 2.012.957.295.148.492.222.566.346.074.123.074.716-.164 1.382z"/></svg>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ===================================================== -->
+    <!-- ===== TẦNG 2: MAIN NAVIGATION ===== -->
+    <!-- ===================================================== -->
+    <div class="border-b border-gray-200">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex items-center justify-between h-[78px] lg:h-[86px]">
+
+          <!-- ===== CÁNH TRÁI: LOGO ===== -->
+          <a href="#" class="flex items-center gap-3 shrink-0 group">
+            <!-- Logo lớn, rõ chi tiết -->
+            <div class="relative w-16 h-16 lg:w-[72px] lg:h-[72px] flex items-center justify-center group-hover:scale-105 transition-transform duration-300">
+              <img
+                src="logo.png"
+                alt="Logo Trung Tâm Điểm 10+"
+                class="w-full h-full object-contain drop-shadow-sm"
+                onerror="this.style.display='none'; this.nextElementSibling.style.display='block';"
+              />
+              <!-- Fallback SVG vòng nguyệt quế + 10+ -->
+              <svg xmlns="http://www.w3.org/2000/svg" class="w-12 h-12 text-brand hidden" style="display:none" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M5 16L3 5l5.5 5L12 4l3.5 6L21 5l-2 11H5zm14 3c0 .6-.4 1-1 1H6c-.6 0-1-.4-1-1v-1h14v1z"/>
+              </svg>
+            </div>
+            <!-- Text Logo -->
+            <div class="leading-tight">
+              <div class="text-[16px] sm:text-[17px] lg:text-[18px] font-extrabold tracking-tight text-brand-deeper">
+                TRUNG TÂM ĐIỂM 10+
+              </div>
+              <p class="text-[11px] sm:text-[12px] font-medium text-gray-700 mt-0.5">
+                Vững kiến thức, chắc tư duy
+              </p>
+            </div>
+          </a>
+
+          <!-- ===== Ở GIỮA: MENU ===== -->
+          <nav class="hidden lg:flex items-center gap-1">
+            <!-- GIỚI THIỆU -->
+            <a href="gioi-thieu.html" class="nav-link px-3.5 py-2 rounded-md text-[14.5px] font-semibold text-gray-800">
+              Giới thiệu
+            </a>
+
+            <!-- CÁC KHÓA HỌC (Dropdown) -->
+            <div class="group relative">
+              <a href="#" class="nav-link px-3.5 py-2 rounded-md text-[14.5px] font-semibold text-gray-800 inline-flex items-center gap-1">
+                Các khóa học
+                <i data-lucide="chevron-down" class="w-4 h-4 transition-transform duration-300 group-hover:rotate-180"></i>
+              </a>
+
+              <!-- Dropdown Panel -->
+              <div class="dropdown-panel absolute top-full left-1/2 -translate-x-1/2 pt-3 w-[560px]">
+                <div class="bg-white rounded-xl shadow-xl border-t-[3px] border-brand-dark overflow-hidden">
+                  <div class="p-2 grid grid-cols-2 gap-1">
+                    <a href="#" class="flex items-start gap-3 p-3 rounded-lg hover:bg-brand-soft transition-colors group/item">
+                      <div class="w-9 h-9 rounded-lg bg-blue-50 flex items-center justify-center shrink-0">
+                        <i data-lucide="pencil" class="w-4 h-4 text-blue-500"></i>
+                      </div>
+                      <div>
+                        <p class="text-sm font-semibold text-gray-800 group-hover/item:text-brand transition">Tiểu học</p>
+                        <p class="text-xs text-gray-500 mt-0.5">Lớp 1 - Lớp 5</p>
+                      </div>
+                    </a>
+                    <a href="#" class="flex items-start gap-3 p-3 rounded-lg hover:bg-brand-soft transition-colors group/item">
+                      <div class="w-9 h-9 rounded-lg bg-emerald-50 flex items-center justify-center shrink-0">
+                        <i data-lucide="book-open" class="w-4 h-4 text-emerald-500"></i>
+                      </div>
+                      <div>
+                        <p class="text-sm font-semibold text-gray-800 group-hover/item:text-brand transition">Cấp 2</p>
+                        <p class="text-xs text-gray-500 mt-0.5">Lớp 6 - Lớp 9</p>
+                      </div>
+                    </a>
+                    <a href="#" class="flex items-start gap-3 p-3 rounded-lg hover:bg-brand-soft transition-colors group/item">
+                      <div class="w-9 h-9 rounded-lg bg-purple-50 flex items-center justify-center shrink-0">
+                        <i data-lucide="graduation-cap" class="w-4 h-4 text-purple-500"></i>
+                      </div>
+                      <div>
+                        <p class="text-sm font-semibold text-gray-800 group-hover/item:text-brand transition">Cấp 3</p>
+                        <p class="text-xs text-gray-500 mt-0.5">Lớp 10 - Lớp 12</p>
+                      </div>
+                    </a>
+                    <a href="#" class="flex items-start gap-3 p-3 rounded-lg hover:bg-brand-soft transition-colors group/item">
+                      <div class="w-9 h-9 rounded-lg bg-brand-soft flex items-center justify-center shrink-0">
+                        <i data-lucide="award" class="w-4 h-4 text-brand"></i>
+                      </div>
+                      <div>
+                        <p class="text-sm font-semibold text-gray-800 group-hover/item:text-brand transition">Luyện thi chuyên / ĐH</p>
+                        <p class="text-xs text-gray-500 mt-0.5">Chinh phục điểm cao</p>
+                      </div>
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <a href="#" class="nav-link px-3.5 py-2 rounded-md text-[14.5px] font-semibold text-gray-800">Hệ thống cơ sở</a>
+            <a href="tai-lieu.html" class="nav-link px-3.5 py-2 rounded-md text-[14.5px] font-semibold text-gray-800">Tài liệu</a>
+            <a href="tin-tuc.html" class="nav-link px-3.5 py-2 rounded-md text-[14.5px] font-semibold text-gray-800">Tin tức</a>
+            <a href="#" class="nav-link px-3.5 py-2 rounded-md text-[14.5px] font-semibold text-gray-800">Liên hệ</a>
+          </nav>
+
+          <!-- ===== CÁNH PHẢI: CTA + HAMBURGER ===== -->
+          <div class="flex items-center gap-2.5">
+            <!-- CTA Desktop -->
+            <a href="#" class="hidden md:inline-flex items-center gap-2 px-5 py-2.5 rounded-lg bg-brand hover:bg-brand-dark text-white text-[14px] font-bold shadow-sm hover:shadow-md transition-all duration-300 hover:scale-105">
+              <i data-lucide="user-plus" class="w-4 h-4"></i>
+              <span>Đăng Ký Học Thử</span>
+            </a>
+
+            <!-- Mobile: hotline -->
+            <a href="tel:0933398787" class="md:hidden inline-flex items-center justify-center w-10 h-10 rounded-lg bg-brand-soft text-brand">
+              <i data-lucide="phone" class="w-5 h-5"></i>
+            </a>
+
+            <!-- Hamburger -->
+            <button id="hamburgerBtn" aria-label="Mở menu" class="hamburger lg:hidden flex flex-col justify-center items-center w-10 h-10 rounded-lg hover:bg-gray-100 transition">
+              <span class="hamburger-line line-1 block w-6 h-[2px] bg-gray-800 rounded mb-[5px]"></span>
+              <span class="hamburger-line line-2 block w-6 h-[2px] bg-gray-800 rounded mb-[5px]"></span>
+              <span class="hamburger-line line-3 block w-6 h-[2px] bg-gray-800 rounded"></span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+  <!-- ==================== HERO SECTION ==================== -->
+  <section class="relative bg-gradient-to-br from-brand-deeper via-brand-dark to-brand py-14 lg:py-20 overflow-hidden">
+    <!-- Vân chấm bi -->
+    <div class="absolute inset-0 opacity-[0.06] pointer-events-none" style="background-image: radial-gradient(circle, #fff 1px, transparent 1px); background-size: 24px 24px;"></div>
+    <!-- Blob mờ -->
+    <div class="absolute -top-40 -left-40 w-96 h-96 bg-gold/15 rounded-full blur-3xl pointer-events-none"></div>
+    <div class="absolute -bottom-40 -right-40 w-96 h-96 bg-white/10 rounded-full blur-3xl pointer-events-none"></div>
+
+    <!-- Họa tiết trang trí nhẹ: sách mở góc phải -->
+    <svg class="absolute top-1/2 -translate-y-1/2 right-4 lg:right-16 w-48 lg:w-72 h-48 lg:h-72 text-white/8 pointer-events-none" viewBox="0 0 24 24" fill="currentColor">
+      <path d="M21 4H7a2 2 0 0 0-2 2v13a3 3 0 0 1 3-3h13a1 1 0 0 0 1-1V5a1 1 0 0 0-1-1zM3 3v15a3 3 0 0 0 3 3h15v-2H6a1 1 0 0 1 0-2h16V5a2 2 0 0 0-2-2H3z"/>
+    </svg>
+
+    <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="max-w-3xl">
+        <!-- Breadcrumb -->
+        <nav class="flex items-center gap-2 text-[12.5px] text-white/70 mb-4">
+          <a href="#" class="hover:text-gold transition-colors">Trang chủ</a>
+          <i data-lucide="chevron-right" class="w-3.5 h-3.5"></i>
+          <span class="text-white font-medium">Tài liệu học tập</span>
+        </nav>
+
+        <!-- Badge -->
+        <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/15 backdrop-blur-md border border-white/25 mb-5">
+          <i data-lucide="library" class="w-3.5 h-3.5 text-gold"></i>
+          <span class="text-[11.5px] font-bold text-white tracking-[0.15em] uppercase">Kho tài nguyên miễn phí</span>
+        </div>
+
+        <!-- H1 -->
+        <h1 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white leading-[1.1] tracking-tight">
+          Tài Liệu <span class="text-gold">Học Tập</span>
+        </h1>
+
+        <!-- Description -->
+        <p class="mt-4 text-[14.5px] sm:text-base text-white/85 leading-relaxed max-w-xl">
+          Tổng hợp tài liệu ôn tập, đề thi thử và video bài giảng chất lượng cao môn <span class="font-semibold text-white">Toán — Lý — Hóa</span> được đội ngũ giáo viên Điểm 10+ biên soạn, hoàn toàn miễn phí.
+        </p>
+
+        <!-- Search bar -->
+        <div class="mt-7 max-w-xl">
+          <div class="relative">
+            <i data-lucide="search" class="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-400 pointer-events-none"></i>
+            <input
+              id="searchInput"
+              type="text"
+              placeholder="Tìm kiếm tài liệu, đề thi, chuyên đề..."
+              class="w-full pl-12 pr-4 py-3.5 rounded-full border-2 border-white/20 bg-white text-gray-800 placeholder-gray-400 focus:border-gold focus:ring-4 focus:ring-gold/20 outline-none text-[14.5px] shadow-xl transition"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== NAVIGATION BOXES (TOÁN / LÝ / HÓA) ==================== -->
+  <section class="relative -mt-8 z-10">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+
+        <!-- Box TOÁN (active mặc định) -->
+        <button data-filter="toan" class="subject-box group relative text-left bg-white rounded-2xl p-5 border-2 border-brand shadow-xl shadow-brand/20 transition-all duration-300 hover:-translate-y-1">
+          <div class="flex items-center gap-4">
+            <div class="w-14 h-14 rounded-xl bg-brand flex items-center justify-center shrink-0 shadow-md">
+              <i data-lucide="calculator" class="w-7 h-7 text-white"></i>
+            </div>
+            <div class="flex-1 min-w-0">
+              <h3 class="text-lg font-extrabold text-gray-900 leading-tight">Toán</h3>
+              <p class="text-[12.5px] text-gray-500 mt-0.5">Đại số · Hình học · Giải tích</p>
+            </div>
+            <i data-lucide="arrow-right" class="w-5 h-5 text-brand transition-transform duration-300 group-hover:translate-x-1 shrink-0"></i>
+          </div>
+          <span class="absolute top-3 right-3 text-[10px] font-bold text-brand uppercase tracking-wider opacity-0 group-data-[active=true]:opacity-100"></span>
+        </button>
+
+        <!-- Box LÝ -->
+        <button data-filter="ly" class="subject-box group relative text-left bg-white rounded-2xl p-5 border-2 border-gray-100 hover:border-brand/40 shadow-md hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
+          <div class="flex items-center gap-4">
+            <div class="w-14 h-14 rounded-xl bg-gold flex items-center justify-center shrink-0 shadow-md">
+              <i data-lucide="atom" class="w-7 h-7 text-white"></i>
+            </div>
+            <div class="flex-1 min-w-0">
+              <h3 class="text-lg font-extrabold text-gray-900 leading-tight">Vật Lý</h3>
+              <p class="text-[12.5px] text-gray-500 mt-0.5">Cơ học · Điện · Quang học</p>
+            </div>
+            <i data-lucide="arrow-right" class="w-5 h-5 text-gray-400 group-hover:text-brand transition-colors shrink-0"></i>
+          </div>
+        </button>
+
+        <!-- Box HÓA -->
+        <button data-filter="hoa" class="subject-box group relative text-left bg-white rounded-2xl p-5 border-2 border-gray-100 hover:border-brand/40 shadow-md hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
+          <div class="flex items-center gap-4">
+            <div class="w-14 h-14 rounded-xl bg-brand-dark flex items-center justify-center shrink-0 shadow-md">
+              <i data-lucide="flask-conical" class="w-7 h-7 text-white"></i>
+            </div>
+            <div class="flex-1 min-w-0">
+              <h3 class="text-lg font-extrabold text-gray-900 leading-tight">Hóa Học</h3>
+              <p class="text-[12.5px] text-gray-500 mt-0.5">Vô cơ · Hữu cơ · Phân tích</p>
+            </div>
+            <i data-lucide="arrow-right" class="w-5 h-5 text-gray-400 group-hover:text-brand transition-colors shrink-0"></i>
+          </div>
+        </button>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== DOCUMENTS GRID ==================== -->
+  <section class="py-12 lg:py-16 bg-gray-50/50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+      <!-- Section header -->
+      <div class="flex items-end justify-between gap-4 mb-8 flex-wrap">
+        <div>
+          <p class="text-[12px] font-bold text-amber-600 uppercase tracking-[0.15em] mb-1.5">Tài liệu</p>
+          <h2 id="sectionTitle" class="text-2xl sm:text-3xl font-extrabold text-gray-900 leading-tight">
+            Tài Liệu Môn <span class="text-brand">Toán</span>
+          </h2>
+        </div>
+        <div class="flex items-center gap-2 text-[13px] text-gray-500 font-medium">
+          <i data-lucide="file-text" class="w-4 h-4"></i>
+          <span><span id="resultCount">6</span> tài liệu</span>
+        </div>
+      </div>
+
+      <!-- Grid -->
+      <div id="docGrid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+
+        <!-- ===== TÀI LIỆU TOÁN ===== -->
+        <article data-category="toan" data-name="Bộ đề ôn thi Toán - Lý - Hóa chuẩn cấu trúc" class="doc-card group bg-white rounded-2xl border border-gray-200 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 overflow-hidden flex flex-col">
+          <div class="relative h-44 overflow-hidden">
+            <img src="images/tai-lieu-toan-01.jpg" alt="" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" />
+            <span class="absolute top-3 left-3 inline-flex items-center gap-1 px-2.5 py-1 rounded-md bg-brand text-white text-[11px] font-bold uppercase shadow-md">
+              <i data-lucide="file-text" class="w-3 h-3"></i> Đề thi
+            </span>
+          </div>
+          <div class="flex-1 flex flex-col p-5">
+            <h3 class="text-[16px] font-bold text-gray-900 leading-snug line-clamp-2">Bộ đề ôn thi Toán - Lý - Hóa chuẩn cấu trúc</h3>
+            <p class="mt-2 text-[13px] text-gray-600 leading-relaxed line-clamp-2 flex-1">30 đề thi thử bám sát cấu trúc mới nhất, kèm đáp án chi tiết.</p>
+            <button data-doc-name="Bộ đề ôn thi Toán - Lý - Hóa chuẩn cấu trúc" class="download-btn mt-4 inline-flex items-center justify-center gap-2 w-full px-4 py-2.5 rounded-lg bg-brand hover:bg-brand-dark text-white text-[12.5px] font-bold uppercase tracking-wide transition-all duration-300">
+              <span>Tải Xuống</span>
+              <i data-lucide="download" class="w-4 h-4"></i>
+            </button>
+          </div>
+        </article>
+
+        <article data-category="toan" data-name="E-book Công Thức Toán Trọng Tâm Cấp 3" class="doc-card group bg-white rounded-2xl border border-gray-200 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 overflow-hidden flex flex-col">
+          <div class="relative h-44 overflow-hidden">
+            <img src="images/tai-lieu-toan-02.jpg" alt="" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" />
+            <span class="absolute top-3 left-3 inline-flex items-center gap-1 px-2.5 py-1 rounded-md bg-gold text-white text-[11px] font-bold uppercase shadow-md">
+              <i data-lucide="book-open" class="w-3 h-3"></i> E-book
+            </span>
+          </div>
+          <div class="flex-1 flex flex-col p-5">
+            <h3 class="text-[16px] font-bold text-gray-900 leading-snug line-clamp-2">E-book Công Thức Toán Trọng Tâm Cấp 3</h3>
+            <p class="mt-2 text-[13px] text-gray-600 leading-relaxed line-clamp-2 flex-1">Tổng hợp đầy đủ công thức Toán 10-11-12, trình bày khoa học.</p>
+            <button data-doc-name="E-book Công Thức Toán Trọng Tâm Cấp 3" class="download-btn mt-4 inline-flex items-center justify-center gap-2 w-full px-4 py-2.5 rounded-lg bg-brand hover:bg-brand-dark text-white text-[12.5px] font-bold uppercase tracking-wide transition-all duration-300">
+              <span>Tải Xuống</span>
+              <i data-lucide="download" class="w-4 h-4"></i>
+            </button>
+          </div>
+        </article>
+
+        <article data-category="toan" data-name="Bộ 20 Đề Thi Thử Vào Lớp 10 Môn Toán" class="doc-card group bg-white rounded-2xl border border-gray-200 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 overflow-hidden flex flex-col">
+          <div class="relative h-44 overflow-hidden">
+            <img src="images/tai-lieu-toan-03.jpg" alt="" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" />
+            <span class="absolute top-3 left-3 inline-flex items-center gap-1 px-2.5 py-1 rounded-md bg-brand text-white text-[11px] font-bold uppercase shadow-md">
+              <i data-lucide="file-text" class="w-3 h-3"></i> Đề thi
+            </span>
+          </div>
+          <div class="flex-1 flex flex-col p-5">
+            <h3 class="text-[16px] font-bold text-gray-900 leading-snug line-clamp-2">Bộ 20 Đề Thi Thử Vào Lớp 10 Môn Toán</h3>
+            <p class="mt-2 text-[13px] text-gray-600 leading-relaxed line-clamp-2 flex-1">Đề thi thử bám sát chương trình, có hướng dẫn giải chi tiết.</p>
+            <button data-doc-name="Bộ 20 Đề Thi Thử Vào Lớp 10 Môn Toán" class="download-btn mt-4 inline-flex items-center justify-center gap-2 w-full px-4 py-2.5 rounded-lg bg-brand hover:bg-brand-dark text-white text-[12.5px] font-bold uppercase tracking-wide transition-all duration-300">
+              <span>Tải Xuống</span>
+              <i data-lucide="download" class="w-4 h-4"></i>
+            </button>
+          </div>
+        </article>
+
+        <article data-category="toan" data-name="Chuyên Đề Hình Học Không Gian Lớp 11" class="doc-card group bg-white rounded-2xl border border-gray-200 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 overflow-hidden flex flex-col">
+          <div class="relative h-44 overflow-hidden">
+            <img src="images/tai-lieu-toan-04.jpg" alt="" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" />
+            <span class="absolute top-3 left-3 inline-flex items-center gap-1 px-2.5 py-1 rounded-md bg-brand-dark text-white text-[11px] font-bold uppercase shadow-md">
+              <i data-lucide="video" class="w-3 h-3"></i> Video
+            </span>
+          </div>
+          <div class="flex-1 flex flex-col p-5">
+            <h3 class="text-[16px] font-bold text-gray-900 leading-snug line-clamp-2">Chuyên Đề Hình Học Không Gian Lớp 11</h3>
+            <p class="mt-2 text-[13px] text-gray-600 leading-relaxed line-clamp-2 flex-1">12 video hướng dẫn giải bài tập hình học không gian từ cơ bản.</p>
+            <button data-doc-name="Chuyên Đề Hình Học Không Gian Lớp 11" class="download-btn mt-4 inline-flex items-center justify-center gap-2 w-full px-4 py-2.5 rounded-lg bg-brand hover:bg-brand-dark text-white text-[12.5px] font-bold uppercase tracking-wide transition-all duration-300">
+              <span>Tải Xuống</span>
+              <i data-lucide="download" class="w-4 h-4"></i>
+            </button>
+          </div>
+        </article>
+
+        <article data-category="toan" data-name="Chuyên Đề Bất Đẳng Thức & Cực Trị" class="doc-card group bg-white rounded-2xl border border-gray-200 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 overflow-hidden flex flex-col">
+          <div class="relative h-44 overflow-hidden">
+            <img src="images/tai-lieu-toan-05.jpg" alt="" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" />
+            <span class="absolute top-3 left-3 inline-flex items-center gap-1 px-2.5 py-1 rounded-md bg-gold text-white text-[11px] font-bold uppercase shadow-md">
+              <i data-lucide="book-open" class="w-3 h-3"></i> E-book
+            </span>
+          </div>
+          <div class="flex-1 flex flex-col p-5">
+            <h3 class="text-[16px] font-bold text-gray-900 leading-snug line-clamp-2">Chuyên Đề Bất Đẳng Thức & Cực Trị</h3>
+            <p class="mt-2 text-[13px] text-gray-600 leading-relaxed line-clamp-2 flex-1">Tổng hợp 15 dạng bài bất đẳng thức thường gặp trong đề thi.</p>
+            <button data-doc-name="Chuyên Đề Bất Đẳng Thức & Cực Trị" class="download-btn mt-4 inline-flex items-center justify-center gap-2 w-full px-4 py-2.5 rounded-lg bg-brand hover:bg-brand-dark text-white text-[12.5px] font-bold uppercase tracking-wide transition-all duration-300">
+              <span>Tải Xuống</span>
+              <i data-lucide="download" class="w-4 h-4"></i>
+            </button>
+          </div>
+        </article>
+
+        <article data-category="toan" data-name="Đề Cương Ôn Tập Học Kỳ I Toán 12" class="doc-card group bg-white rounded-2xl border border-gray-200 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 overflow-hidden flex flex-col">
+          <div class="relative h-44 overflow-hidden">
+            <img src="images/tai-lieu-toan-06.jpg" alt="" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" />
+            <span class="absolute top-3 left-3 inline-flex items-center gap-1 px-2.5 py-1 rounded-md bg-brand text-white text-[11px] font-bold uppercase shadow-md">
+              <i data-lucide="file-text" class="w-3 h-3"></i> Đề cương
+            </span>
+          </div>
+          <div class="flex-1 flex flex-col p-5">
+            <h3 class="text-[16px] font-bold text-gray-900 leading-snug line-clamp-2">Đề Cương Ôn Tập Học Kỳ I Toán 12</h3>
+            <p class="mt-2 text-[13px] text-gray-600 leading-relaxed line-clamp-2 flex-1">Tóm tắt lý thuyết + bài tập trọng tâm theo từng chương SGK.</p>
+            <button data-doc-name="Đề Cương Ôn Tập Học Kỳ I Toán 12" class="download-btn mt-4 inline-flex items-center justify-center gap-2 w-full px-4 py-2.5 rounded-lg bg-brand hover:bg-brand-dark text-white text-[12.5px] font-bold uppercase tracking-wide transition-all duration-300">
+              <span>Tải Xuống</span>
+              <i data-lucide="download" class="w-4 h-4"></i>
+            </button>
+          </div>
+        </article>
+
+        <!-- ===== TÀI LIỆU LÝ ===== -->
+        <article data-category="ly" data-name="Bộ Đề Thi Thử THPT Quốc Gia Môn Vật Lý" class="doc-card group bg-white rounded-2xl border border-gray-200 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 overflow-hidden flex flex-col">
+          <div class="relative h-44 overflow-hidden">
+            <img src="images/tai-lieu-ly-01.jpg" alt="" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" />
+            <span class="absolute top-3 left-3 inline-flex items-center gap-1 px-2.5 py-1 rounded-md bg-brand text-white text-[11px] font-bold uppercase shadow-md">
+              <i data-lucide="file-text" class="w-3 h-3"></i> Đề thi
+            </span>
+          </div>
+          <div class="flex-1 flex flex-col p-5">
+            <h3 class="text-[16px] font-bold text-gray-900 leading-snug line-clamp-2">Bộ Đề Thi Thử THPT Quốc Gia Môn Vật Lý</h3>
+            <p class="mt-2 text-[13px] text-gray-600 leading-relaxed line-clamp-2 flex-1">15 đề thi thử chuẩn cấu trúc Bộ GD&ĐT, kèm đáp án chi tiết.</p>
+            <button data-doc-name="Bộ Đề Thi Thử THPT Quốc Gia Môn Vật Lý" class="download-btn mt-4 inline-flex items-center justify-center gap-2 w-full px-4 py-2.5 rounded-lg bg-brand hover:bg-brand-dark text-white text-[12.5px] font-bold uppercase tracking-wide transition-all duration-300">
+              <span>Tải Xuống</span>
+              <i data-lucide="download" class="w-4 h-4"></i>
+            </button>
+          </div>
+        </article>
+
+        <article data-category="ly" data-name="E-book Công Thức Vật Lý 10-11-12" class="doc-card group bg-white rounded-2xl border border-gray-200 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 overflow-hidden flex flex-col">
+          <div class="relative h-44 overflow-hidden">
+            <img src="images/tai-lieu-ly-02.jpg" alt="" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" />
+            <span class="absolute top-3 left-3 inline-flex items-center gap-1 px-2.5 py-1 rounded-md bg-gold text-white text-[11px] font-bold uppercase shadow-md">
+              <i data-lucide="book-open" class="w-3 h-3"></i> E-book
+            </span>
+          </div>
+          <div class="flex-1 flex flex-col p-5">
+            <h3 class="text-[16px] font-bold text-gray-900 leading-snug line-clamp-2">E-book Công Thức Vật Lý 10-11-12</h3>
+            <p class="mt-2 text-[13px] text-gray-600 leading-relaxed line-clamp-2 flex-1">Toàn bộ công thức Vật lý 3 cấp trình bày dạng sơ đồ tư duy.</p>
+            <button data-doc-name="E-book Công Thức Vật Lý 10-11-12" class="download-btn mt-4 inline-flex items-center justify-center gap-2 w-full px-4 py-2.5 rounded-lg bg-brand hover:bg-brand-dark text-white text-[12.5px] font-bold uppercase tracking-wide transition-all duration-300">
+              <span>Tải Xuống</span>
+              <i data-lucide="download" class="w-4 h-4"></i>
+            </button>
+          </div>
+        </article>
+
+        <article data-category="ly" data-name="Chuyên Đề Dao Động Cơ Học" class="doc-card group bg-white rounded-2xl border border-gray-200 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 overflow-hidden flex flex-col">
+          <div class="relative h-44 overflow-hidden">
+            <img src="images/tai-lieu-ly-03.jpg" alt="" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" />
+            <span class="absolute top-3 left-3 inline-flex items-center gap-1 px-2.5 py-1 rounded-md bg-brand-dark text-white text-[11px] font-bold uppercase shadow-md">
+              <i data-lucide="video" class="w-3 h-3"></i> Video
+            </span>
+          </div>
+          <div class="flex-1 flex flex-col p-5">
+            <h3 class="text-[16px] font-bold text-gray-900 leading-snug line-clamp-2">Chuyên Đề Dao Động Cơ Học</h3>
+            <p class="mt-2 text-[13px] text-gray-600 leading-relaxed line-clamp-2 flex-1">Chuỗi video hướng dẫn giải bài tập dao động điều hòa trực quan.</p>
+            <button data-doc-name="Chuyên Đề Dao Động Cơ Học" class="download-btn mt-4 inline-flex items-center justify-center gap-2 w-full px-4 py-2.5 rounded-lg bg-brand hover:bg-brand-dark text-white text-[12.5px] font-bold uppercase tracking-wide transition-all duration-300">
+              <span>Tải Xuống</span>
+              <i data-lucide="download" class="w-4 h-4"></i>
+            </button>
+          </div>
+        </article>
+
+        <article data-category="ly" data-name="Đề Cương Ôn Tập Vật Lý 11 Học Kỳ II" class="doc-card group bg-white rounded-2xl border border-gray-200 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 overflow-hidden flex flex-col">
+          <div class="relative h-44 overflow-hidden">
+            <img src="images/tai-lieu-ly-04.jpg" alt="" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" />
+            <span class="absolute top-3 left-3 inline-flex items-center gap-1 px-2.5 py-1 rounded-md bg-brand text-white text-[11px] font-bold uppercase shadow-md">
+              <i data-lucide="file-text" class="w-3 h-3"></i> Đề cương
+            </span>
+          </div>
+          <div class="flex-1 flex flex-col p-5">
+            <h3 class="text-[16px] font-bold text-gray-900 leading-snug line-clamp-2">Đề Cương Ôn Tập Vật Lý 11 Học Kỳ II</h3>
+            <p class="mt-2 text-[13px] text-gray-600 leading-relaxed line-clamp-2 flex-1">Tóm tắt lý thuyết + bài tập tự luận theo từng chương SGK.</p>
+            <button data-doc-name="Đề Cương Ôn Tập Vật Lý 11 Học Kỳ II" class="download-btn mt-4 inline-flex items-center justify-center gap-2 w-full px-4 py-2.5 rounded-lg bg-brand hover:bg-brand-dark text-white text-[12.5px] font-bold uppercase tracking-wide transition-all duration-300">
+              <span>Tải Xuống</span>
+              <i data-lucide="download" class="w-4 h-4"></i>
+            </button>
+          </div>
+        </article>
+
+        <!-- ===== TÀI LIỆU HÓA ===== -->
+        <article data-category="hoa" data-name="Bộ Đề Thi Thử THPT Quốc Gia Môn Hóa Học" class="doc-card group bg-white rounded-2xl border border-gray-200 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 overflow-hidden flex flex-col">
+          <div class="relative h-44 overflow-hidden">
+            <img src="images/tai-lieu-hoa-01.jpg" alt="" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" />
+            <span class="absolute top-3 left-3 inline-flex items-center gap-1 px-2.5 py-1 rounded-md bg-brand text-white text-[11px] font-bold uppercase shadow-md">
+              <i data-lucide="file-text" class="w-3 h-3"></i> Đề thi
+            </span>
+          </div>
+          <div class="flex-1 flex flex-col p-5">
+            <h3 class="text-[16px] font-bold text-gray-900 leading-snug line-clamp-2">Bộ Đề Thi Thử THPT Quốc Gia Môn Hóa Học</h3>
+            <p class="mt-2 text-[13px] text-gray-600 leading-relaxed line-clamp-2 flex-1">20 đề thi thử có đáp án, phân loại theo mức độ khó dần.</p>
+            <button data-doc-name="Bộ Đề Thi Thử THPT Quốc Gia Môn Hóa Học" class="download-btn mt-4 inline-flex items-center justify-center gap-2 w-full px-4 py-2.5 rounded-lg bg-brand hover:bg-brand-dark text-white text-[12.5px] font-bold uppercase tracking-wide transition-all duration-300">
+              <span>Tải Xuống</span>
+              <i data-lucide="download" class="w-4 h-4"></i>
+            </button>
+          </div>
+        </article>
+
+        <article data-category="hoa" data-name="E-book Phương Trình Hóa Học Cân Bằng" class="doc-card group bg-white rounded-2xl border border-gray-200 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 overflow-hidden flex flex-col">
+          <div class="relative h-44 overflow-hidden">
+            <img src="images/tai-lieu-hoa-02.jpg" alt="" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" />
+            <span class="absolute top-3 left-3 inline-flex items-center gap-1 px-2.5 py-1 rounded-md bg-gold text-white text-[11px] font-bold uppercase shadow-md">
+              <i data-lucide="book-open" class="w-3 h-3"></i> E-book
+            </span>
+          </div>
+          <div class="flex-1 flex flex-col p-5">
+            <h3 class="text-[16px] font-bold text-gray-900 leading-snug line-clamp-2">E-book Phương Trình Hóa Học Cân Bằng</h3>
+            <p class="mt-2 text-[13px] text-gray-600 leading-relaxed line-clamp-2 flex-1">500+ phương trình hóa học thường gặp, có hướng dẫn cân bằng.</p>
+            <button data-doc-name="E-book Phương Trình Hóa Học Cân Bằng" class="download-btn mt-4 inline-flex items-center justify-center gap-2 w-full px-4 py-2.5 rounded-lg bg-brand hover:bg-brand-dark text-white text-[12.5px] font-bold uppercase tracking-wide transition-all duration-300">
+              <span>Tải Xuống</span>
+              <i data-lucide="download" class="w-4 h-4"></i>
+            </button>
+          </div>
+        </article>
+
+        <article data-category="hoa" data-name="Chuyên Đề Hữu Cơ Lớp 12" class="doc-card group bg-white rounded-2xl border border-gray-200 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 overflow-hidden flex flex-col">
+          <div class="relative h-44 overflow-hidden">
+            <img src="images/tai-lieu-hoa-03.jpg" alt="" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" />
+            <span class="absolute top-3 left-3 inline-flex items-center gap-1 px-2.5 py-1 rounded-md bg-brand-dark text-white text-[11px] font-bold uppercase shadow-md">
+              <i data-lucide="video" class="w-3 h-3"></i> Video
+            </span>
+          </div>
+          <div class="flex-1 flex flex-col p-5">
+            <h3 class="text-[16px] font-bold text-gray-900 leading-snug line-clamp-2">Chuyên Đề Hữu Cơ Lớp 12</h3>
+            <p class="mt-2 text-[13px] text-gray-600 leading-relaxed line-clamp-2 flex-1">Chuỗi video hướng dẫn giải bài tập hữu cơ từ cơ bản đến nâng cao.</p>
+            <button data-doc-name="Chuyên Đề Hữu Cơ Lớp 12" class="download-btn mt-4 inline-flex items-center justify-center gap-2 w-full px-4 py-2.5 rounded-lg bg-brand hover:bg-brand-dark text-white text-[12.5px] font-bold uppercase tracking-wide transition-all duration-300">
+              <span>Tải Xuống</span>
+              <i data-lucide="download" class="w-4 h-4"></i>
+            </button>
+          </div>
+        </article>
+
+        <article data-category="hoa" data-name="Đề Cương Ôn Tập Hóa Học 10 Học Kỳ I" class="doc-card group bg-white rounded-2xl border border-gray-200 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 overflow-hidden flex flex-col">
+          <div class="relative h-44 overflow-hidden">
+            <img src="images/tai-lieu-hoa-04.jpg" alt="" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" />
+            <span class="absolute top-3 left-3 inline-flex items-center gap-1 px-2.5 py-1 rounded-md bg-brand text-white text-[11px] font-bold uppercase shadow-md">
+              <i data-lucide="file-text" class="w-3 h-3"></i> Đề cương
+            </span>
+          </div>
+          <div class="flex-1 flex flex-col p-5">
+            <h3 class="text-[16px] font-bold text-gray-900 leading-snug line-clamp-2">Đề Cương Ôn Tập Hóa Học 10 Học Kỳ I</h3>
+            <p class="mt-2 text-[13px] text-gray-600 leading-relaxed line-clamp-2 flex-1">Tóm tắt lý thuyết + bài tập trắc nghiệm theo chương trình mới.</p>
+            <button data-doc-name="Đề Cương Ôn Tập Hóa Học 10 Học Kỳ I" class="download-btn mt-4 inline-flex items-center justify-center gap-2 w-full px-4 py-2.5 rounded-lg bg-brand hover:bg-brand-dark text-white text-[12.5px] font-bold uppercase tracking-wide transition-all duration-300">
+              <span>Tải Xuống</span>
+              <i data-lucide="download" class="w-4 h-4"></i>
+            </button>
+          </div>
+        </article>
+
+      </div>
+
+      <!-- Empty state -->
+      <div id="emptyState" class="hidden text-center py-16">
+        <div class="w-20 h-20 mx-auto rounded-full bg-gray-100 flex items-center justify-center mb-4">
+          <i data-lucide="search-x" class="w-10 h-10 text-gray-400"></i>
+        </div>
+        <h3 class="text-lg font-bold text-gray-800 mb-1">Không tìm thấy tài liệu</h3>
+        <p class="text-sm text-gray-500">Thử tìm với từ khóa khác hoặc chọn môn học bên trên.</p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ===== FOOTER (copy từ file trước — giữ nguyên) ===== -->
+  <!-- [DÁN FOOTER Ở ĐÂY] -->
+
+  <!-- ==================== LEAD MODAL (dùng lại từ file Resources) ==================== -->
+  <div id="leadModal" class="fixed inset-0 z-[100] hidden items-center justify-center p-4">
+    <div id="leadBackdrop" class="absolute inset-0 bg-black/60 backdrop-blur-sm transition-opacity duration-300 opacity-0"></div>
+    <div id="leadPanel" class="relative w-full max-w-md bg-white rounded-2xl shadow-2xl overflow-hidden transform scale-95 opacity-0 transition-all duration-300">
+      <div class="h-1.5 bg-gradient-to-r from-brand via-brand-dark to-brand"></div>
+      <button id="leadCloseBtn" aria-label="Đóng" class="absolute top-4 right-4 w-8 h-8 rounded-full bg-gray-100 hover:bg-brand hover:text-white text-gray-500 flex items-center justify-center transition-colors duration-200">
+        <i data-lucide="x" class="w-4 h-4"></i>
+      </button>
+      <div class="p-6 sm:p-7">
+        <div class="w-14 h-14 rounded-2xl bg-brand-soft flex items-center justify-center mb-4">
+          <i data-lucide="file-down" class="w-7 h-7 text-brand"></i>
+        </div>
+        <h3 class="text-lg sm:text-xl font-extrabold text-gray-900 leading-snug">Nhận tài liệu miễn phí</h3>
+        <p class="mt-1 text-sm text-gray-600 leading-relaxed">Điền thông tin để nhận ngay: <span id="leadDocName" class="font-semibold text-brand block mt-1 line-clamp-2">[Tên tài liệu]</span></p>
+        <form id="leadForm" class="mt-5 space-y-3">
+          <div>
+            <label for="leadName" class="block text-[12.5px] font-semibold text-gray-700 mb-1">Họ và tên</label>
+            <div class="relative">
+              <i data-lucide="user" class="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-400"></i>
+              <input id="leadName" type="text" required placeholder="Nguyễn Văn A" class="w-full pl-10 pr-3 py-2.5 rounded-lg border border-gray-300 focus:border-brand focus:ring-2 focus:ring-brand/20 outline-none text-sm transition" />
+            </div>
+          </div>
+          <div>
+            <label for="leadPhone" class="block text-[12.5px] font-semibold text-gray-700 mb-1">Số điện thoại</label>
+            <div class="relative">
+              <i data-lucide="phone" class="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-400"></i>
+              <input id="leadPhone" type="tel" required placeholder="0933 39 87 87" class="w-full pl-10 pr-3 py-2.5 rounded-lg border border-gray-300 focus:border-brand focus:ring-2 focus:ring-brand/20 outline-none text-sm transition" />
+            </div>
+          </div>
+          <div>
+            <label for="leadEmail" class="block text-[12.5px] font-semibold text-gray-700 mb-1">Email</label>
+            <div class="relative">
+              <i data-lucide="mail" class="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-400"></i>
+              <input id="leadEmail" type="email" required placeholder="email@example.com" class="w-full pl-10 pr-3 py-2.5 rounded-lg border border-gray-300 focus:border-brand focus:ring-2 focus:ring-brand/20 outline-none text-sm transition" />
+            </div>
+          </div>
+          <button type="submit" class="mt-2 w-full inline-flex items-center justify-center gap-2 px-4 py-3 rounded-lg bg-brand hover:bg-brand-dark text-white text-sm font-bold shadow-md hover:shadow-lg transition-all duration-300">
+            <i data-lucide="send" class="w-4 h-4"></i>
+            <span>Gửi thông tin &amp; Tải xuống</span>
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==================== SCRIPT ==================== -->
+  <script>
+    lucide.createIcons();
+
+    // Sticky header shadow
+    const header = document.getElementById('mainHeader');
+    if (header) {
+      window.addEventListener('scroll', () => {
+        if (window.scrollY > 10) header.classList.add('shadow-md');
+        else header.classList.remove('shadow-md');
+      });
+    }
+
+    // Mobile drawer
+    const drawer = document.getElementById('mobileDrawer');
+    const backdrop = document.getElementById('drawerBackdrop');
+    const hamburger = document.getElementById('hamburgerBtn');
+    const closeBtn = document.getElementById('closeDrawerBtn');
+    if (drawer && backdrop && hamburger && closeBtn) {
+      const openDrawer = () => { drawer.classList.add('open'); backdrop.classList.remove('opacity-0','pointer-events-none'); hamburger.classList.add('active'); document.body.style.overflow='hidden'; };
+      const closeDrawer = () => { drawer.classList.remove('open'); backdrop.classList.add('opacity-0','pointer-events-none'); hamburger.classList.remove('active'); document.body.style.overflow=''; };
+      hamburger.addEventListener('click', () => drawer.classList.contains('open') ? closeDrawer() : openDrawer());
+      closeBtn.addEventListener('click', closeDrawer);
+      backdrop.addEventListener('click', closeDrawer);
+      document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeDrawer(); });
+    }
+
+    // Mobile submenu
+    const submenuBtn = document.getElementById('mobileSubmenuBtn');
+    const submenu = document.getElementById('mobileSubmenu');
+    const submenuIcon = document.getElementById('mobileSubmenuIcon');
+    if (submenuBtn) {
+      submenuBtn.addEventListener('click', () => {
+        submenu.classList.toggle('open');
+        submenuIcon.classList.toggle('rotate-180');
+      });
+    }
+
+    // ===== FILTER LOGIC (Subject + Search) =====
+    const subjectBoxes = document.querySelectorAll('.subject-box');
+    const docCards = document.querySelectorAll('.doc-card');
+    const searchInput = document.getElementById('searchInput');
+    const sectionTitle = document.getElementById('sectionTitle');
+    const resultCount = document.getElementById('resultCount');
+    const emptyState = document.getElementById('emptyState');
+
+    const subjectNames = { toan: 'Toán', ly: 'Vật Lý', hoa: 'Hóa Học' };
+    let activeFilter = 'toan';
+    let searchQuery = '';
+
+    function updateActiveBox() {
+      subjectBoxes.forEach(box => {
+        const isActive = box.dataset.filter === activeFilter;
+        if (isActive) {
+          box.classList.add('border-brand', 'shadow-xl', 'shadow-brand/20', '-translate-y-1');
+          box.classList.remove('border-gray-100', 'shadow-md');
+          box.setAttribute('data-active', 'true');
+          const icon = box.querySelector('.w-5.h-5');
+          if (icon) icon.classList.add('text-brand');
+        } else {
+          box.classList.remove('border-brand', 'shadow-xl', 'shadow-brand/20', '-translate-y-1');
+          box.classList.add('border-gray-100', 'shadow-md');
+          box.setAttribute('data-active', 'false');
+        }
+      });
+    }
+
+    function filterDocs() {
+      let visibleCount = 0;
+      docCards.forEach(card => {
+        const matchSubject = card.dataset.category === activeFilter;
+        const matchSearch = !searchQuery || card.dataset.name.toLowerCase().includes(searchQuery.toLowerCase());
+        if (matchSubject && matchSearch) {
+          card.classList.remove('doc-card-hidden');
+          visibleCount++;
+        } else {
+          card.classList.add('doc-card-hidden');
+        }
+      });
+      resultCount.textContent = visibleCount;
+      sectionTitle.innerHTML = `Tài Liệu Môn <span class="text-brand">${subjectNames[activeFilter]}</span>`;
+      emptyState.classList.toggle('hidden', visibleCount > 0);
+    }
+
+    subjectBoxes.forEach(box => {
+      box.addEventListener('click', () => {
+        activeFilter = box.dataset.filter;
+        updateActiveBox();
+        filterDocs();
+      });
+    });
+
+    searchInput.addEventListener('input', (e) => {
+      searchQuery = e.target.value.trim();
+      filterDocs();
+    });
+
+    // Init
+    updateActiveBox();
+    filterDocs();
+
+    // ===== LEAD MODAL =====
+    const modal = document.getElementById('leadModal');
+    const mBackdrop = document.getElementById('leadBackdrop');
+    const panel = document.getElementById('leadPanel');
+    const mClose = document.getElementById('leadCloseBtn');
+    const docNameEl = document.getElementById('leadDocName');
+    const leadForm = document.getElementById('leadForm');
+
+    function openModal(docName) {
+      docNameEl.textContent = docName;
+      modal.classList.remove('hidden');
+      modal.classList.add('flex');
+      document.body.style.overflow = 'hidden';
+      requestAnimationFrame(() => {
+        mBackdrop.classList.remove('opacity-0');
+        panel.classList.remove('opacity-0', 'scale-95');
+      });
+    }
+    function closeModal() {
+      mBackdrop.classList.add('opacity-0');
+      panel.classList.add('opacity-0', 'scale-95');
+      setTimeout(() => {
+        modal.classList.add('hidden');
+        modal.classList.remove('flex');
+        document.body.style.overflow = '';
+      }, 250);
+    }
+
+    document.querySelectorAll('.download-btn').forEach(btn => {
+      btn.addEventListener('click', () => openModal(btn.getAttribute('data-doc-name')));
+    });
+    mClose.addEventListener('click', closeModal);
+    mBackdrop.addEventListener('click', closeModal);
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && !modal.classList.contains('hidden')) closeModal();
+    });
+
+    leadForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const submitBtn = leadForm.querySelector('button[type="submit"]');
+      const originalHTML = submitBtn.innerHTML;
+      submitBtn.disabled = true;
+      submitBtn.innerHTML = '<span>Đang gửi...</span>';
+      setTimeout(() => {
+        submitBtn.innerHTML = '<i data-lucide="check-circle-2" class="w-4 h-4"></i><span>Đã gửi! Đang tải...</span>';
+        submitBtn.classList.add('bg-emerald-500');
+        lucide.createIcons();
+        setTimeout(() => {
+          closeModal();
+          setTimeout(() => {
+            submitBtn.disabled = false;
+            submitBtn.innerHTML = originalHTML;
+            submitBtn.classList.remove('bg-emerald-500');
+            lucide.createIcons();
+            leadForm.reset();
+          }, 400);
+        }, 1200);
+      }, 1000);
+    });
+  </script>
+</body>
+</html>
