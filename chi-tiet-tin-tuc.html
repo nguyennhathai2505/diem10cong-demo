@@ -1,0 +1,898 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tuyển Sinh Tháng 11 — Ưu Đãi Học Phí Đến 25% | Điểm 10+</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: { sans: ['Inter', 'sans-serif'] },
+          colors: {
+            brand: { DEFAULT: '#DC2626', dark: '#B91C1C', deeper: '#990000', soft: '#FEE2E2', border: '#FCA5A5' },
+            gold: '#F59E0B',
+          },
+        }
+      }
+    }
+  </script>
+  <style>
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Inter', sans-serif; }
+    .nav-link { position: relative; transition: color .2s ease, background-color .2s ease; }
+    .nav-link:hover { color: #DC2626; background-color: #FEE2E2; }
+    .dropdown-panel { opacity: 0; visibility: hidden; transform: translateY(10px); transition: opacity .25s ease, transform .25s ease, visibility .25s; }
+    .group:hover .dropdown-panel { opacity: 1; visibility: visible; transform: translateY(0); }
+    .hamburger-line { transition: transform .3s ease, opacity .3s ease; }
+    .hamburger.active .line-1 { transform: translateY(7px) rotate(45deg); }
+    .hamburger.active .line-2 { opacity: 0; }
+    .hamburger.active .line-3 { transform: translateY(-7px) rotate(-45deg); }
+    .drawer { transition: transform .35s cubic-bezier(.4,0,.2,1); transform: translateX(100%); }
+    .drawer.open { transform: translateX(0); }
+    .backdrop { transition: opacity .3s ease; }
+    .mobile-submenu { max-height: 0; overflow: hidden; transition: max-height .35s ease; }
+    .mobile-submenu.open { max-height: 400px; }
+    .line-clamp-2 { display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+    .line-clamp-3 { display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; }
+
+    /* Article content typography */
+    .article-content h2 {
+      font-size: 1.5rem;
+      font-weight: 800;
+      color: #111827;
+      margin-top: 2rem;
+      margin-bottom: 0.75rem;
+      line-height: 1.3;
+    }
+    .article-content h3 {
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: #111827;
+      margin-top: 1.5rem;
+      margin-bottom: 0.5rem;
+    }
+    .article-content p {
+      font-size: 15px;
+      line-height: 1.8;
+      color: #4B5563;
+      margin-bottom: 1rem;
+    }
+    .article-content ul {
+      list-style: none;
+      padding-left: 0;
+      margin-bottom: 1.25rem;
+    }
+    .article-content ul li {
+      font-size: 15px;
+      line-height: 1.75;
+      color: #4B5563;
+      padding-left: 1.75rem;
+      position: relative;
+      margin-bottom: 0.65rem;
+    }
+    .article-content ul li::before {
+      content: '';
+      position: absolute;
+      left: 0.25rem;
+      top: 0.65rem;
+      width: 0.5rem;
+      height: 0.5rem;
+      border-radius: 9999px;
+      background-color: #DC2626;
+    }
+    .article-content strong { color: #111827; font-weight: 700; }
+    .article-content a { color: #DC2626; text-decoration: underline; text-underline-offset: 2px; }
+    .article-content a:hover { color: #B91C1C; }
+    .article-content blockquote {
+      border-left: 4px solid #F59E0B;
+      background: #FFFBEB;
+      padding: 1rem 1.25rem;
+      margin: 1.5rem 0;
+      border-radius: 0 0.75rem 0.75rem 0;
+      font-size: 15px;
+      font-style: italic;
+      color: #1F2937;
+      line-height: 1.75;
+    }
+  </style>
+</head>
+<body class="bg-white text-gray-800 antialiased">
+
+  <!-- ==================== STICKY HEADER (2 TẦNG) ==================== -->
+  <header id="mainHeader" class="sticky top-0 z-50 bg-white transition-shadow duration-300">
+    <!-- TẦNG 1: TOP BAR -->
+    <div class="bg-brand-dark text-white">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex items-center justify-between h-9 text-[12.5px] font-medium gap-4">
+          <div class="flex items-center gap-2 min-w-0">
+            <i data-lucide="megaphone" class="w-3.5 h-3.5 text-gold shrink-0"></i>
+            <p class="truncate">
+              <span class="hidden sm:inline">Khai giảng lớp mới &amp; Ưu đãi học phí đến </span>
+              <span class="font-bold text-gold">25%</span>
+              <span class="hidden sm:inline"> tháng này</span>
+              <span class="hidden md:inline"> — Đăng ký học thử miễn phí ngay!</span>
+            </p>
+          </div>
+          <div class="flex items-center gap-4 shrink-0">
+            <a href="mailto:tvkh.diem10cong@gmail.com" class="hidden lg:flex items-center gap-1.5 hover:text-gold transition-colors">
+              <i data-lucide="mail" class="w-3.5 h-3.5"></i>
+              <span>tvkh.diem10cong@gmail.com</span>
+            </a>
+            <a href="tel:0933398787" class="hidden sm:flex items-center gap-1.5 hover:text-gold transition-colors">
+              <i data-lucide="phone" class="w-3.5 h-3.5"></i>
+              <span class="font-semibold">0933 39 87 87</span>
+            </a>
+            <span class="hidden sm:block w-px h-4 bg-white/25"></span>
+            <div class="flex items-center gap-2.5">
+              <a href="#" aria-label="Facebook" class="hover:text-gold transition-colors hover:scale-110 transform duration-200">
+                <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+              </a>
+              <a href="#" aria-label="TikTok" class="hover:text-gold transition-colors hover:scale-110 transform duration-200">
+                <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5 20.1a6.34 6.34 0 0 0 10.86-4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1-.1z"/></svg>
+              </a>
+              <a href="#" aria-label="Zalo" class="hover:text-gold transition-colors hover:scale-110 transform duration-200">
+                <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M12 0C5.373 0 0 5.373 0 12c0 2.006.498 3.894 1.375 5.555L.043 23.957l6.557-1.314A11.94 11.94 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm5.977 16.851c-.238.666-1.393 1.275-1.917 1.32-.524.045-1.016.245-3.415-.706-2.884-1.152-4.71-4.13-4.855-4.32-.144-.19-1.157-1.539-1.157-2.936 0-1.397.733-2.084 1.005-2.371.272-.286.594-.358.793-.358.198 0 .397.002.571.011.183.008.428-.07.667.513.245.595.831 2.03.905 2.178.073.148.122.32.024.516-.099.196-.148.318-.297.49-.148.173-.31.386-.443.519-.148.147-.303.307-.13.601.173.294.771 1.271 1.656 2.059 1.137 1.012 2.094 1.325 2.389 1.475.295.148.469.124.642-.074.173-.198.741-.865.94-1.162.198-.297.397-.247.667-.148.272.099 1.717.81 2.012.957.295.148.492.222.566.346.074.123.074.716-.164 1.382z"/></svg>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- TẦNG 2: MAIN NAV -->
+    <div class="border-b border-gray-200">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex items-center justify-between h-[78px] lg:h-[86px]">
+          <a href="index.html" class="flex items-center gap-3 shrink-0 group">
+            <div class="relative w-16 h-16 lg:w-[72px] lg:h-[72px] flex items-center justify-center group-hover:scale-105 transition-transform duration-300">
+              <img src="logo.png" alt="Logo Trung Tâm Điểm 10+" class="w-full h-full object-contain drop-shadow-sm" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';" />
+              <svg xmlns="http://www.w3.org/2000/svg" class="w-12 h-12 text-brand hidden" style="display:none" viewBox="0 0 24 24" fill="currentColor"><path d="M5 16L3 5l5.5 5L12 4l3.5 6L21 5l-2 11H5zm14 3c0 .6-.4 1-1 1H6c-.6 0-1-.4-1-1v-1h14v1z"/></svg>
+            </div>
+            <div class="leading-tight">
+              <div class="text-[16px] sm:text-[17px] lg:text-[18px] font-extrabold tracking-tight text-brand-deeper">TRUNG TÂM ĐIỂM 10+</div>
+              <p class="text-[11px] sm:text-[12px] font-medium text-gray-700 mt-0.5">Vững kiến thức, chắc tư duy</p>
+            </div>
+          </a>
+          <nav class="hidden lg:flex items-center gap-1">
+            <a href="#" class="nav-link px-3.5 py-2 rounded-md text-[14.5px] font-semibold text-gray-800">Giới thiệu</a>
+            <div class="group relative">
+              <a href="#" class="nav-link px-3.5 py-2 rounded-md text-[14.5px] font-semibold text-gray-800 inline-flex items-center gap-1">
+                Các khóa học <i data-lucide="chevron-down" class="w-4 h-4 transition-transform duration-300 group-hover:rotate-180"></i>
+              </a>
+              <div class="dropdown-panel absolute top-full left-1/2 -translate-x-1/2 pt-3 w-[560px]">
+                <div class="bg-white rounded-xl shadow-xl border-t-[3px] border-brand-dark overflow-hidden">
+                  <div class="p-2 grid grid-cols-2 gap-1">
+                    <a href="#" class="flex items-start gap-3 p-3 rounded-lg hover:bg-brand-soft transition-colors group/item">
+                      <div class="w-9 h-9 rounded-lg bg-blue-50 flex items-center justify-center shrink-0"><i data-lucide="pencil" class="w-4 h-4 text-blue-500"></i></div>
+                      <div><p class="text-sm font-semibold text-gray-800 group-hover/item:text-brand transition">Tiểu học</p><p class="text-xs text-gray-500 mt-0.5">Lớp 1 - Lớp 5</p></div>
+                    </a>
+                    <a href="#" class="flex items-start gap-3 p-3 rounded-lg hover:bg-brand-soft transition-colors group/item">
+                      <div class="w-9 h-9 rounded-lg bg-emerald-50 flex items-center justify-center shrink-0"><i data-lucide="book-open" class="w-4 h-4 text-emerald-500"></i></div>
+                      <div><p class="text-sm font-semibold text-gray-800 group-hover/item:text-brand transition">Cấp 2</p><p class="text-xs text-gray-500 mt-0.5">Lớp 6 - Lớp 9</p></div>
+                    </a>
+                    <a href="#" class="flex items-start gap-3 p-3 rounded-lg hover:bg-brand-soft transition-colors group/item">
+                      <div class="w-9 h-9 rounded-lg bg-purple-50 flex items-center justify-center shrink-0"><i data-lucide="graduation-cap" class="w-4 h-4 text-purple-500"></i></div>
+                      <div><p class="text-sm font-semibold text-gray-800 group-hover/item:text-brand transition">Cấp 3</p><p class="text-xs text-gray-500 mt-0.5">Lớp 10 - Lớp 12</p></div>
+                    </a>
+                    <a href="#" class="flex items-start gap-3 p-3 rounded-lg hover:bg-brand-soft transition-colors group/item">
+                      <div class="w-9 h-9 rounded-lg bg-brand-soft flex items-center justify-center shrink-0"><i data-lucide="award" class="w-4 h-4 text-brand"></i></div>
+                      <div><p class="text-sm font-semibold text-gray-800 group-hover/item:text-brand transition">Luyện thi chuyên / ĐH</p><p class="text-xs text-gray-500 mt-0.5">Chinh phục điểm cao</p></div>
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <a href="he-thong-co-so.html" class="nav-link px-3.5 py-2 rounded-md text-[14.5px] font-semibold text-gray-800">Hệ thống cơ sở</a>
+            <a href="tai-lieu.html" class="nav-link px-3.5 py-2 rounded-md text-[14.5px] font-semibold text-gray-800">Tài liệu</a>
+            <a href="tin-tuc.html" class="nav-link px-3.5 py-2 rounded-md text-[14.5px] font-semibold text-brand">Tin tức</a>
+            <a href="lien-he.html" class="nav-link px-3.5 py-2 rounded-md text-[14.5px] font-semibold text-gray-800">Liên hệ</a>
+          </nav>
+          <div class="flex items-center gap-2.5">
+            <a href="#" class="hidden md:inline-flex items-center gap-2 px-5 py-2.5 rounded-lg bg-brand hover:bg-brand-dark text-white text-[14px] font-bold shadow-sm hover:shadow-md transition-all duration-300 hover:scale-105">
+              <i data-lucide="user-plus" class="w-4 h-4"></i>
+              <span>Đăng Ký Học Thử</span>
+            </a>
+            <a href="tel:0933398787" class="md:hidden inline-flex items-center justify-center w-10 h-10 rounded-lg bg-brand-soft text-brand">
+              <i data-lucide="phone" class="w-5 h-5"></i>
+            </a>
+            <button id="hamburgerBtn" aria-label="Mở menu" class="hamburger lg:hidden flex flex-col justify-center items-center w-10 h-10 rounded-lg hover:bg-gray-100 transition">
+              <span class="hamburger-line line-1 block w-6 h-[2px] bg-gray-800 rounded mb-[5px]"></span>
+              <span class="hamburger-line line-2 block w-6 h-[2px] bg-gray-800 rounded mb-[5px]"></span>
+              <span class="hamburger-line line-3 block w-6 h-[2px] bg-gray-800 rounded"></span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- ==================== MOBILE DRAWER ==================== -->
+  <div id="drawerBackdrop" class="backdrop fixed inset-0 bg-black/50 z-[60] opacity-0 pointer-events-none lg:hidden"></div>
+  <aside id="mobileDrawer" class="drawer fixed top-0 right-0 h-full w-[85%] max-w-sm bg-white z-[70] shadow-2xl lg:hidden flex flex-col">
+    <div class="shrink-0 bg-brand-dark text-white px-4 py-3">
+      <div class="flex items-center justify-between">
+        <div class="flex items-center gap-2 text-[12px] font-medium">
+          <i data-lucide="phone" class="w-3.5 h-3.5 text-gold"></i>
+          <a href="tel:0933398787" class="hover:text-gold transition">0933 39 87 87</a>
+        </div>
+        <button id="closeDrawerBtn" aria-label="Đóng menu" class="w-8 h-8 rounded-lg hover:bg-white/15 flex items-center justify-center transition">
+          <i data-lucide="x" class="w-5 h-5"></i>
+        </button>
+      </div>
+    </div>
+    <div class="px-5 py-4 border-b border-gray-100 shrink-0">
+      <div class="flex items-center gap-3">
+        <div class="w-14 h-14 flex items-center justify-center shrink-0">
+          <img src="logo.png" alt="Logo" class="w-full h-full object-contain" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';" />
+          <svg xmlns="http://www.w3.org/2000/svg" class="w-10 h-10 text-brand hidden" style="display:none" viewBox="0 0 24 24" fill="currentColor"><path d="M5 16L3 5l5.5 5L12 4l3.5 6L21 5l-2 11H5zm14 3c0 .6-.4 1-1 1H6c-.6 0-1-.4-1-1v-1h14v1z"/></svg>
+        </div>
+        <div class="leading-tight">
+          <p class="text-[15px] font-extrabold text-brand-deeper">TRUNG TÂM ĐIỂM 10+</p>
+          <p class="text-[11px] font-medium text-gray-600 mt-0.5">Vững kiến thức, chắc tư duy</p>
+        </div>
+      </div>
+    </div>
+    <div class="flex-1 overflow-y-auto py-4 px-3">
+      <nav class="flex flex-col gap-1">
+        <a href="#" class="flex items-center gap-3 px-4 py-3 rounded-lg text-[15px] font-semibold text-gray-800 hover:bg-brand-soft hover:text-brand transition">
+          <i data-lucide="info" class="w-4 h-4 text-gray-400"></i> Giới thiệu
+        </a>
+        <div>
+          <button id="mobileSubmenuBtn" class="w-full flex items-center justify-between gap-3 px-4 py-3 rounded-lg text-[15px] font-semibold text-gray-800 hover:bg-brand-soft hover:text-brand transition">
+            <span class="flex items-center gap-3"><i data-lucide="book-open" class="w-4 h-4 text-gray-400"></i> Các khóa học</span>
+            <i data-lucide="chevron-down" id="mobileSubmenuIcon" class="w-4 h-4 transition-transform duration-300"></i>
+          </button>
+          <div id="mobileSubmenu" class="mobile-submenu pl-6">
+            <a href="#" class="block px-4 py-2.5 text-sm text-gray-600 hover:text-brand hover:bg-brand-soft rounded-lg transition">Tiểu học (Lớp 1 - 5)</a>
+            <a href="#" class="block px-4 py-2.5 text-sm text-gray-600 hover:text-brand hover:bg-brand-soft rounded-lg transition">Cấp 2 (Lớp 6 - 9)</a>
+            <a href="#" class="block px-4 py-2.5 text-sm text-gray-600 hover:text-brand hover:bg-brand-soft rounded-lg transition">Cấp 3 (Lớp 10 - 12)</a>
+            <a href="#" class="block px-4 py-2.5 text-sm text-gray-600 hover:text-brand hover:bg-brand-soft rounded-lg transition">Luyện thi chuyên / ĐH</a>
+          </div>
+        </div>
+        <a href="#" class="flex items-center gap-3 px-4 py-3 rounded-lg text-[15px] font-semibold text-gray-800 hover:bg-brand-soft hover:text-brand transition">
+          <i data-lucide="map-pin" class="w-4 h-4 text-gray-400"></i> Hệ thống cơ sở
+        </a>
+        <a href="#" class="flex items-center gap-3 px-4 py-3 rounded-lg text-[15px] font-semibold text-gray-800 hover:bg-brand-soft hover:text-brand transition">
+          <i data-lucide="file-text" class="w-4 h-4 text-gray-400"></i> Tài liệu
+        </a>
+        <a href="#" class="flex items-center gap-3 px-4 py-3 rounded-lg text-[15px] font-semibold text-brand bg-brand-soft transition">
+          <i data-lucide="newspaper" class="w-4 h-4"></i> Tin tức
+        </a>
+        <a href="#" class="flex items-center gap-3 px-4 py-3 rounded-lg text-[15px] font-semibold text-gray-800 hover:bg-brand-soft hover:text-brand transition">
+          <i data-lucide="mail" class="w-4 h-4 text-gray-400"></i> Liên hệ
+        </a>
+      </nav>
+    </div>
+    <div class="shrink-0 p-4 border-t border-gray-100 bg-gray-50/70 space-y-3">
+      <a href="tel:0933398787" class="flex items-center justify-center gap-2 w-full py-3 rounded-lg border-2 border-brand text-brand font-semibold text-sm hover:bg-brand-soft transition">
+        <i data-lucide="phone-call" class="w-4 h-4"></i> Hotline: 0933 39 87 87
+      </a>
+      <a href="#" class="flex items-center justify-center gap-2 w-full py-3 rounded-lg bg-brand hover:bg-brand-dark text-white font-bold text-sm shadow-md transition">
+        <i data-lucide="user-plus" class="w-4 h-4"></i> Đăng Ký Học Thử
+      </a>
+    </div>
+  </aside>
+
+  <!-- ==================== HERO SECTION ==================== -->
+  <section class="relative bg-gradient-to-br from-brand-deeper via-brand-dark to-brand py-12 lg:py-16 overflow-hidden">
+    <div class="absolute inset-0 opacity-[0.06] pointer-events-none" style="background-image: radial-gradient(circle, #fff 1px, transparent 1px); background-size: 24px 24px;"></div>
+    <div class="absolute -top-40 -left-40 w-96 h-96 bg-gold/15 rounded-full blur-3xl pointer-events-none"></div>
+    <div class="absolute -bottom-40 -right-40 w-96 h-96 bg-white/10 rounded-full blur-3xl pointer-events-none"></div>
+
+    <div class="relative max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <!-- Breadcrumb -->
+      <nav class="flex flex-wrap items-center gap-2 text-[12.5px] text-white/70 mb-5">
+        <a href="#" class="hover:text-gold transition-colors">Trang chủ</a>
+        <i data-lucide="chevron-right" class="w-3.5 h-3.5"></i>
+        <a href="tin-tuc.html" class="hover:text-gold transition-colors">Tin tức</a>
+        <i data-lucide="chevron-right" class="w-3.5 h-3.5"></i>
+        <span class="text-white font-medium line-clamp-1">Tuyển Sinh Tháng 11</span>
+      </nav>
+
+      <!-- Category badge -->
+      <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-md bg-white/15 backdrop-blur-md border border-white/25 mb-4">
+        <i data-lucide="megaphone" class="w-3.5 h-3.5 text-gold"></i>
+        <span class="text-[11px] font-bold text-white tracking-[0.15em] uppercase">Tin Tuyển Sinh</span>
+      </div>
+
+      <!-- H1 -->
+      <h1 class="text-2xl sm:text-3xl lg:text-[38px] font-extrabold text-white leading-[1.2] tracking-tight">
+        Tuyển Sinh Tháng 11 Tại Điểm 10+ — Ưu Đãi Học Phí Đến 25%
+      </h1>
+
+      <!-- Meta info -->
+      <div class="mt-5 flex flex-wrap items-center gap-x-5 gap-y-2 text-[13px] text-white/80">
+        <span class="inline-flex items-center gap-1.5">
+          <i data-lucide="calendar" class="w-4 h-4 text-gold"></i>
+          04/11/2026
+        </span>
+        <span class="inline-flex items-center gap-1.5">
+          <i data-lucide="user" class="w-4 h-4 text-gold"></i>
+          Ban Truyền Thông Điểm 10+
+        </span>
+        <span class="inline-flex items-center gap-1.5">
+          <i data-lucide="clock" class="w-4 h-4 text-gold"></i>
+          5 phút đọc
+        </span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== ARTICLE CONTENT ==================== -->
+  <section class="py-12 lg:py-16 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 lg:grid-cols-3 gap-10 lg:gap-12">
+
+        <!-- ==================== CỘT CHÍNH (2/3) ==================== -->
+        <article class="lg:col-span-2 min-w-0">
+
+          <!-- Featured Image -->
+          <figure class="rounded-2xl overflow-hidden shadow-xl mb-8">
+            <img src="images/tin-tuyen-sinh-01.jpg" alt="Tuyển sinh tháng 11 tại Điểm 10+" class="w-full h-auto object-cover" />
+            <figcaption class="text-[12px] text-gray-500 italic px-4 py-3 bg-gray-50 border-t border-gray-100 text-center">
+              Học sinh Điểm 10+ trong giờ học tại chi nhánh Quận 5. Ảnh: Ban Truyền Thông
+            </figcaption>
+          </figure>
+
+          <!-- Article Content -->
+          <div class="article-content">
+
+            <p>
+              <strong>TP.HCM, tháng 11/2026</strong> — Trung tâm Bồi dưỡng Văn hóa <strong>Điểm 10+</strong> chính thức khai giảng các lớp mới dành cho học sinh từ Tiểu học đến THPT trong tháng 11. Nhân dịp này, Điểm 10+ dành tặng <strong>ưu đãi học phí lên đến 25%</strong> cùng nhiều quà tặng hấp dẫn cho phụ huynh đăng ký sớm.
+            </p>
+
+            <blockquote>
+              "Chúng tôi tin rằng mỗi học sinh đều có tiềm năng riêng. Sứ mệnh của Điểm 10+ là giúp các em khai phá tiềm năng đó bằng phương pháp giảng dạy 'Hướng mục tiêu - Cá nhân hóa' — nhẹ nhàng nhưng bền vững."
+              <br /><span class="block mt-2 not-italic text-[13.5px] text-gray-600">— Đại diện Ban Giám Đốc Điểm 10+</span>
+            </blockquote>
+
+            <h2>Ưu đãi học phí tháng 11 — Những con số ấn tượng</h2>
+            <p>
+              Chương trình ưu đãi tháng 11/2026 được Điểm 10+ triển khai đồng loạt tại <strong>8 chi nhánh</strong> trên địa bàn TP.HCM, áp dụng cho tất cả học sinh đăng ký mới trong tháng:
+            </p>
+            <ul>
+              <li><strong>Giảm 25% học phí</strong> cho học sinh đăng ký trước ngày 15/11/2026.</li>
+              <li><strong>Giảm 15% học phí</strong> cho học sinh đăng ký từ 16/11 đến 30/11/2026.</li>
+              <li><strong>Tặng bộ tài liệu ôn thi độc quyền</strong> trị giá 500.000đ cho mỗi học sinh đăng ký mới.</li>
+              <li><strong>Miễn phí 2 buổi học thử</strong> trước khi quyết định đăng ký chính thức.</li>
+              <li><strong>Giảm thêm 5%</strong> khi đăng ký theo nhóm từ 3 học sinh trở lên.</li>
+            </ul>
+
+            <h2>Các khóa học khai giảng tháng 11/2026</h2>
+            <p>
+              Điểm 10+ khai giảng đa dạng các lớp học phù hợp với mọi lứa tuổi và nhu cầu học tập:
+            </p>
+
+            <h3>1. Khối Tiểu học (Lớp 1 - Lớp 5)</h3>
+            <p>
+              Lớp <strong>Tiền Tiểu học</strong> giúp các bé làm quen với chữ cái, con số và nề nếp học tập. Lớp <strong>Bồi dưỡng Toán - Tiếng Việt</strong> dành cho học sinh muốn củng cố kiến thức nền tảng và nâng cao kỹ năng.
+            </p>
+
+            <h3>2. Khối THCS (Lớp 6 - Lớp 9)</h3>
+            <p>
+              Đặc biệt chú trọng lớp <strong>Luyện thi vào lớp 10</strong> cho học sinh lớp 9, với lộ trình 3 giai đoạn: củng cố gốc → luyện chuyên đề → luyện đề thi thử. Các lớp <strong>Bồi dưỡng Toán - Lý - Hóa</strong> cho lớp 6-8 giúp học sinh theo kịp chương trình và xây dựng tư duy logic.
+            </p>
+
+            <h3>3. Khối THPT (Lớp 10 - Lớp 12)</h3>
+            <p>
+              Lớp <strong>Luyện thi THPT Quốc Gia</strong> dành cho học sinh lớp 12, cam kết đầu ra với giáo viên 1:1. Lớp <strong>Bồi dưỡng chuyên sâu</strong> cho học sinh lớp 10-11 muốn xây nền vững chắc cho kỳ thi quan trọng.
+            </p>
+
+            <h2>Vì sao chọn Điểm 10+?</h2>
+            <p>
+              Với hơn <strong>11 năm kinh nghiệm</strong> trong lĩnh vực bồi dưỡng văn hóa, Điểm 10+ tự hào là địa chỉ tin cậy của hàng nghìn phụ huynh TP.HCM. Chúng tôi cam kết:
+            </p>
+            <ul>
+              <li><strong>Phương pháp "Hướng mục tiêu - Cá nhân hóa"</strong> — mỗi học sinh có lộ trình riêng, phù hợp với trình độ và mục tiêu.</li>
+              <li><strong>Giáo viên 1:1</strong> — theo sát tiến độ từng em, phụ huynh được cập nhật hàng tuần.</li>
+              <li><strong>98% học sinh tiến bộ</strong> rõ rệt sau khóa học đầu tiên.</li>
+              <li><strong>8 chi nhánh</strong> khắp các quận, thuận tiện di chuyển.</li>
+              <li><strong>Cơ sở vật chất hiện đại</strong>, phòng học máy lạnh, sĩ số nhỏ 6-8 em/lớp.</li>
+            </ul>
+
+            <h2>Cách thức đăng ký</h2>
+            <p>
+              Quý phụ huynh có thể đăng ký theo một trong các cách sau:
+            </p>
+            <ul>
+              <li><strong>Gọi hotline:</strong> <a href="tel:0933398787">0933 39 87 87</a> — được tư vấn trực tiếp và đặt lịch học thử.</li>
+              <li><strong>Đăng ký online:</strong> Điền form trên website <a href="#">diem10cong.vn</a> — nhận xác nhận qua email trong 30 phút.</li>
+              <li><strong>Đến trực tiếp:</strong> Trụ sở chính tại 123 Nguyễn Văn Cừ, Phường 4, Quận 5, TP.HCM.</li>
+            </ul>
+
+            <blockquote>
+              Ưu đãi chỉ áp dụng cho <strong>100 học sinh đăng ký đầu tiên</strong> trong tháng 11/2026. Quý phụ huynh hãy nhanh tay đăng ký để không bỏ lỡ cơ hội!
+            </blockquote>
+
+            <p>
+              Điểm 10+ hân hạnh được đồng hành cùng quý phụ huynh và học sinh trên hành trình chinh phục tri thức.
+            </p>
+
+          </div>
+
+          <!-- ===== TAGS ===== -->
+          <div class="mt-10 pt-6 border-t border-gray-200">
+            <div class="flex flex-wrap items-center gap-2">
+              <span class="text-[12.5px] font-semibold text-gray-500 mr-1">Tags:</span>
+              <a href="#" class="inline-flex items-center gap-1 px-3 py-1.5 rounded-full bg-brand-soft text-brand hover:bg-brand hover:text-white text-[12px] font-semibold transition-colors duration-200">
+                <i data-lucide="tag" class="w-3 h-3"></i> Tuyển sinh
+              </a>
+              <a href="#" class="inline-flex items-center gap-1 px-3 py-1.5 rounded-full bg-gray-100 text-gray-700 hover:bg-gray-200 text-[12px] font-semibold transition-colors duration-200">
+                Ưu đãi học phí
+              </a>
+              <a href="#" class="inline-flex items-center gap-1 px-3 py-1.5 rounded-full bg-gray-100 text-gray-700 hover:bg-gray-200 text-[12px] font-semibold transition-colors duration-200">
+                Khai giảng
+              </a>
+              <a href="#" class="inline-flex items-center gap-1 px-3 py-1.5 rounded-full bg-gray-100 text-gray-700 hover:bg-gray-200 text-[12px] font-semibold transition-colors duration-200">
+                Tháng 11
+              </a>
+            </div>
+          </div>
+
+          <!-- ===== SHARE BUTTONS ===== -->
+          <div class="mt-6 flex flex-wrap items-center gap-2">
+            <span class="text-[12.5px] font-semibold text-gray-500 mr-1">Chia sẻ:</span>
+            <a href="#" aria-label="Facebook" class="w-9 h-9 rounded-full bg-blue-600 hover:bg-blue-700 text-white flex items-center justify-center transition-colors">
+              <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+            </a>
+            <a href="#" aria-label="Zalo" class="w-9 h-9 rounded-full bg-blue-500 hover:bg-blue-600 text-white flex items-center justify-center transition-colors">
+              <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M12 0C5.373 0 0 5.373 0 12c0 2.006.498 3.894 1.375 5.555L.043 23.957l6.557-1.314A11.94 11.94 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0z"/></svg>
+            </a>
+            <a href="#" aria-label="Copy link" class="w-9 h-9 rounded-full bg-gray-100 hover:bg-gray-200 text-gray-600 flex items-center justify-center transition-colors">
+              <i data-lucide="link-2" class="w-4 h-4"></i>
+            </a>
+          </div>
+
+          <!-- ===== AUTHOR BOX ===== -->
+          <div class="mt-10 p-6 rounded-2xl bg-gray-50 border border-gray-100 flex items-start gap-4">
+            <div class="w-14 h-14 rounded-full bg-brand-soft flex items-center justify-center shrink-0">
+              <i data-lucide="megaphone" class="w-6 h-6 text-brand"></i>
+            </div>
+            <div>
+              <p class="text-[11px] font-bold text-brand uppercase tracking-wider mb-1">Tác giả</p>
+              <p class="text-[15px] font-bold text-gray-900">Ban Truyền Thông Điểm 10+</p>
+              <p class="mt-1.5 text-[13.5px] text-gray-600 leading-relaxed">
+                Chuyên cập nhật tin tức tuyển sinh, ưu đãi học phí và hoạt động của Trung tâm Bồi dưỡng Văn hóa Điểm 10+.
+              </p>
+            </div>
+          </div>
+
+          <!-- ===== POST NAVIGATION ===== -->
+          <div class="mt-8 grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <a href="#" class="group p-4 rounded-xl border border-gray-200 hover:border-brand hover:shadow-md transition-all bg-white">
+              <p class="text-[11px] font-bold text-gray-400 uppercase tracking-wider mb-1 flex items-center gap-1">
+                <i data-lucide="arrow-left" class="w-3 h-3"></i> Bài trước
+              </p>
+              <p class="text-[14px] font-semibold text-gray-900 group-hover:text-brand transition line-clamp-2">
+                Khai Giảng Lớp Luyện Thi Vào 10 Cấp Tốc Tháng 12
+              </p>
+            </a>
+            <a href="#" class="group p-4 rounded-xl border border-gray-200 hover:border-brand hover:shadow-md transition-all bg-white sm:text-right">
+              <p class="text-[11px] font-bold text-gray-400 uppercase tracking-wider mb-1 flex items-center gap-1 sm:justify-end">
+                Bài sau <i data-lucide="arrow-right" class="w-3 h-3"></i>
+              </p>
+              <p class="text-[14px] font-semibold text-gray-900 group-hover:text-brand transition line-clamp-2">
+                Học Bổng 100% Học Phí Dành Cho Học Sinh Giỏi Năm Học 2026-2027
+              </p>
+            </a>
+          </div>
+
+        </article>
+
+        <!-- ==================== SIDEBAR (1/3) ==================== -->
+        <aside class="lg:col-span-1 space-y-6">
+
+          <!-- ===== CTA BOX ===== -->
+          <div class="bg-gradient-to-br from-brand-deeper via-brand-dark to-brand rounded-2xl shadow-xl p-6 text-white relative overflow-hidden">
+            <div class="absolute -top-8 -right-8 w-32 h-32 bg-gold/20 rounded-full blur-2xl pointer-events-none"></div>
+            <div class="relative">
+              <div class="w-12 h-12 rounded-xl bg-white/15 backdrop-blur flex items-center justify-center mb-4">
+                <i data-lucide="sparkles" class="w-6 h-6 text-gold"></i>
+              </div>
+              <h3 class="text-lg font-extrabold leading-tight">Đăng ký học thử miễn phí</h3>
+              <p class="mt-1.5 text-[13px] text-white/85 leading-relaxed">Trải nghiệm lớp học và gặp gỡ giáo viên trước khi quyết định. Hoàn toàn miễn phí, không ràng buộc.</p>
+              <a href="#" class="mt-4 inline-flex items-center justify-center gap-2 w-full px-4 py-2.5 rounded-full bg-white hover:bg-gold text-brand-deeper hover:text-white text-[13px] font-bold transition-all duration-300">
+                <i data-lucide="user-plus" class="w-4 h-4"></i>
+                Đăng Ký Ngay
+              </a>
+              <a href="tel:0933398787" class="mt-2 inline-flex items-center justify-center gap-2 w-full px-4 py-2.5 rounded-full bg-white/15 border border-white/30 hover:bg-white/25 text-white text-[13px] font-bold backdrop-blur transition-all duration-300">
+                <i data-lucide="phone-call" class="w-4 h-4"></i>
+                0933 39 87 87
+              </a>
+            </div>
+          </div>
+
+          <!-- ===== SEARCH BOX ===== -->
+          <div class="bg-white rounded-2xl border border-gray-200 shadow-sm p-5">
+            <h3 class="text-[14px] font-extrabold text-gray-900 mb-3 flex items-center gap-2">
+              <i data-lucide="search" class="w-4 h-4 text-brand"></i>
+              Tìm kiếm bài viết
+            </h3>
+            <form class="relative">
+              <input type="text" placeholder="Nhập từ khóa..."
+                class="w-full pl-4 pr-10 py-2.5 rounded-lg border border-gray-200 bg-gray-50 focus:bg-white focus:border-brand focus:ring-2 focus:ring-brand/15 outline-none text-[13.5px] transition" />
+              <button type="submit" class="absolute right-2 top-1/2 -translate-y-1/2 w-7 h-7 rounded-md bg-brand hover:bg-brand-dark text-white flex items-center justify-center transition-colors">
+                <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+              </button>
+            </form>
+          </div>
+
+          <!-- ===== DANH MỤC ===== -->
+          <div class="bg-white rounded-2xl border border-gray-200 shadow-sm p-5">
+            <h3 class="text-[14px] font-extrabold text-gray-900 mb-3 flex items-center gap-2">
+              <i data-lucide="folder-open" class="w-4 h-4 text-brand"></i>
+              Danh mục tin tức
+            </h3>
+            <ul class="space-y-1">
+              <li>
+                <a href="tin-tuc.html" class="flex items-center justify-between px-3 py-2.5 rounded-lg hover:bg-brand-soft group transition-colors">
+                  <span class="flex items-center gap-2 text-[13.5px] font-semibold text-gray-700 group-hover:text-brand">
+                    <i data-lucide="chevron-right" class="w-3.5 h-3.5 text-brand"></i>
+                    Tin tuyển sinh
+                  </span>
+                  <span class="text-[11.5px] font-bold text-gray-400 group-hover:text-brand">24</span>
+                </a>
+              </li>
+              <li>
+                <a href="tin-tuc.html" class="flex items-center justify-between px-3 py-2.5 rounded-lg hover:bg-brand-soft group transition-colors">
+                  <span class="flex items-center gap-2 text-[13.5px] font-semibold text-gray-700 group-hover:text-brand">
+                    <i data-lucide="chevron-right" class="w-3.5 h-3.5 text-brand"></i>
+                    Sự kiện
+                  </span>
+                  <span class="text-[11.5px] font-bold text-gray-400 group-hover:text-brand">18</span>
+                </a>
+              </li>
+              <li>
+                <a href="tin-tuc.html" class="flex items-center justify-between px-3 py-2.5 rounded-lg hover:bg-brand-soft group transition-colors">
+                  <span class="flex items-center gap-2 text-[13.5px] font-semibold text-gray-700 group-hover:text-brand">
+                    <i data-lucide="chevron-right" class="w-3.5 h-3.5 text-brand"></i>
+                    Kiến thức
+                  </span>
+                  <span class="text-[11.5px] font-bold text-gray-400 group-hover:text-brand">32</span>
+                </a>
+              </li>
+            </ul>
+          </div>
+
+          <!-- ===== BÀI VIẾT LIÊN QUAN ===== -->
+          <div class="bg-white rounded-2xl border border-gray-200 shadow-sm p-5">
+            <h3 class="text-[14px] font-extrabold text-gray-900 mb-4 flex items-center gap-2">
+              <i data-lucide="newspaper" class="w-4 h-4 text-brand"></i>
+              Bài viết liên quan
+            </h3>
+            <div class="space-y-4">
+
+              <a href="#" class="group flex items-start gap-3">
+                <div class="w-16 h-16 rounded-lg overflow-hidden shrink-0 bg-gray-100">
+                  <img src="images/tin-tuyen-sinh-02.jpg" alt="" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" loading="lazy" />
+                </div>
+                <div class="min-w-0 flex-1">
+                  <p class="text-[11px] font-semibold text-gray-400 uppercase tracking-wider mb-0.5">28/10/2026</p>
+                  <p class="text-[13px] font-semibold text-gray-800 group-hover:text-brand transition leading-snug line-clamp-2">
+                    Khai Giảng Lớp Luyện Thi Vào 10 Cấp Tốc Tháng 12
+                  </p>
+                </div>
+              </a>
+
+              <a href="#" class="group flex items-start gap-3">
+                <div class="w-16 h-16 rounded-lg overflow-hidden shrink-0 bg-gray-100">
+                  <img src="images/tin-tuyen-sinh-03.jpg" alt="" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" loading="lazy" />
+                </div>
+                <div class="min-w-0 flex-1">
+                  <p class="text-[11px] font-semibold text-gray-400 uppercase tracking-wider mb-0.5">18/10/2026</p>
+                  <p class="text-[13px] font-semibold text-gray-800 group-hover:text-brand transition leading-snug line-clamp-2">
+                    Học Bổng 100% Học Phí Cho Học Sinh Giỏi Năm Học 2026-2027
+                  </p>
+                </div>
+              </a>
+
+              <a href="#" class="group flex items-start gap-3">
+                <div class="w-16 h-16 rounded-lg overflow-hidden shrink-0 bg-gray-100">
+                  <img src="images/tin-tuyen-sinh-04.jpg" alt="" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" loading="lazy" />
+                </div>
+                <div class="min-w-0 flex-1">
+                  <p class="text-[11px] font-semibold text-gray-400 uppercase tracking-wider mb-0.5">10/10/2026</p>
+                  <p class="text-[13px] font-semibold text-gray-800 group-hover:text-brand transition leading-snug line-clamp-2">
+                    Lịch Khai Giảng Các Lớp Mới Tháng 11 Tại 8 Chi Nhánh
+                  </p>
+                </div>
+              </a>
+
+              <a href="#" class="group flex items-start gap-3">
+                <div class="w-16 h-16 rounded-lg overflow-hidden shrink-0 bg-gray-100">
+                  <img src="images/tin-su-kien-01.jpg" alt="" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" loading="lazy" />
+                </div>
+                <div class="min-w-0 flex-1">
+                  <p class="text-[11px] font-semibold text-gray-400 uppercase tracking-wider mb-0.5">30/09/2026</p>
+                  <p class="text-[13px] font-semibold text-gray-800 group-hover:text-brand transition leading-snug line-clamp-2">
+                    Điểm 10+ Tròn 11 Tuổi — Mừng Sinh Nhật, Ưu Đãi Hấp Dẫn
+                  </p>
+                </div>
+              </a>
+
+            </div>
+          </div>
+
+          <!-- ===== TAG CLOUD ===== -->
+          <div class="bg-white rounded-2xl border border-gray-200 shadow-sm p-5">
+            <h3 class="text-[14px] font-extrabold text-gray-900 mb-3 flex items-center gap-2">
+              <i data-lucide="tags" class="w-4 h-4 text-brand"></i>
+              Thẻ phổ biến
+            </h3>
+            <div class="flex flex-wrap gap-1.5">
+              <a href="#" class="px-2.5 py-1 rounded-md bg-gray-100 hover:bg-brand hover:text-white text-[11.5px] font-medium text-gray-700 transition-colors">Tuyển sinh</a>
+              <a href="#" class="px-2.5 py-1 rounded-md bg-gray-100 hover:bg-brand hover:text-white text-[11.5px] font-medium text-gray-700 transition-colors">Học phí</a>
+              <a href="#" class="px-2.5 py-1 rounded-md bg-gray-100 hover:bg-brand hover:text-white text-[11.5px] font-medium text-gray-700 transition-colors">Toán</a>
+              <a href="#" class="px-2.5 py-1 rounded-md bg-gray-100 hover:bg-brand hover:text-white text-[11.5px] font-medium text-gray-700 transition-colors">Lý</a>
+              <a href="#" class="px-2.5 py-1 rounded-md bg-gray-100 hover:bg-brand hover:text-white text-[11.5px] font-medium text-gray-700 transition-colors">Hóa</a>
+              <a href="#" class="px-2.5 py-1 rounded-md bg-gray-100 hover:bg-brand hover:text-white text-[11.5px] font-medium text-gray-700 transition-colors">Luyện thi</a>
+              <a href="#" class="px-2.5 py-1 rounded-md bg-gray-100 hover:bg-brand hover:text-white text-[11.5px] font-medium text-gray-700 transition-colors">Lớp 10</a>
+              <a href="#" class="px-2.5 py-1 rounded-md bg-gray-100 hover:bg-brand hover:text-white text-[11.5px] font-medium text-gray-700 transition-colors">THPT</a>
+              <a href="#" class="px-2.5 py-1 rounded-md bg-gray-100 hover:bg-brand hover:text-white text-[11.5px] font-medium text-gray-700 transition-colors">Ưu đãi</a>
+            </div>
+          </div>
+
+        </aside>
+      </div>
+
+      <!-- ==================== BÀI VIẾT LIÊN QUAN (GRID DƯỚI) ==================== -->
+      <div class="mt-16 pt-10 border-t border-gray-200">
+        <div class="flex items-end justify-between gap-4 mb-6 flex-wrap">
+          <div>
+            <p class="text-[12px] font-bold text-amber-600 uppercase tracking-[0.15em] mb-1.5">Cùng chuyên mục</p>
+            <h2 class="text-xl sm:text-2xl font-extrabold text-gray-900">Bài Viết Liên Quan</h2>
+          </div>
+          <a href="tin-tuc.html" class="group inline-flex items-center gap-1.5 text-[13px] font-bold text-brand hover:text-brand-dark transition-colors">
+            <span>Xem tất cả</span>
+            <i data-lucide="arrow-right" class="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1"></i>
+          </a>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+
+          <article class="group bg-white rounded-2xl border border-gray-200 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 overflow-hidden">
+            <div class="relative h-40 overflow-hidden">
+              <img src="images/tin-tuyen-sinh-02.jpg" alt="" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" />
+              <span class="absolute top-3 left-3 inline-flex items-center gap-1 px-2.5 py-1 rounded-md bg-brand text-white text-[10.5px] font-bold uppercase shadow-md">
+                <i data-lucide="megaphone" class="w-3 h-3"></i> Tuyển sinh
+              </span>
+            </div>
+            <div class="p-4">
+              <p class="text-[10.5px] font-semibold text-gray-400 uppercase tracking-wider mb-1">28/10/2026</p>
+              <h3 class="text-[14px] font-bold text-gray-900 leading-snug line-clamp-2 group-hover:text-brand transition">
+                Khai Giảng Lớp Luyện Thi Vào 10 Cấp Tốc Tháng 12
+              </h3>
+            </div>
+          </article>
+
+          <article class="group bg-white rounded-2xl border border-gray-200 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 overflow-hidden">
+            <div class="relative h-40 overflow-hidden">
+              <img src="images/tin-tuyen-sinh-03.jpg" alt="" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" />
+              <span class="absolute top-3 left-3 inline-flex items-center gap-1 px-2.5 py-1 rounded-md bg-gold text-white text-[10.5px] font-bold uppercase shadow-md">
+                <i data-lucide="award" class="w-3 h-3"></i> Học bổng
+              </span>
+            </div>
+            <div class="p-4">
+              <p class="text-[10.5px] font-semibold text-gray-400 uppercase tracking-wider mb-1">18/10/2026</p>
+              <h3 class="text-[14px] font-bold text-gray-900 leading-snug line-clamp-2 group-hover:text-brand transition">
+                Học Bổng 100% Học Phí Dành Cho Học Sinh Giỏi
+              </h3>
+            </div>
+          </article>
+
+          <article class="group bg-white rounded-2xl border border-gray-200 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 overflow-hidden">
+            <div class="relative h-40 overflow-hidden">
+              <img src="images/tin-su-kien-01.jpg" alt="" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" />
+              <span class="absolute top-3 left-3 inline-flex items-center gap-1 px-2.5 py-1 rounded-md bg-gold text-white text-[10.5px] font-bold uppercase shadow-md">
+                <i data-lucide="calendar-heart" class="w-3 h-3"></i> Sự kiện
+              </span>
+            </div>
+            <div class="p-4">
+              <p class="text-[10.5px] font-semibold text-gray-400 uppercase tracking-wider mb-1">30/09/2026</p>
+              <h3 class="text-[14px] font-bold text-gray-900 leading-snug line-clamp-2 group-hover:text-brand transition">
+                Điểm 10+ Tròn 11 Tuổi — Mừng Sinh Nhật
+              </h3>
+            </div>
+          </article>
+
+          <article class="group bg-white rounded-2xl border border-gray-200 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 overflow-hidden">
+            <div class="relative h-40 overflow-hidden">
+              <img src="images/tin-kien-thuc-01.jpg" alt="" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" />
+              <span class="absolute top-3 left-3 inline-flex items-center gap-1 px-2.5 py-1 rounded-md bg-brand-dark text-white text-[10.5px] font-bold uppercase shadow-md">
+                <i data-lucide="lightbulb" class="w-3 h-3"></i> Kiến thức
+              </span>
+            </div>
+            <div class="p-4">
+              <p class="text-[10.5px] font-semibold text-gray-400 uppercase tracking-wider mb-1">20/10/2026</p>
+              <h3 class="text-[14px] font-bold text-gray-900 leading-snug line-clamp-2 group-hover:text-brand transition">
+                5 Phương Pháp Học Toán Hiệu Quả Cho Học Sinh Cấp 2
+              </h3>
+            </div>
+          </article>
+
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ==================== FOOTER ==================== -->
+  <footer class="relative bg-gradient-to-br from-[#0B2447] via-[#0F2D5C] to-[#0B2447] text-white mt-4 lg:mt-8">
+    <!-- <div class="absolute -top-8 left-0 w-32 h-16 lg:w-48 lg:h-20 bg-white rounded-br-[100%] pointer-events-none"></div> -->
+    <div class="absolute -top-32 right-0 w-[28rem] h-[28rem] bg-brand/15 rounded-full blur-3xl pointer-events-none"></div>
+    <div class="absolute bottom-0 -left-32 w-96 h-96 bg-gold/10 rounded-full blur-3xl pointer-events-none"></div>
+
+    <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-12 lg:pt-16">
+
+      <div class="grid grid-cols-1 md:grid-cols-3 items-center gap-8 pb-10 border-b border-white/10">
+        <div class="flex items-center justify-center md:justify-start gap-2.5">
+          <a href="#" aria-label="Facebook" class="w-10 h-10 rounded-lg bg-white/10 hover:bg-white border border-white/15 hover:border-white flex items-center justify-center text-white hover:text-[#0B2447] transition-all duration-300 hover:-translate-y-0.5">
+            <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+          </a>
+          <a href="#" aria-label="Instagram" class="w-10 h-10 rounded-lg bg-white/10 hover:bg-white border border-white/15 hover:border-white flex items-center justify-center text-white hover:text-[#0B2447] transition-all duration-300 hover:-translate-y-0.5">
+            <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+          </a>
+          <a href="#" aria-label="YouTube" class="w-10 h-10 rounded-lg bg-white/10 hover:bg-white border border-white/15 hover:border-white flex items-center justify-center text-white hover:text-[#0B2447] transition-all duration-300 hover:-translate-y-0.5">
+            <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+          </a>
+          <a href="#" aria-label="Zalo" class="w-10 h-10 rounded-lg bg-white/10 hover:bg-white border border-white/15 hover:border-white flex items-center justify-center text-white hover:text-[#0B2447] transition-all duration-300 hover:-translate-y-0.5">
+            <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M12 0C5.373 0 0 5.373 0 12c0 2.006.498 3.894 1.375 5.555L.043 23.957l6.557-1.314A11.94 11.94 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm5.977 16.851c-.238.666-1.393 1.275-1.917 1.32-.524.045-1.016.245-3.415-.706-2.884-1.152-4.71-4.13-4.855-4.32-.144-.19-1.157-1.539-1.157-2.936 0-1.397.733-2.084 1.005-2.371.272-.286.594-.358.793-.358.198 0 .397.002.571.011.183.008.428-.07.667.513.245.595.831 2.03.905 2.178.073.148.122.32.024.516-.099.196-.148.318-.297.49-.148.173-.31.386-.443.519-.148.147-.303.307-.13.601.173.294.771 1.271 1.656 2.059 1.137 1.012 2.094 1.325 2.389 1.475.295.148.469.124.642-.074.173-.198.741-.865.94-1.162.198-.297.397-.247.667-.148.272.099 1.717.81 2.012.957.295.148.492.222.566.346.074.123.074.716-.164 1.382z"/></svg>
+          </a>
+        </div>
+
+        <div class="flex justify-center">
+          <a href="#" class="flex flex-col items-center gap-2 group">
+            <div class="w-16 h-16 lg:w-20 lg:h-20 rounded-full bg-white flex items-center justify-center shadow-2xl ring-4 ring-white/20 group-hover:scale-105 transition-transform duration-300 overflow-hidden p-1.5">
+              <img src="logo.png" alt="Logo Trung Tâm Điểm 10+" class="w-full h-full object-contain" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';" />
+              <svg xmlns="http://www.w3.org/2000/svg" class="w-10 h-10 text-brand hidden" style="display:none" viewBox="0 0 24 24" fill="currentColor"><path d="M5 16L3 5l5.5 5L12 4l3.5 6L21 5l-2 11H5zm14 3c0 .6-.4 1-1 1H6c-.6 0-1-.4-1-1v-1h14v1z"/></svg>
+            </div>
+            <div class="text-center leading-tight">
+              <p class="text-[13px] font-extrabold tracking-wide text-white">TRUNG TÂM ĐIỂM 10+</p>
+              <p class="text-[10.5px] text-white/60 mt-0.5">Vững kiến thức, chắc tư duy</p>
+            </div>
+          </a>
+        </div>
+
+        <div class="flex flex-col items-center md:items-end gap-2.5">
+          <p class="text-[12px] font-bold tracking-[0.15em] text-white/80 uppercase">Đăng ký nhận tin</p>
+          <form id="newsletterForm" class="w-full max-w-xs">
+            <div class="relative flex items-center bg-white/10 backdrop-blur-md border border-white/20 rounded-lg overflow-hidden focus-within:border-gold transition-colors">
+              <i data-lucide="mail" class="absolute left-3 w-4 h-4 text-white/60 pointer-events-none"></i>
+              <input type="email" required placeholder="Email của bạn..." class="flex-1 bg-transparent pl-10 pr-2 py-2.5 text-white placeholder-white/50 text-sm outline-none" />
+              <button type="submit" class="m-1 px-4 py-1.5 rounded-md bg-white hover:bg-gold text-[#0B2447] hover:text-white text-[12.5px] font-bold uppercase tracking-wide transition-colors duration-200">Gửi</button>
+            </div>
+          </form>
+        </div>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 lg:gap-8 py-12 lg:py-14">
+        <div>
+          <h3 class="text-[15px] font-bold text-white leading-snug mb-1">Trung Tâm Bồi Dưỡng Văn Hóa Điểm 10+</h3>
+          <p class="text-[12px] font-medium text-gold uppercase tracking-wider mb-4">Vững kiến thức, chắc tư duy</p>
+          <p class="text-[13.5px] text-white/75 leading-relaxed">Với hơn <span class="text-white font-semibold">11 năm kinh nghiệm</span>, Điểm 10+ là địa chỉ tin cậy chuyên bồi dưỡng văn hóa các môn <span class="text-white font-semibold">Toán - Lý - Hóa</span> cho học sinh Tiểu học, THCS và THPT tại TP.HCM.</p>
+        </div>
+        <div>
+          <h3 class="text-[15px] font-bold text-white mb-5 inline-flex items-center gap-2"><span class="w-6 h-0.5 bg-gold rounded-full"></span>Thông tin liên hệ</h3>
+          <ul class="space-y-4">
+            <li class="flex items-start gap-3"><div class="w-9 h-9 rounded-lg bg-white/10 border border-white/15 flex items-center justify-center shrink-0"><i data-lucide="map-pin" class="w-4 h-4 text-white"></i></div><div class="pt-1"><p class="text-[11px] font-bold text-white/50 uppercase tracking-wider mb-0.5">Trụ sở chính</p><p class="text-[13.5px] text-white/85 leading-relaxed">123 Nguyễn Văn Cừ, Phường 4, Quận 5, TP.HCM</p></div></li>
+            <li class="flex items-start gap-3"><div class="w-9 h-9 rounded-lg bg-white/10 border border-white/15 flex items-center justify-center shrink-0"><i data-lucide="phone" class="w-4 h-4 text-white"></i></div><div class="pt-1"><p class="text-[11px] font-bold text-white/50 uppercase tracking-wider mb-0.5">Hotline</p><a href="tel:0933398787" class="text-[13.5px] font-semibold text-white hover:text-gold transition-colors">0933 39 87 87</a></div></li>
+            <li class="flex items-start gap-3"><div class="w-9 h-9 rounded-lg bg-white/10 border border-white/15 flex items-center justify-center shrink-0"><i data-lucide="mail" class="w-4 h-4 text-white"></i></div><div class="pt-1"><p class="text-[11px] font-bold text-white/50 uppercase tracking-wider mb-0.5">Email</p><a href="mailto:tvkh.diem10cong@gmail.com" class="text-[13.5px] text-white/85 hover:text-gold transition-colors break-all">tvkh.diem10cong@gmail.com</a></div></li>
+          </ul>
+        </div>
+        <div>
+          <h3 class="text-[15px] font-bold text-white mb-5 inline-flex items-center gap-2"><span class="w-6 h-0.5 bg-gold rounded-full"></span>Liên kết nhanh</h3>
+          <ul class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-1 gap-x-6 gap-y-2.5">
+            <li><a href="#" class="group inline-flex items-center gap-2 text-[13.5px] text-white/75 hover:text-white transition-colors"><i data-lucide="chevron-right" class="w-3.5 h-3.5 text-brand group-hover:text-gold transition-colors"></i><span>Giới thiệu</span></a></li>
+            <li><a href="#" class="group inline-flex items-center gap-2 text-[13.5px] text-white/75 hover:text-white transition-colors"><i data-lucide="chevron-right" class="w-3.5 h-3.5 text-brand group-hover:text-gold transition-colors"></i><span>Hệ thống cơ sở</span></a></li>
+            <li><a href="#" class="group inline-flex items-center gap-2 text-[13.5px] text-white/75 hover:text-white transition-colors"><i data-lucide="chevron-right" class="w-3.5 h-3.5 text-brand group-hover:text-gold transition-colors"></i><span>Các khóa học</span></a></li>
+            <li><a href="#" class="group inline-flex items-center gap-2 text-[13.5px] text-white/75 hover:text-white transition-colors"><i data-lucide="chevron-right" class="w-3.5 h-3.5 text-brand group-hover:text-gold transition-colors"></i><span>Thư viện tài liệu</span></a></li>
+            <li><a href="#" class="group inline-flex items-center gap-2 text-[13.5px] text-white/75 hover:text-white transition-colors"><i data-lucide="chevron-right" class="w-3.5 h-3.5 text-brand group-hover:text-gold transition-colors"></i><span>Tin tức &amp; Sự kiện</span></a></li>
+            <li><a href="#" class="group inline-flex items-center gap-2 text-[13.5px] text-white/75 hover:text-white transition-colors"><i data-lucide="chevron-right" class="w-3.5 h-3.5 text-brand group-hover:text-gold transition-colors"></i><span>Liên hệ</span></a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="border-t border-white/10 py-6 flex flex-col sm:flex-row items-center justify-between gap-3 text-center sm:text-left">
+        <p class="text-[12.5px] text-white/60">© <span id="footerYear">2026</span> Trung Tâm Bồi Dưỡng Văn Hóa Điểm 10+. <span class="hidden sm:inline">Bảo lưu mọi quyền.</span></p>
+        <div class="flex items-center gap-1 text-[12.5px]">
+          <a href="#" class="text-white/60 hover:text-gold transition-colors">Điều khoản dịch vụ</a>
+          <span class="text-white/25">·</span>
+          <a href="#" class="text-white/60 hover:text-gold transition-colors">Chính sách bảo mật</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ==================== BACK TO TOP ==================== -->
+  <button id="backToTop" aria-label="Lên đầu trang"
+    class="fixed bottom-6 right-6 z-40 w-11 h-11 rounded-full bg-brand hover:bg-brand-dark text-white shadow-lg hover:shadow-xl flex items-center justify-center transition-all duration-300 opacity-0 pointer-events-none translate-y-2">
+    <i data-lucide="arrow-up" class="w-5 h-5"></i>
+  </button>
+
+  <!-- ==================== SCRIPT ==================== -->
+  <script>
+    lucide.createIcons();
+
+    // Sticky header shadow
+    const header = document.getElementById('mainHeader');
+    const backToTop = document.getElementById('backToTop');
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 10) header.classList.add('shadow-md');
+      else header.classList.remove('shadow-md');
+
+      if (window.scrollY > 400) {
+        backToTop.classList.remove('opacity-0', 'pointer-events-none', 'translate-y-2');
+      } else {
+        backToTop.classList.add('opacity-0', 'pointer-events-none', 'translate-y-2');
+      }
+    });
+    backToTop.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+
+    // Mobile drawer
+    const drawer = document.getElementById('mobileDrawer');
+    const backdrop = document.getElementById('drawerBackdrop');
+    const hamburger = document.getElementById('hamburgerBtn');
+    const closeBtn = document.getElementById('closeDrawerBtn');
+    function openDrawer() {
+      drawer.classList.add('open');
+      backdrop.classList.remove('opacity-0', 'pointer-events-none');
+      hamburger.classList.add('active');
+      document.body.style.overflow = 'hidden';
+    }
+    function closeDrawer() {
+      drawer.classList.remove('open');
+      backdrop.classList.add('opacity-0', 'pointer-events-none');
+      hamburger.classList.remove('active');
+      document.body.style.overflow = '';
+    }
+    hamburger.addEventListener('click', () => drawer.classList.contains('open') ? closeDrawer() : openDrawer());
+    closeBtn.addEventListener('click', closeDrawer);
+    backdrop.addEventListener('click', closeDrawer);
+    document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeDrawer(); });
+
+    // Mobile submenu
+    const submenuBtn = document.getElementById('mobileSubmenuBtn');
+    const submenu = document.getElementById('mobileSubmenu');
+    const submenuIcon = document.getElementById('mobileSubmenuIcon');
+    submenuBtn.addEventListener('click', () => {
+      submenu.classList.toggle('open');
+      submenuIcon.classList.toggle('rotate-180');
+    });
+
+    // Newsletter
+    document.getElementById('newsletterForm')?.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const btn = e.target.querySelector('button[type="submit"]');
+      const original = btn.textContent;
+      btn.textContent = 'Đã gửi ✓';
+      btn.classList.add('bg-emerald-500', 'text-white');
+      setTimeout(() => {
+        btn.textContent = original;
+        btn.classList.remove('bg-emerald-500', 'text-white');
+        e.target.reset();
+      }, 2000);
+    });
+
+    // Copy link
+    document.querySelector('[aria-label="Copy link"]')?.addEventListener('click', (e) => {
+      e.preventDefault();
+      navigator.clipboard.writeText(window.location.href);
+      const btn = e.currentTarget;
+      const original = btn.innerHTML;
+      btn.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"></polyline></svg>';
+      setTimeout(() => {
+        btn.innerHTML = original;
+        lucide.createIcons();
+      }, 1500);
+    });
+
+    // Footer year
+    document.getElementById('footerYear').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>

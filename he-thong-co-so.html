@@ -1,0 +1,888 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Hệ Thống Cơ Sở | Trung Tâm Điểm 10+</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: { sans: ['Inter', 'sans-serif'] },
+          colors: {
+            brand: { DEFAULT: '#DC2626', dark: '#B91C1C', deeper: '#990000', soft: '#FEE2E2', border: '#FCA5A5' },
+            gold: '#F59E0B',
+          },
+        }
+      }
+    }
+  </script>
+  <style>
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Inter', sans-serif; }
+    .nav-link { position: relative; transition: color .2s ease, background-color .2s ease; }
+    .nav-link:hover { color: #DC2626; background-color: #FEE2E2; }
+    .dropdown-panel { opacity: 0; visibility: hidden; transform: translateY(10px); transition: opacity .25s ease, transform .25s ease, visibility .25s; }
+    .group:hover .dropdown-panel { opacity: 1; visibility: visible; transform: translateY(0); }
+    .hamburger-line { transition: transform .3s ease, opacity .3s ease; }
+    .hamburger.active .line-1 { transform: translateY(7px) rotate(45deg); }
+    .hamburger.active .line-2 { opacity: 0; }
+    .hamburger.active .line-3 { transform: translateY(-7px) rotate(-45deg); }
+    .drawer { transition: transform .35s cubic-bezier(.4,0,.2,1); transform: translateX(100%); }
+    .drawer.open { transform: translateX(0); }
+    .backdrop { transition: opacity .3s ease; }
+    .mobile-submenu { max-height: 0; overflow: hidden; transition: max-height .35s ease; }
+    .mobile-submenu.open { max-height: 400px; }
+    .branch-card-hidden { display: none !important; }
+
+    /* Branch card active state */
+    .branch-card.active {
+      border-color: #DC2626;
+      box-shadow: 0 10px 30px -5px rgba(220, 38, 38, 0.25);
+    }
+    .branch-card.active .branch-name { color: #DC2626; }
+    .branch-card.active .branch-icon { background-color: #DC2626; color: white; }
+  </style>
+</head>
+<body class="bg-white text-gray-800 antialiased">
+
+  <!-- ==================== STICKY HEADER (2 TẦNG) ==================== -->
+  <header id="mainHeader" class="sticky top-0 z-50 bg-white transition-shadow duration-300">
+    <!-- TẦNG 1: TOP BAR -->
+    <div class="bg-brand-dark text-white">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex items-center justify-between h-9 text-[12.5px] font-medium gap-4">
+          <div class="flex items-center gap-2 min-w-0">
+            <i data-lucide="megaphone" class="w-3.5 h-3.5 text-gold shrink-0"></i>
+            <p class="truncate">
+              <span class="hidden sm:inline">Khai giảng lớp mới &amp; Ưu đãi học phí đến </span>
+              <span class="font-bold text-gold">25%</span>
+              <span class="hidden sm:inline"> tháng này</span>
+              <span class="hidden md:inline"> — Đăng ký học thử miễn phí ngay!</span>
+            </p>
+          </div>
+          <div class="flex items-center gap-4 shrink-0">
+            <a href="mailto:tvkh.diem10cong@gmail.com" class="hidden lg:flex items-center gap-1.5 hover:text-gold transition-colors">
+              <i data-lucide="mail" class="w-3.5 h-3.5"></i>
+              <span>tvkh.diem10cong@gmail.com</span>
+            </a>
+            <a href="tel:0933398787" class="hidden sm:flex items-center gap-1.5 hover:text-gold transition-colors">
+              <i data-lucide="phone" class="w-3.5 h-3.5"></i>
+              <span class="font-semibold">0933 39 87 87</span>
+            </a>
+            <span class="hidden sm:block w-px h-4 bg-white/25"></span>
+            <div class="flex items-center gap-2.5">
+              <a href="#" aria-label="Facebook" class="hover:text-gold transition-colors hover:scale-110 transform duration-200">
+                <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+              </a>
+              <a href="#" aria-label="TikTok" class="hover:text-gold transition-colors hover:scale-110 transform duration-200">
+                <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5 20.1a6.34 6.34 0 0 0 10.86-4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1-.1z"/></svg>
+              </a>
+              <a href="#" aria-label="Zalo" class="hover:text-gold transition-colors hover:scale-110 transform duration-200">
+                <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M12 0C5.373 0 0 5.373 0 12c0 2.006.498 3.894 1.375 5.555L.043 23.957l6.557-1.314A11.94 11.94 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm5.977 16.851c-.238.666-1.393 1.275-1.917 1.32-.524.045-1.016.245-3.415-.706-2.884-1.152-4.71-4.13-4.855-4.32-.144-.19-1.157-1.539-1.157-2.936 0-1.397.733-2.084 1.005-2.371.272-.286.594-.358.793-.358.198 0 .397.002.571.011.183.008.428-.07.667.513.245.595.831 2.03.905 2.178.073.148.122.32.024.516-.099.196-.148.318-.297.49-.148.173-.31.386-.443.519-.148.147-.303.307-.13.601.173.294.771 1.271 1.656 2.059 1.137 1.012 2.094 1.325 2.389 1.475.295.148.469.124.642-.074.173-.198.741-.865.94-1.162.198-.297.397-.247.667-.148.272.099 1.717.81 2.012.957.295.148.492.222.566.346.074.123.074.716-.164 1.382z"/></svg>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- TẦNG 2: MAIN NAV -->
+    <div class="border-b border-gray-200">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex items-center justify-between h-[78px] lg:h-[86px]">
+          <a href="index.html" class="flex items-center gap-3 shrink-0 group">
+            <div class="relative w-16 h-16 lg:w-[72px] lg:h-[72px] flex items-center justify-center group-hover:scale-105 transition-transform duration-300">
+              <img src="logo.png" alt="Logo Trung Tâm Điểm 10+" class="w-full h-full object-contain drop-shadow-sm" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';" />
+              <svg xmlns="http://www.w3.org/2000/svg" class="w-12 h-12 text-brand hidden" style="display:none" viewBox="0 0 24 24" fill="currentColor"><path d="M5 16L3 5l5.5 5L12 4l3.5 6L21 5l-2 11H5zm14 3c0 .6-.4 1-1 1H6c-.6 0-1-.4-1-1v-1h14v1z"/></svg>
+            </div>
+            <div class="leading-tight">
+              <div class="text-[16px] sm:text-[17px] lg:text-[18px] font-extrabold tracking-tight text-brand-deeper">TRUNG TÂM ĐIỂM 10+</div>
+              <p class="text-[11px] sm:text-[12px] font-medium text-gray-700 mt-0.5">Vững kiến thức, chắc tư duy</p>
+            </div>
+          </a>
+          <nav class="hidden lg:flex items-center gap-1">
+            <a href="#" class="nav-link px-3.5 py-2 rounded-md text-[14.5px] font-semibold text-gray-800">Giới thiệu</a>
+            <div class="group relative">
+              <a href="#" class="nav-link px-3.5 py-2 rounded-md text-[14.5px] font-semibold text-gray-800 inline-flex items-center gap-1">
+                Các khóa học <i data-lucide="chevron-down" class="w-4 h-4 transition-transform duration-300 group-hover:rotate-180"></i>
+              </a>
+              <div class="dropdown-panel absolute top-full left-1/2 -translate-x-1/2 pt-3 w-[560px]">
+                <div class="bg-white rounded-xl shadow-xl border-t-[3px] border-brand-dark overflow-hidden">
+                  <div class="p-2 grid grid-cols-2 gap-1">
+                    <a href="#" class="flex items-start gap-3 p-3 rounded-lg hover:bg-brand-soft transition-colors group/item">
+                      <div class="w-9 h-9 rounded-lg bg-blue-50 flex items-center justify-center shrink-0"><i data-lucide="pencil" class="w-4 h-4 text-blue-500"></i></div>
+                      <div><p class="text-sm font-semibold text-gray-800 group-hover/item:text-brand transition">Tiểu học</p><p class="text-xs text-gray-500 mt-0.5">Lớp 1 - Lớp 5</p></div>
+                    </a>
+                    <a href="#" class="flex items-start gap-3 p-3 rounded-lg hover:bg-brand-soft transition-colors group/item">
+                      <div class="w-9 h-9 rounded-lg bg-emerald-50 flex items-center justify-center shrink-0"><i data-lucide="book-open" class="w-4 h-4 text-emerald-500"></i></div>
+                      <div><p class="text-sm font-semibold text-gray-800 group-hover/item:text-brand transition">Cấp 2</p><p class="text-xs text-gray-500 mt-0.5">Lớp 6 - Lớp 9</p></div>
+                    </a>
+                    <a href="#" class="flex items-start gap-3 p-3 rounded-lg hover:bg-brand-soft transition-colors group/item">
+                      <div class="w-9 h-9 rounded-lg bg-purple-50 flex items-center justify-center shrink-0"><i data-lucide="graduation-cap" class="w-4 h-4 text-purple-500"></i></div>
+                      <div><p class="text-sm font-semibold text-gray-800 group-hover/item:text-brand transition">Cấp 3</p><p class="text-xs text-gray-500 mt-0.5">Lớp 10 - Lớp 12</p></div>
+                    </a>
+                    <a href="#" class="flex items-start gap-3 p-3 rounded-lg hover:bg-brand-soft transition-colors group/item">
+                      <div class="w-9 h-9 rounded-lg bg-brand-soft flex items-center justify-center shrink-0"><i data-lucide="award" class="w-4 h-4 text-brand"></i></div>
+                      <div><p class="text-sm font-semibold text-gray-800 group-hover/item:text-brand transition">Luyện thi chuyên / ĐH</p><p class="text-xs text-gray-500 mt-0.5">Chinh phục điểm cao</p></div>
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <a href="he-thong-co-so.html" class="nav-link px-3.5 py-2 rounded-md text-[14.5px] font-semibold text-brand">Hệ thống cơ sở</a>
+            <a href="tai-lieu.html" class="nav-link px-3.5 py-2 rounded-md text-[14.5px] font-semibold text-gray-800">Tài liệu</a>
+            <a href="tin-tuc.html" class="nav-link px-3.5 py-2 rounded-md text-[14.5px] font-semibold text-gray-800">Tin tức</a>
+            <a href="lien-he.html" class="nav-link px-3.5 py-2 rounded-md text-[14.5px] font-semibold text-gray-800">Liên hệ</a>
+          </nav>
+          <div class="flex items-center gap-2.5">
+            <a href="#" class="hidden md:inline-flex items-center gap-2 px-5 py-2.5 rounded-lg bg-brand hover:bg-brand-dark text-white text-[14px] font-bold shadow-sm hover:shadow-md transition-all duration-300 hover:scale-105">
+              <i data-lucide="user-plus" class="w-4 h-4"></i>
+              <span>Đăng Ký Học Thử</span>
+            </a>
+            <a href="tel:0933398787" class="md:hidden inline-flex items-center justify-center w-10 h-10 rounded-lg bg-brand-soft text-brand">
+              <i data-lucide="phone" class="w-5 h-5"></i>
+            </a>
+            <button id="hamburgerBtn" aria-label="Mở menu" class="hamburger lg:hidden flex flex-col justify-center items-center w-10 h-10 rounded-lg hover:bg-gray-100 transition">
+              <span class="hamburger-line line-1 block w-6 h-[2px] bg-gray-800 rounded mb-[5px]"></span>
+              <span class="hamburger-line line-2 block w-6 h-[2px] bg-gray-800 rounded mb-[5px]"></span>
+              <span class="hamburger-line line-3 block w-6 h-[2px] bg-gray-800 rounded"></span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- ==================== MOBILE DRAWER ==================== -->
+  <div id="drawerBackdrop" class="backdrop fixed inset-0 bg-black/50 z-[60] opacity-0 pointer-events-none lg:hidden"></div>
+  <aside id="mobileDrawer" class="drawer fixed top-0 right-0 h-full w-[85%] max-w-sm bg-white z-[70] shadow-2xl lg:hidden flex flex-col">
+    <div class="shrink-0 bg-brand-dark text-white px-4 py-3">
+      <div class="flex items-center justify-between">
+        <div class="flex items-center gap-2 text-[12px] font-medium">
+          <i data-lucide="phone" class="w-3.5 h-3.5 text-gold"></i>
+          <a href="tel:0933398787" class="hover:text-gold transition">0933 39 87 87</a>
+        </div>
+        <button id="closeDrawerBtn" aria-label="Đóng menu" class="w-8 h-8 rounded-lg hover:bg-white/15 flex items-center justify-center transition">
+          <i data-lucide="x" class="w-5 h-5"></i>
+        </button>
+      </div>
+    </div>
+    <div class="px-5 py-4 border-b border-gray-100 shrink-0">
+      <div class="flex items-center gap-3">
+        <div class="w-14 h-14 flex items-center justify-center shrink-0">
+          <img src="logo.png" alt="Logo" class="w-full h-full object-contain" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';" />
+          <svg xmlns="http://www.w3.org/2000/svg" class="w-10 h-10 text-brand hidden" style="display:none" viewBox="0 0 24 24" fill="currentColor"><path d="M5 16L3 5l5.5 5L12 4l3.5 6L21 5l-2 11H5zm14 3c0 .6-.4 1-1 1H6c-.6 0-1-.4-1-1v-1h14v1z"/></svg>
+        </div>
+        <div class="leading-tight">
+          <p class="text-[15px] font-extrabold text-brand-deeper">TRUNG TÂM ĐIỂM 10+</p>
+          <p class="text-[11px] font-medium text-gray-600 mt-0.5">Vững kiến thức, chắc tư duy</p>
+        </div>
+      </div>
+    </div>
+    <div class="flex-1 overflow-y-auto py-4 px-3">
+      <nav class="flex flex-col gap-1">
+        <a href="#" class="flex items-center gap-3 px-4 py-3 rounded-lg text-[15px] font-semibold text-gray-800 hover:bg-brand-soft hover:text-brand transition">
+          <i data-lucide="info" class="w-4 h-4 text-gray-400"></i> Giới thiệu
+        </a>
+        <div>
+          <button id="mobileSubmenuBtn" class="w-full flex items-center justify-between gap-3 px-4 py-3 rounded-lg text-[15px] font-semibold text-gray-800 hover:bg-brand-soft hover:text-brand transition">
+            <span class="flex items-center gap-3"><i data-lucide="book-open" class="w-4 h-4 text-gray-400"></i> Các khóa học</span>
+            <i data-lucide="chevron-down" id="mobileSubmenuIcon" class="w-4 h-4 transition-transform duration-300"></i>
+          </button>
+          <div id="mobileSubmenu" class="mobile-submenu pl-6">
+            <a href="#" class="block px-4 py-2.5 text-sm text-gray-600 hover:text-brand hover:bg-brand-soft rounded-lg transition">Tiểu học (Lớp 1 - 5)</a>
+            <a href="#" class="block px-4 py-2.5 text-sm text-gray-600 hover:text-brand hover:bg-brand-soft rounded-lg transition">Cấp 2 (Lớp 6 - 9)</a>
+            <a href="#" class="block px-4 py-2.5 text-sm text-gray-600 hover:text-brand hover:bg-brand-soft rounded-lg transition">Cấp 3 (Lớp 10 - 12)</a>
+            <a href="#" class="block px-4 py-2.5 text-sm text-gray-600 hover:text-brand hover:bg-brand-soft rounded-lg transition">Luyện thi chuyên / ĐH</a>
+          </div>
+        </div>
+        <a href="#" class="flex items-center gap-3 px-4 py-3 rounded-lg text-[15px] font-semibold text-brand bg-brand-soft transition">
+          <i data-lucide="map-pin" class="w-4 h-4"></i> Hệ thống cơ sở
+        </a>
+        <a href="#" class="flex items-center gap-3 px-4 py-3 rounded-lg text-[15px] font-semibold text-gray-800 hover:bg-brand-soft hover:text-brand transition">
+          <i data-lucide="file-text" class="w-4 h-4 text-gray-400"></i> Tài liệu
+        </a>
+        <a href="#" class="flex items-center gap-3 px-4 py-3 rounded-lg text-[15px] font-semibold text-gray-800 hover:bg-brand-soft hover:text-brand transition">
+          <i data-lucide="newspaper" class="w-4 h-4 text-gray-400"></i> Tin tức
+        </a>
+        <a href="#" class="flex items-center gap-3 px-4 py-3 rounded-lg text-[15px] font-semibold text-gray-800 hover:bg-brand-soft hover:text-brand transition">
+          <i data-lucide="mail" class="w-4 h-4 text-gray-400"></i> Liên hệ
+        </a>
+      </nav>
+    </div>
+    <div class="shrink-0 p-4 border-t border-gray-100 bg-gray-50/70 space-y-3">
+      <a href="tel:0933398787" class="flex items-center justify-center gap-2 w-full py-3 rounded-lg border-2 border-brand text-brand font-semibold text-sm hover:bg-brand-soft transition">
+        <i data-lucide="phone-call" class="w-4 h-4"></i> Hotline: 0933 39 87 87
+      </a>
+      <a href="#" class="flex items-center justify-center gap-2 w-full py-3 rounded-lg bg-brand hover:bg-brand-dark text-white font-bold text-sm shadow-md transition">
+        <i data-lucide="user-plus" class="w-4 h-4"></i> Đăng Ký Học Thử
+      </a>
+    </div>
+  </aside>
+
+  <!-- ==================== HERO SECTION ==================== -->
+  <section class="relative bg-gradient-to-br from-brand-deeper via-brand-dark to-brand py-14 lg:py-20 overflow-hidden">
+    <div class="absolute inset-0 opacity-[0.06] pointer-events-none" style="background-image: radial-gradient(circle, #fff 1px, transparent 1px); background-size: 24px 24px;"></div>
+    <div class="absolute -top-40 -left-40 w-96 h-96 bg-gold/15 rounded-full blur-3xl pointer-events-none"></div>
+    <div class="absolute -bottom-40 -right-40 w-96 h-96 bg-white/10 rounded-full blur-3xl pointer-events-none"></div>
+
+    <!-- Icon bản đồ trang trí -->
+    <svg class="absolute top-1/2 -translate-y-1/2 right-4 lg:right-16 w-48 lg:w-72 h-48 lg:h-72 text-white/8 pointer-events-none" viewBox="0 0 24 24" fill="currentColor">
+      <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
+    </svg>
+
+    <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="max-w-3xl">
+        <nav class="flex items-center gap-2 text-[12.5px] text-white/70 mb-4">
+          <a href="#" class="hover:text-gold transition-colors">Trang chủ</a>
+          <i data-lucide="chevron-right" class="w-3.5 h-3.5"></i>
+          <span class="text-white font-medium">Hệ thống cơ sở</span>
+        </nav>
+
+        <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/15 backdrop-blur-md border border-white/25 mb-5">
+          <i data-lucide="map-pinned" class="w-3.5 h-3.5 text-gold"></i>
+          <span class="text-[11.5px] font-bold text-white tracking-[0.15em] uppercase">8 Chi nhánh tại TP.HCM</span>
+        </div>
+
+        <h1 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white leading-[1.1] tracking-tight">
+          Hệ Thống <span class="text-gold">Cơ Sở</span>
+        </h1>
+
+        <p class="mt-4 text-[14.5px] sm:text-base text-white/85 leading-relaxed max-w-xl">
+          Với <span class="font-semibold text-white">8 chi nhánh</span> trải rộng khắp các quận tại TP.HCM, Điểm 10+ luôn có một cơ sở gần bạn — thuận tiện di chuyển, cơ sở vật chất hiện đại, sẵn sàng đồng hành cùng học sinh.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== STATS BAR ==================== -->
+  <section class="relative -mt-8 z-10">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-3">
+        <div class="bg-white rounded-xl p-4 shadow-lg border border-gray-100 text-center">
+          <p class="text-2xl sm:text-3xl font-extrabold text-brand-deeper leading-none">8</p>
+          <p class="text-[12px] sm:text-[13px] text-gray-500 mt-1 font-medium">Chi nhánh</p>
+        </div>
+        <div class="bg-white rounded-xl p-4 shadow-lg border border-gray-100 text-center">
+          <p class="text-2xl sm:text-3xl font-extrabold text-brand-deeper leading-none">5<span class="text-gold">+</span></p>
+          <p class="text-[12px] sm:text-[13px] text-gray-500 mt-1 font-medium">Quận phủ sóng</p>
+        </div>
+        <div class="bg-white rounded-xl p-4 shadow-lg border border-gray-100 text-center">
+          <p class="text-2xl sm:text-3xl font-extrabold text-brand-deeper leading-none">100<span class="text-gold">%</span></p>
+          <p class="text-[12px] sm:text-[13px] text-gray-500 mt-1 font-medium">Máy lạnh &amp; sạch sẽ</p>
+        </div>
+        <div class="bg-white rounded-xl p-4 shadow-lg border border-gray-100 text-center">
+          <p class="text-2xl sm:text-3xl font-extrabold text-brand-deeper leading-none">6-8</p>
+          <p class="text-[12px] sm:text-[13px] text-gray-500 mt-1 font-medium">HS / lớp</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== MAIN CONTENT ==================== -->
+  <section class="py-12 lg:py-16 bg-gray-50/50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10">
+
+        <!-- ==================== CỘT TRÁI: DANH SÁCH CHI NHÁNH (5/12) ==================== -->
+        <div class="lg:col-span-5">
+
+          <!-- Section header -->
+          <div class="mb-5">
+            <p class="text-[12px] font-bold text-amber-600 uppercase tracking-[0.15em] mb-1.5">Danh sách cơ sở</p>
+            <h2 class="text-xl sm:text-2xl font-extrabold text-gray-900 leading-tight">
+              Chọn Chi Nhánh <span class="text-brand">Gần Bạn Nhất</span>
+            </h2>
+          </div>
+
+          <!-- Filter quận -->
+          <div class="mb-5 flex flex-wrap gap-2">
+            <button data-district="all" class="district-filter px-3.5 py-1.5 rounded-full text-[12.5px] font-bold bg-brand text-white shadow-sm transition-all">Tất cả</button>
+            <button data-district="quan-5" class="district-filter px-3.5 py-1.5 rounded-full text-[12.5px] font-bold bg-white border border-gray-200 text-gray-700 hover:border-brand hover:text-brand shadow-sm transition-all">Quận 5</button>
+            <button data-district="quan-10" class="district-filter px-3.5 py-1.5 rounded-full text-[12.5px] font-bold bg-white border border-gray-200 text-gray-700 hover:border-brand hover:text-brand shadow-sm transition-all">Quận 10</button>
+            <button data-district="quan-3" class="district-filter px-3.5 py-1.5 rounded-full text-[12.5px] font-bold bg-white border border-gray-200 text-gray-700 hover:border-brand hover:text-brand shadow-sm transition-all">Quận 3</button>
+            <button data-district="tan-binh" class="district-filter px-3.5 py-1.5 rounded-full text-[12.5px] font-bold bg-white border border-gray-200 text-gray-700 hover:border-brand hover:text-brand shadow-sm transition-all">Tân Bình</button>
+            <button data-district="binh-thanh" class="district-filter px-3.5 py-1.5 rounded-full text-[12.5px] font-bold bg-white border border-gray-200 text-gray-700 hover:border-brand hover:text-brand shadow-sm transition-all">Bình Thạnh</button>
+          </div>
+
+          <!-- Danh sách chi nhánh (scroll được) -->
+          <div id="branchList" class="space-y-3 lg:max-h-[600px] lg:overflow-y-auto lg:pr-2 scrollbar-thin">
+
+            <!-- ===== CHI NHÁNH 1: QUẬN 5 (Trụ sở chính) ===== -->
+            <div class="branch-card active bg-white rounded-2xl p-5 border-2 border-gray-200 hover:border-brand/50 cursor-pointer transition-all duration-300"
+                 data-district="quan-5"
+                 data-name="Trụ sở chính Quận 5"
+                 data-address="123 Nguyễn Văn Cừ, Phường 4, Quận 5, TP.HCM"
+                 data-phone="0933 39 87 87"
+                 data-hours="T2-T7: 8:00-21:00 · CN: 8:00-17:00"
+                 data-map="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3919.6825854611817!2d106.67986131474852!3d10.762622592319812!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31752f13ad4f9c8d%3A0x8e3c8a4d5b5c5b5c!2zMTIzIE5ndXnhu4VuIFbEg24gQ-G7qywgUGjGsOG7nW5nIDQsIFF14bqtbiA1LCBUUC5IQ00!5e0!3m2!1svi!2s!4v1234567890">
+              <div class="flex items-start gap-3">
+                <div class="branch-icon w-11 h-11 rounded-xl bg-brand-soft flex items-center justify-center shrink-0 transition-colors">
+                  <i data-lucide="building-2" class="w-5 h-5 text-brand"></i>
+                </div>
+                <div class="flex-1 min-w-0">
+                  <div class="flex items-center gap-2 flex-wrap">
+                    <h3 class="branch-name text-[15px] font-bold text-gray-900 leading-tight">Trụ Sở Chính — Quận 5</h3>
+                    <span class="inline-flex items-center gap-0.5 px-1.5 py-0.5 rounded bg-gold text-white text-[9.5px] font-bold uppercase tracking-wide">Chính</span>
+                  </div>
+                  <p class="text-[12.5px] text-gray-500 mt-1 leading-relaxed flex items-start gap-1.5">
+                    <i data-lucide="map-pin" class="w-3.5 h-3.5 shrink-0 mt-0.5 text-brand"></i>
+                    <span>123 Nguyễn Văn Cừ, Phường 4, Quận 5</span>
+                  </p>
+                  <p class="text-[12.5px] text-gray-500 mt-1 flex items-center gap-1.5">
+                    <i data-lucide="phone" class="w-3.5 h-3.5 shrink-0 text-brand"></i>
+                    <span class="font-semibold text-gray-700">0933 39 87 87</span>
+                  </p>
+                  <p class="text-[12.5px] text-gray-500 mt-1 flex items-center gap-1.5">
+                    <i data-lucide="clock" class="w-3.5 h-3.5 shrink-0 text-brand"></i>
+                    <span>T2-T7: 8:00-21:00 · CN: 8:00-17:00</span>
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <!-- ===== CHI NHÁNH 2: QUẬN 10 ===== -->
+            <div class="branch-card bg-white rounded-2xl p-5 border-2 border-gray-200 hover:border-brand/50 cursor-pointer transition-all duration-300"
+                 data-district="quan-10"
+                 data-name="Chi nhánh Quận 10"
+                 data-address="456 Tô Hiến Thành, Phường 13, Quận 10, TP.HCM"
+                 data-phone="0933 39 87 88"
+                 data-hours="T2-T7: 8:00-21:00 · CN: 8:00-17:00"
+                 data-map="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3919.5!2d106.665!3d10.775!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zUXVhzq1uIDEwLCBUUC5IQ00!5e0!3m2!1svi!2s!4v1234567890">
+              <div class="flex items-start gap-3">
+                <div class="branch-icon w-11 h-11 rounded-xl bg-brand-soft flex items-center justify-center shrink-0 transition-colors">
+                  <i data-lucide="building-2" class="w-5 h-5 text-brand"></i>
+                </div>
+                <div class="flex-1 min-w-0">
+                  <h3 class="branch-name text-[15px] font-bold text-gray-900 leading-tight">Chi Nhánh Quận 10</h3>
+                  <p class="text-[12.5px] text-gray-500 mt-1 leading-relaxed flex items-start gap-1.5">
+                    <i data-lucide="map-pin" class="w-3.5 h-3.5 shrink-0 mt-0.5 text-brand"></i>
+                    <span>456 Tô Hiến Thành, Phường 13, Quận 10</span>
+                  </p>
+                  <p class="text-[12.5px] text-gray-500 mt-1 flex items-center gap-1.5">
+                    <i data-lucide="phone" class="w-3.5 h-3.5 shrink-0 text-brand"></i>
+                    <span class="font-semibold text-gray-700">0933 39 87 88</span>
+                  </p>
+                  <p class="text-[12.5px] text-gray-500 mt-1 flex items-center gap-1.5">
+                    <i data-lucide="clock" class="w-3.5 h-3.5 shrink-0 text-brand"></i>
+                    <span>T2-T7: 8:00-21:00 · CN: 8:00-17:00</span>
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <!-- ===== CHI NHÁNH 3: QUẬN 3 ===== -->
+            <div class="branch-card bg-white rounded-2xl p-5 border-2 border-gray-200 hover:border-brand/50 cursor-pointer transition-all duration-300"
+                 data-district="quan-3"
+                 data-name="Chi nhánh Quận 3"
+                 data-address="789 Võ Văn Tần, Phường 6, Quận 3, TP.HCM"
+                 data-phone="0933 39 87 89"
+                 data-hours="T2-T7: 8:00-21:00 · CN: 8:00-17:00"
+                 data-map="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3919.4!2d106.69!3d10.78!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zUXVhzq1uIDMsIFRQLkhDTTw!5e0!3m2!1svi!2s!4v1234567890">
+              <div class="flex items-start gap-3">
+                <div class="branch-icon w-11 h-11 rounded-xl bg-brand-soft flex items-center justify-center shrink-0 transition-colors">
+                  <i data-lucide="building-2" class="w-5 h-5 text-brand"></i>
+                </div>
+                <div class="flex-1 min-w-0">
+                  <h3 class="branch-name text-[15px] font-bold text-gray-900 leading-tight">Chi Nhánh Quận 3</h3>
+                  <p class="text-[12.5px] text-gray-500 mt-1 leading-relaxed flex items-start gap-1.5">
+                    <i data-lucide="map-pin" class="w-3.5 h-3.5 shrink-0 mt-0.5 text-brand"></i>
+                    <span>789 Võ Văn Tần, Phường 6, Quận 3</span>
+                  </p>
+                  <p class="text-[12.5px] text-gray-500 mt-1 flex items-center gap-1.5">
+                    <i data-lucide="phone" class="w-3.5 h-3.5 shrink-0 text-brand"></i>
+                    <span class="font-semibold text-gray-700">0933 39 87 89</span>
+                  </p>
+                  <p class="text-[12.5px] text-gray-500 mt-1 flex items-center gap-1.5">
+                    <i data-lucide="clock" class="w-3.5 h-3.5 shrink-0 text-brand"></i>
+                    <span>T2-T7: 8:00-21:00 · CN: 8:00-17:00</span>
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <!-- ===== CHI NHÁNH 4: TÂN BÌNH ===== -->
+            <div class="branch-card bg-white rounded-2xl p-5 border-2 border-gray-200 hover:border-brand/50 cursor-pointer transition-all duration-300"
+                 data-district="tan-binh"
+                 data-name="Chi nhánh Tân Bình"
+                 data-address="234 Cộng Hòa, Phường 12, Quận Tân Bình, TP.HCM"
+                 data-phone="0933 39 87 90"
+                 data-hours="T2-T7: 8:00-21:00 · CN: 8:00-17:00"
+                 data-map="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3919.3!2d106.65!3d10.80!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zVMOibiBCw6xuaCwgVFAuSENN!5e0!3m2!1svi!2s!4v1234567890">
+              <div class="flex items-start gap-3">
+                <div class="branch-icon w-11 h-11 rounded-xl bg-brand-soft flex items-center justify-center shrink-0 transition-colors">
+                  <i data-lucide="building-2" class="w-5 h-5 text-brand"></i>
+                </div>
+                <div class="flex-1 min-w-0">
+                  <h3 class="branch-name text-[15px] font-bold text-gray-900 leading-tight">Chi Nhánh Tân Bình</h3>
+                  <p class="text-[12.5px] text-gray-500 mt-1 leading-relaxed flex items-start gap-1.5">
+                    <i data-lucide="map-pin" class="w-3.5 h-3.5 shrink-0 mt-0.5 text-brand"></i>
+                    <span>234 Cộng Hòa, Phường 12, Quận Tân Bình</span>
+                  </p>
+                  <p class="text-[12.5px] text-gray-500 mt-1 flex items-center gap-1.5">
+                    <i data-lucide="phone" class="w-3.5 h-3.5 shrink-0 text-brand"></i>
+                    <span class="font-semibold text-gray-700">0933 39 87 90</span>
+                  </p>
+                  <p class="text-[12.5px] text-gray-500 mt-1 flex items-center gap-1.5">
+                    <i data-lucide="clock" class="w-3.5 h-3.5 shrink-0 text-brand"></i>
+                    <span>T2-T7: 8:00-21:00 · CN: 8:00-17:00</span>
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <!-- ===== CHI NHÁNH 5: BÌNH THẠNH ===== -->
+            <div class="branch-card bg-white rounded-2xl p-5 border-2 border-gray-200 hover:border-brand/50 cursor-pointer transition-all duration-300"
+                 data-district="binh-thanh"
+                 data-name="Chi nhánh Bình Thạnh"
+                 data-address="567 Điện Biên Phủ, Phường 25, Quận Bình Thạnh, TP.HCM"
+                 data-phone="0933 39 87 91"
+                 data-hours="T2-T7: 8:00-21:00 · CN: 8:00-17:00"
+                 data-map="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3919.2!2d106.71!3d10.80!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zQsOsbmggVGjhuqFuaCwgVFAuSENN!5e0!3m2!1svi!2s!4v1234567890">
+              <div class="flex items-start gap-3">
+                <div class="branch-icon w-11 h-11 rounded-xl bg-brand-soft flex items-center justify-center shrink-0 transition-colors">
+                  <i data-lucide="building-2" class="w-5 h-5 text-brand"></i>
+                </div>
+                <div class="flex-1 min-w-0">
+                  <h3 class="branch-name text-[15px] font-bold text-gray-900 leading-tight">Chi Nhánh Bình Thạnh</h3>
+                  <p class="text-[12.5px] text-gray-500 mt-1 leading-relaxed flex items-start gap-1.5">
+                    <i data-lucide="map-pin" class="w-3.5 h-3.5 shrink-0 mt-0.5 text-brand"></i>
+                    <span>567 Điện Biên Phủ, Phường 25, Quận Bình Thạnh</span>
+                  </p>
+                  <p class="text-[12.5px] text-gray-500 mt-1 flex items-center gap-1.5">
+                    <i data-lucide="phone" class="w-3.5 h-3.5 shrink-0 text-brand"></i>
+                    <span class="font-semibold text-gray-700">0933 39 87 91</span>
+                  </p>
+                  <p class="text-[12.5px] text-gray-500 mt-1 flex items-center gap-1.5">
+                    <i data-lucide="clock" class="w-3.5 h-3.5 shrink-0 text-brand"></i>
+                    <span>T2-T7: 8:00-21:00 · CN: 8:00-17:00</span>
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <!-- ===== CHI NHÁNH 6: QUẬN 7 ===== -->
+            <div class="branch-card bg-white rounded-2xl p-5 border-2 border-gray-200 hover:border-brand/50 cursor-pointer transition-all duration-300"
+                 data-district="quan-7"
+                 data-name="Chi nhánh Quận 7"
+                 data-address="890 Nguyễn Thị Thập, Phường Bình Thuận, Quận 7, TP.HCM"
+                 data-phone="0933 39 87 92"
+                 data-hours="T2-T7: 8:00-21:00 · CN: 8:00-17:00"
+                 data-map="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3920!2d106.72!3d10.73!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zUXVhzq1uIDcsIFRQLkhDTTw!5e0!3m2!1svi!2s!4v1234567890">
+              <div class="flex items-start gap-3">
+                <div class="branch-icon w-11 h-11 rounded-xl bg-brand-soft flex items-center justify-center shrink-0 transition-colors">
+                  <i data-lucide="building-2" class="w-5 h-5 text-brand"></i>
+                </div>
+                <div class="flex-1 min-w-0">
+                  <h3 class="branch-name text-[15px] font-bold text-gray-900 leading-tight">Chi Nhánh Quận 7</h3>
+                  <p class="text-[12.5px] text-gray-500 mt-1 leading-relaxed flex items-start gap-1.5">
+                    <i data-lucide="map-pin" class="w-3.5 h-3.5 shrink-0 mt-0.5 text-brand"></i>
+                    <span>890 Nguyễn Thị Thập, P. Bình Thuận, Quận 7</span>
+                  </p>
+                  <p class="text-[12.5px] text-gray-500 mt-1 flex items-center gap-1.5">
+                    <i data-lucide="phone" class="w-3.5 h-3.5 shrink-0 text-brand"></i>
+                    <span class="font-semibold text-gray-700">0933 39 87 92</span>
+                  </p>
+                  <p class="text-[12.5px] text-gray-500 mt-1 flex items-center gap-1.5">
+                    <i data-lucide="clock" class="w-3.5 h-3.5 shrink-0 text-brand"></i>
+                    <span>T2-T7: 8:00-21:00 · CN: 8:00-17:00</span>
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <!-- ===== CHI NHÁNH 7: GÒ VẤP ===== -->
+            <div class="branch-card bg-white rounded-2xl p-5 border-2 border-gray-200 hover:border-brand/50 cursor-pointer transition-all duration-300"
+                 data-district="go-vap"
+                 data-name="Chi nhánh Gò Vấp"
+                 data-address="135 Quang Trung, Phường 10, Quận Gò Vấp, TP.HCM"
+                 data-phone="0933 39 87 93"
+                 data-hours="T2-T7: 8:00-21:00 · CN: 8:00-17:00"
+                 data-map="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3918.8!2d106.66!3d10.83!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zR8OysCBW46VwLCBUUC5IQ00!5e0!3m2!1svi!2s!4v1234567890">
+              <div class="flex items-start gap-3">
+                <div class="branch-icon w-11 h-11 rounded-xl bg-brand-soft flex items-center justify-center shrink-0 transition-colors">
+                  <i data-lucide="building-2" class="w-5 h-5 text-brand"></i>
+                </div>
+                <div class="flex-1 min-w-0">
+                  <h3 class="branch-name text-[15px] font-bold text-gray-900 leading-tight">Chi Nhánh Gò Vấp</h3>
+                  <p class="text-[12.5px] text-gray-500 mt-1 leading-relaxed flex items-start gap-1.5">
+                    <i data-lucide="map-pin" class="w-3.5 h-3.5 shrink-0 mt-0.5 text-brand"></i>
+                    <span>135 Quang Trung, Phường 10, Quận Gò Vấp</span>
+                  </p>
+                  <p class="text-[12.5px] text-gray-500 mt-1 flex items-center gap-1.5">
+                    <i data-lucide="phone" class="w-3.5 h-3.5 shrink-0 text-brand"></i>
+                    <span class="font-semibold text-gray-700">0933 39 87 93</span>
+                  </p>
+                  <p class="text-[12.5px] text-gray-500 mt-1 flex items-center gap-1.5">
+                    <i data-lucide="clock" class="w-3.5 h-3.5 shrink-0 text-brand"></i>
+                    <span>T2-T7: 8:00-21:00 · CN: 8:00-17:00</span>
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <!-- ===== CHI NHÁNH 8: PHÚ NHUẬN ===== -->
+            <div class="branch-card bg-white rounded-2xl p-5 border-2 border-gray-200 hover:border-brand/50 cursor-pointer transition-all duration-300"
+                 data-district="phu-nhuan"
+                 data-name="Chi nhánh Phú Nhuận"
+                 data-address="246 Phan Xích Long, Phường 2, Quận Phú Nhuận, TP.HCM"
+                 data-phone="0933 39 87 94"
+                 data-hours="T2-T7: 8:00-21:00 · CN: 8:00-17:00"
+                 data-map="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3919.1!2d106.68!3d10.80!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zUGjDuiBOaHXhuq1uLCBUUC5IQ00!5e0!3m2!1svi!2s!4v1234567890">
+              <div class="flex items-start gap-3">
+                <div class="branch-icon w-11 h-11 rounded-xl bg-brand-soft flex items-center justify-center shrink-0 transition-colors">
+                  <i data-lucide="building-2" class="w-5 h-5 text-brand"></i>
+                </div>
+                <div class="flex-1 min-w-0">
+                  <h3 class="branch-name text-[15px] font-bold text-gray-900 leading-tight">Chi Nhánh Phú Nhuận</h3>
+                  <p class="text-[12.5px] text-gray-500 mt-1 leading-relaxed flex items-start gap-1.5">
+                    <i data-lucide="map-pin" class="w-3.5 h-3.5 shrink-0 mt-0.5 text-brand"></i>
+                    <span>246 Phan Xích Long, Phường 2, Quận Phú Nhuận</span>
+                  </p>
+                  <p class="text-[12.5px] text-gray-500 mt-1 flex items-center gap-1.5">
+                    <i data-lucide="phone" class="w-3.5 h-3.5 shrink-0 text-brand"></i>
+                    <span class="font-semibold text-gray-700">0933 39 87 94</span>
+                  </p>
+                  <p class="text-[12.5px] text-gray-500 mt-1 flex items-center gap-1.5">
+                    <i data-lucide="clock" class="w-3.5 h-3.5 shrink-0 text-brand"></i>
+                    <span>T2-T7: 8:00-21:00 · CN: 8:00-17:00</span>
+                  </p>
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+          <!-- Empty state (ẩn mặc định) -->
+          <div id="emptyState" class="hidden text-center py-10">
+            <div class="w-16 h-16 mx-auto rounded-full bg-gray-100 flex items-center justify-center mb-3">
+              <i data-lucide="map-pin-off" class="w-8 h-8 text-gray-400"></i>
+            </div>
+            <p class="text-sm text-gray-500">Không có chi nhánh nào trong khu vực này.</p>
+          </div>
+
+        </div>
+
+        <!-- ==================== CỘT PHẢI: GOOGLE MAP (7/12) ==================== -->
+        <div class="lg:col-span-7 lg:sticky lg:top-24 h-fit">
+
+          <!-- Map card -->
+          <div class="bg-white rounded-3xl shadow-xl overflow-hidden border border-gray-100">
+
+            <!-- Header card -->
+            <div class="px-6 py-4 border-b border-gray-100 flex items-center justify-between gap-3 flex-wrap">
+              <div class="flex items-center gap-2.5 min-w-0">
+                <div class="w-9 h-9 rounded-lg bg-brand-soft flex items-center justify-center shrink-0">
+                  <i data-lucide="navigation" class="w-4.5 h-4.5 text-brand"></i>
+                </div>
+                <div class="min-w-0">
+                  <p class="text-[11px] font-bold text-gray-400 uppercase tracking-wider">Đang xem</p>
+                  <p id="currentBranchName" class="text-[14px] font-extrabold text-gray-900 truncate">Trụ Sở Chính — Quận 5</p>
+                </div>
+              </div>
+              <a id="openMapsLink" href="https://www.google.com/maps/search/?api=1&query=123+Nguyễn+Văn+Cừ,+Phường+4,+Quận+5,+TP.HCM" target="_blank" rel="noopener"
+                 class="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-lg bg-brand hover:bg-brand-dark text-white text-[12px] font-bold transition-colors">
+                <i data-lucide="external-link" class="w-3.5 h-3.5"></i>
+                <span class="hidden sm:inline">Mở Google Maps</span>
+                <span class="sm:hidden">Mở Maps</span>
+              </a>
+            </div>
+
+            <!-- IFrame Google Maps -->
+            <div class="relative w-full aspect-[16/10] sm:aspect-[16/9] bg-gray-100">
+              <iframe
+                id="googleMapIframe"
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3919.6825854611817!2d106.67986131474852!3d10.762622592319812!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31752f13ad4f9c8d%3A0x8e3c8a4d5b5c5b5c!2zMTIzIE5ndXnhu4VuIFbEg24gQ-G7qywgUGjGsOG7nW5nIDQsIFF14bqtbiA1LCBUUC5IQ00!5e0!3m2!1svi!2s!4v1234567890"
+                class="absolute inset-0 w-full h-full border-0"
+                allowfullscreen=""
+                loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade"
+                title="Bản đồ chi nhánh Điểm 10+">
+              </iframe>
+            </div>
+
+            <!-- Info chi nhánh đang xem -->
+            <div class="p-5 sm:p-6 space-y-3 bg-gray-50/50 border-t border-gray-100">
+              <div class="flex items-start gap-3">
+                <div class="w-10 h-10 rounded-xl bg-brand-soft flex items-center justify-center shrink-0">
+                  <i data-lucide="map-pin" class="w-5 h-5 text-brand"></i>
+                </div>
+                <div class="min-w-0">
+                  <p class="text-[11px] font-bold text-gray-400 uppercase tracking-wider mb-0.5">Địa chỉ</p>
+                  <p id="currentBranchAddress" class="text-[14px] font-medium text-gray-800 leading-relaxed">123 Nguyễn Văn Cừ, Phường 4, Quận 5, TP.HCM</p>
+                </div>
+              </div>
+              <div class="flex items-start gap-3">
+                <div class="w-10 h-10 rounded-xl bg-brand-soft flex items-center justify-center shrink-0">
+                  <i data-lucide="phone" class="w-5 h-5 text-brand"></i>
+                </div>
+                <div class="min-w-0">
+                  <p class="text-[11px] font-bold text-gray-400 uppercase tracking-wider mb-0.5">Hotline chi nhánh</p>
+                  <a id="currentBranchPhone" href="tel:0933398787" class="text-[14px] font-bold text-brand hover:text-brand-dark transition-colors">0933 39 87 87</a>
+                </div>
+              </div>
+              <div class="flex items-start gap-3">
+                <div class="w-10 h-10 rounded-xl bg-brand-soft flex items-center justify-center shrink-0">
+                  <i data-lucide="clock" class="w-5 h-5 text-brand"></i>
+                </div>
+                <div class="min-w-0">
+                  <p class="text-[11px] font-bold text-gray-400 uppercase tracking-wider mb-0.5">Giờ làm việc</p>
+                  <p id="currentBranchHours" class="text-[14px] font-medium text-gray-800">T2-T7: 8:00-21:00 · CN: 8:00-17:00</p>
+                </div>
+              </div>
+
+              <!-- 2 nút hành động -->
+              <div class="grid grid-cols-2 gap-2.5 pt-3">
+                <a href="tel:0933398787" class="inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-lg bg-brand hover:bg-brand-dark text-white text-[12.5px] font-bold transition-colors">
+                  <i data-lucide="phone-call" class="w-4 h-4"></i>
+                  Gọi ngay
+                </a>
+                <a href="https://zalo.me/0933398787" target="_blank" rel="noopener" class="inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-lg bg-white border-2 border-brand text-brand hover:bg-brand-soft text-[12.5px] font-bold transition-colors">
+                  <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M12 0C5.373 0 0 5.373 0 12c0 2.006.498 3.894 1.375 5.555L.043 23.957l6.557-1.314A11.94 11.94 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0z"/></svg>
+                  Chat Zalo
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Notice -->
+          <p class="mt-4 text-[12px] text-gray-500 text-center leading-relaxed">
+            <i data-lucide="info" class="w-3.5 h-3.5 inline-block -mt-0.5 text-brand"></i>
+            Bấm vào từng chi nhánh bên trái để xem vị trí trên bản đồ
+          </p>
+
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== FOOTER ==================== -->
+  <footer class="relative bg-gradient-to-br from-[#0B2447] via-[#0F2D5C] to-[#0B2447] text-white mt-4 lg:mt-8">
+    <div class="absolute -top-8 left-0 w-32 h-16 lg:w-48 lg:h-20 bg-white rounded-br-[100%] pointer-events-none"></div>
+    <div class="absolute -top-32 right-0 w-[28rem] h-[28rem] bg-brand/15 rounded-full blur-3xl pointer-events-none"></div>
+    <div class="absolute bottom-0 -left-32 w-96 h-96 bg-gold/10 rounded-full blur-3xl pointer-events-none"></div>
+
+    <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-12 lg:pt-16">
+
+      <div class="grid grid-cols-1 md:grid-cols-3 items-center gap-8 pb-10 border-b border-white/10">
+        <div class="flex items-center justify-center md:justify-start gap-2.5">
+          <a href="#" aria-label="Facebook" class="w-10 h-10 rounded-lg bg-white/10 hover:bg-white border border-white/15 hover:border-white flex items-center justify-center text-white hover:text-[#0B2447] transition-all duration-300 hover:-translate-y-0.5">
+            <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+          </a>
+          <a href="#" aria-label="Instagram" class="w-10 h-10 rounded-lg bg-white/10 hover:bg-white border border-white/15 hover:border-white flex items-center justify-center text-white hover:text-[#0B2447] transition-all duration-300 hover:-translate-y-0.5">
+            <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+          </a>
+          <a href="#" aria-label="YouTube" class="w-10 h-10 rounded-lg bg-white/10 hover:bg-white border border-white/15 hover:border-white flex items-center justify-center text-white hover:text-[#0B2447] transition-all duration-300 hover:-translate-y-0.5">
+            <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+          </a>
+          <a href="#" aria-label="Zalo" class="w-10 h-10 rounded-lg bg-white/10 hover:bg-white border border-white/15 hover:border-white flex items-center justify-center text-white hover:text-[#0B2447] transition-all duration-300 hover:-translate-y-0.5">
+            <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M12 0C5.373 0 0 5.373 0 12c0 2.006.498 3.894 1.375 5.555L.043 23.957l6.557-1.314A11.94 11.94 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm5.977 16.851c-.238.666-1.393 1.275-1.917 1.32-.524.045-1.016.245-3.415-.706-2.884-1.152-4.71-4.13-4.855-4.32-.144-.19-1.157-1.539-1.157-2.936 0-1.397.733-2.084 1.005-2.371.272-.286.594-.358.793-.358.198 0 .397.002.571.011.183.008.428-.07.667.513.245.595.831 2.03.905 2.178.073.148.122.32.024.516-.099.196-.148.318-.297.49-.148.173-.31.386-.443.519-.148.147-.303.307-.13.601.173.294.771 1.271 1.656 2.059 1.137 1.012 2.094 1.325 2.389 1.475.295.148.469.124.642-.074.173-.198.741-.865.94-1.162.198-.297.397-.247.667-.148.272.099 1.717.81 2.012.957.295.148.492.222.566.346.074.123.074.716-.164 1.382z"/></svg>
+          </a>
+        </div>
+
+        <div class="flex justify-center">
+          <a href="#" class="flex flex-col items-center gap-2 group">
+            <div class="w-16 h-16 lg:w-20 lg:h-20 rounded-full bg-white flex items-center justify-center shadow-2xl ring-4 ring-white/20 group-hover:scale-105 transition-transform duration-300 overflow-hidden p-1.5">
+              <img src="logo.png" alt="Logo Trung Tâm Điểm 10+" class="w-full h-full object-contain" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';" />
+              <svg xmlns="http://www.w3.org/2000/svg" class="w-10 h-10 text-brand hidden" style="display:none" viewBox="0 0 24 24" fill="currentColor"><path d="M5 16L3 5l5.5 5L12 4l3.5 6L21 5l-2 11H5zm14 3c0 .6-.4 1-1 1H6c-.6 0-1-.4-1-1v-1h14v1z"/></svg>
+            </div>
+            <div class="text-center leading-tight">
+              <p class="text-[13px] font-extrabold tracking-wide text-white">TRUNG TÂM ĐIỂM 10+</p>
+              <p class="text-[10.5px] text-white/60 mt-0.5">Vững kiến thức, chắc tư duy</p>
+            </div>
+          </a>
+        </div>
+
+        <div class="flex flex-col items-center md:items-end gap-2.5">
+          <p class="text-[12px] font-bold tracking-[0.15em] text-white/80 uppercase">Đăng ký nhận tin</p>
+          <form id="newsletterForm" class="w-full max-w-xs">
+            <div class="relative flex items-center bg-white/10 backdrop-blur-md border border-white/20 rounded-lg overflow-hidden focus-within:border-gold transition-colors">
+              <i data-lucide="mail" class="absolute left-3 w-4 h-4 text-white/60 pointer-events-none"></i>
+              <input type="email" required placeholder="Email của bạn..." class="flex-1 bg-transparent pl-10 pr-2 py-2.5 text-white placeholder-white/50 text-sm outline-none" />
+              <button type="submit" class="m-1 px-4 py-1.5 rounded-md bg-white hover:bg-gold text-[#0B2447] hover:text-white text-[12.5px] font-bold uppercase tracking-wide transition-colors duration-200">Gửi</button>
+            </div>
+          </form>
+        </div>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 lg:gap-8 py-12 lg:py-14">
+        <div>
+          <h3 class="text-[15px] font-bold text-white leading-snug mb-1">Trung Tâm Bồi Dưỡng Văn Hóa Điểm 10+</h3>
+          <p class="text-[12px] font-medium text-gold uppercase tracking-wider mb-4">Vững kiến thức, chắc tư duy</p>
+          <p class="text-[13.5px] text-white/75 leading-relaxed">Với hơn <span class="text-white font-semibold">11 năm kinh nghiệm</span>, Điểm 10+ là địa chỉ tin cậy chuyên bồi dưỡng văn hóa các môn <span class="text-white font-semibold">Toán - Lý - Hóa</span> cho học sinh Tiểu học, THCS và THPT tại TP.HCM.</p>
+        </div>
+        <div>
+          <h3 class="text-[15px] font-bold text-white mb-5 inline-flex items-center gap-2"><span class="w-6 h-0.5 bg-gold rounded-full"></span>Thông tin liên hệ</h3>
+          <ul class="space-y-4">
+            <li class="flex items-start gap-3"><div class="w-9 h-9 rounded-lg bg-white/10 border border-white/15 flex items-center justify-center shrink-0"><i data-lucide="map-pin" class="w-4 h-4 text-white"></i></div><div class="pt-1"><p class="text-[11px] font-bold text-white/50 uppercase tracking-wider mb-0.5">Trụ sở chính</p><p class="text-[13.5px] text-white/85 leading-relaxed">123 Nguyễn Văn Cừ, Phường 4, Quận 5, TP.HCM</p></div></li>
+            <li class="flex items-start gap-3"><div class="w-9 h-9 rounded-lg bg-white/10 border border-white/15 flex items-center justify-center shrink-0"><i data-lucide="phone" class="w-4 h-4 text-white"></i></div><div class="pt-1"><p class="text-[11px] font-bold text-white/50 uppercase tracking-wider mb-0.5">Hotline</p><a href="tel:0933398787" class="text-[13.5px] font-semibold text-white hover:text-gold transition-colors">0933 39 87 87</a></div></li>
+            <li class="flex items-start gap-3"><div class="w-9 h-9 rounded-lg bg-white/10 border border-white/15 flex items-center justify-center shrink-0"><i data-lucide="mail" class="w-4 h-4 text-white"></i></div><div class="pt-1"><p class="text-[11px] font-bold text-white/50 uppercase tracking-wider mb-0.5">Email</p><a href="mailto:tvkh.diem10cong@gmail.com" class="text-[13.5px] text-white/85 hover:text-gold transition-colors break-all">tvkh.diem10cong@gmail.com</a></div></li>
+          </ul>
+        </div>
+        <div>
+          <h3 class="text-[15px] font-bold text-white mb-5 inline-flex items-center gap-2"><span class="w-6 h-0.5 bg-gold rounded-full"></span>Liên kết nhanh</h3>
+          <ul class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-1 gap-x-6 gap-y-2.5">
+            <li><a href="#" class="group inline-flex items-center gap-2 text-[13.5px] text-white/75 hover:text-white transition-colors"><i data-lucide="chevron-right" class="w-3.5 h-3.5 text-brand group-hover:text-gold transition-colors"></i><span>Giới thiệu</span></a></li>
+            <li><a href="#" class="group inline-flex items-center gap-2 text-[13.5px] text-white/75 hover:text-white transition-colors"><i data-lucide="chevron-right" class="w-3.5 h-3.5 text-brand group-hover:text-gold transition-colors"></i><span>Hệ thống cơ sở</span></a></li>
+            <li><a href="#" class="group inline-flex items-center gap-2 text-[13.5px] text-white/75 hover:text-white transition-colors"><i data-lucide="chevron-right" class="w-3.5 h-3.5 text-brand group-hover:text-gold transition-colors"></i><span>Các khóa học</span></a></li>
+            <li><a href="#" class="group inline-flex items-center gap-2 text-[13.5px] text-white/75 hover:text-white transition-colors"><i data-lucide="chevron-right" class="w-3.5 h-3.5 text-brand group-hover:text-gold transition-colors"></i><span>Thư viện tài liệu</span></a></li>
+            <li><a href="#" class="group inline-flex items-center gap-2 text-[13.5px] text-white/75 hover:text-white transition-colors"><i data-lucide="chevron-right" class="w-3.5 h-3.5 text-brand group-hover:text-gold transition-colors"></i><span>Tin tức &amp; Sự kiện</span></a></li>
+            <li><a href="#" class="group inline-flex items-center gap-2 text-[13.5px] text-white/75 hover:text-white transition-colors"><i data-lucide="chevron-right" class="w-3.5 h-3.5 text-brand group-hover:text-gold transition-colors"></i><span>Liên hệ</span></a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="border-t border-white/10 py-6 flex flex-col sm:flex-row items-center justify-between gap-3 text-center sm:text-left">
+        <p class="text-[12.5px] text-white/60">© <span id="footerYear">2026</span> Trung Tâm Bồi Dưỡng Văn Hóa Điểm 10+. <span class="hidden sm:inline">Bảo lưu mọi quyền.</span></p>
+        <div class="flex items-center gap-1 text-[12.5px]">
+          <a href="#" class="text-white/60 hover:text-gold transition-colors">Điều khoản dịch vụ</a>
+          <span class="text-white/25">·</span>
+          <a href="#" class="text-white/60 hover:text-gold transition-colors">Chính sách bảo mật</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ==================== SCRIPT ==================== -->
+  <script>
+    lucide.createIcons();
+
+    // Sticky header shadow
+    const header = document.getElementById('mainHeader');
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 10) header.classList.add('shadow-md');
+      else header.classList.remove('shadow-md');
+    });
+
+    // Mobile drawer
+    const drawer = document.getElementById('mobileDrawer');
+    const backdrop = document.getElementById('drawerBackdrop');
+    const hamburger = document.getElementById('hamburgerBtn');
+    const closeBtn = document.getElementById('closeDrawerBtn');
+    function openDrawer() {
+      drawer.classList.add('open');
+      backdrop.classList.remove('opacity-0', 'pointer-events-none');
+      hamburger.classList.add('active');
+      document.body.style.overflow = 'hidden';
+    }
+    function closeDrawer() {
+      drawer.classList.remove('open');
+      backdrop.classList.add('opacity-0', 'pointer-events-none');
+      hamburger.classList.remove('active');
+      document.body.style.overflow = '';
+    }
+    hamburger.addEventListener('click', () => drawer.classList.contains('open') ? closeDrawer() : openDrawer());
+    closeBtn.addEventListener('click', closeDrawer);
+    backdrop.addEventListener('click', closeDrawer);
+    document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeDrawer(); });
+
+    // Mobile submenu
+    const submenuBtn = document.getElementById('mobileSubmenuBtn');
+    const submenu = document.getElementById('mobileSubmenu');
+    const submenuIcon = document.getElementById('mobileSubmenuIcon');
+    submenuBtn.addEventListener('click', () => {
+      submenu.classList.toggle('open');
+      submenuIcon.classList.toggle('rotate-180');
+    });
+
+    // ===== BRANCH SELECTION + MAP UPDATE =====
+    const branchCards = document.querySelectorAll('.branch-card');
+    const mapIframe = document.getElementById('googleMapIframe');
+    const currentName = document.getElementById('currentBranchName');
+    const currentAddress = document.getElementById('currentBranchAddress');
+    const currentPhone = document.getElementById('currentBranchPhone');
+    const currentHours = document.getElementById('currentBranchHours');
+    const openMapsLink = document.getElementById('openMapsLink');
+
+    function updateMap(card) {
+      // Update active state
+      branchCards.forEach(c => c.classList.remove('active'));
+      card.classList.add('active');
+
+      const name = card.dataset.name;
+      const address = card.dataset.address;
+      const phone = card.dataset.phone;
+      const hours = card.dataset.hours;
+      const map = card.dataset.map;
+
+      // Update map iframe
+      if (map) mapIframe.src = map;
+
+      // Update info panel
+      currentName.textContent = name;
+      currentAddress.textContent = address;
+      currentPhone.textContent = phone;
+      currentPhone.href = 'tel:' + phone.replace(/\s+/g, '');
+      currentHours.textContent = hours;
+
+      // Update "Open Google Maps" link
+      openMapsLink.href = 'https://www.google.com/maps/search/?api=1&query=' + encodeURIComponent(address);
+    }
+
+    branchCards.forEach(card => {
+      card.addEventListener('click', () => updateMap(card));
+    });
+
+    // ===== DISTRICT FILTER =====
+    const districtFilters = document.querySelectorAll('.district-filter');
+    const emptyState = document.getElementById('emptyState');
+    let activeDistrict = 'all';
+
+    function applyFilter() {
+      let visibleCount = 0;
+      branchCards.forEach(card => {
+        const match = activeDistrict === 'all' || card.dataset.district === activeDistrict;
+        if (match) {
+          card.classList.remove('branch-card-hidden');
+          visibleCount++;
+        } else {
+          card.classList.add('branch-card-hidden');
+          card.classList.remove('active');
+        }
+      });
+      emptyState.classList.toggle('hidden', visibleCount > 0);
+
+      // Auto select first visible branch
+      const firstVisible = Array.from(branchCards).find(c => !c.classList.contains('branch-card-hidden'));
+      if (firstVisible) updateMap(firstVisible);
+    }
+
+    districtFilters.forEach(btn => {
+      btn.addEventListener('click', () => {
+        activeDistrict = btn.dataset.district;
+        // Update button styles
+        districtFilters.forEach(b => {
+          b.classList.remove('bg-brand', 'text-white', 'shadow-sm');
+          b.classList.add('bg-white', 'border', 'border-gray-200', 'text-gray-700');
+        });
+        btn.classList.add('bg-brand', 'text-white', 'shadow-sm');
+        btn.classList.remove('bg-white', 'border', 'border-gray-200', 'text-gray-700');
+        applyFilter();
+      });
+    });
+
+    // Newsletter
+    document.getElementById('newsletterForm')?.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const btn = e.target.querySelector('button[type="submit"]');
+      const original = btn.textContent;
+      btn.textContent = 'Đã gửi ✓';
+      btn.classList.add('bg-emerald-500', 'text-white');
+      setTimeout(() => {
+        btn.textContent = original;
+        btn.classList.remove('bg-emerald-500', 'text-white');
+        e.target.reset();
+      }, 2000);
+    });
+
+    // Footer year
+    document.getElementById('footerYear').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>

@@ -1,457 +1,691 @@
-
 <!doctype html>
 <html lang="vi">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Lớp Tiền Tiểu Học – Điểm 10+ | Ưu đãi tháng 11.2026</title>
-<meta name="description" content="Hành trang chuẩn bị vào lớp 1 cho bé sinh năm 2020, 2021, 2022. Lớp nhỏ 6–16 học sinh, ưu đãi đến 15% trong tháng 11.2026.">
+<title>Lớp Tiền Tiểu Học – Trung tâm Điểm 10+ | Ưu đãi tháng 11.2026</title>
+<meta name="description" content="Chương trình chuẩn bị vào lớp 1 cho trẻ sinh năm 2020, 2021, 2022. Lớp từ 6–16 học sinh, ưu đãi đến 15% trong tháng 11.2026.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;700;800&family=Be+Vietnam+Pro:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+  tailwind.config = {
+    theme: {
+      extend: {
+        colors: {
+          brand: { DEFAULT: '#DC2626', dark: '#991B1B', deeper: '#7F1D1D', soft: '#FEF2F2' },
+          gold: '#FBBF24'
+        },
+        fontFamily: { sans: ['"Be Vietnam Pro"', 'system-ui', 'sans-serif'] }
+      }
+    }
+  }
+</script>
+<script src="https://unpkg.com/lucide@latest"></script>
 <style>
-:root{
-  --red:#DC2626;
-  --red-dark:#991B1B;
-  --red-deep:#7F1D1D;
-  --red-light:#FEE2E2;
-  --red-soft:#FEF2F2;
-  --yellow:#FACC15;
-  --ink:#1F2937;
-  --muted:#6B7280;
-  --white:#fff;
-  --radius:20px;
-  --shadow:0 12px 40px rgba(220,38,38,.18);
-}
-*{box-sizing:border-box;margin:0;padding:0}
-html{scroll-behavior:smooth}
-body{font-family:'Be Vietnam Pro',system-ui,sans-serif;color:var(--ink);background:#fff;line-height:1.6;overflow-x:hidden}
-h1,h2,h3{font-family:'Baloo 2','Be Vietnam Pro',sans-serif;line-height:1.15}
-.container{width:min(1140px,100% - 32px);margin-inline:auto}
-section{padding:80px 0}
-.btn{display:inline-flex;align-items:center;gap:10px;border:0;cursor:pointer;font:700 17px 'Be Vietnam Pro',sans-serif;padding:18px 34px;border-radius:999px;text-decoration:none;transition:.25s}
-.btn-yellow{background:var(--yellow);color:var(--red-deep);box-shadow:0 8px 0 #CA8A04,0 18px 30px rgba(0,0,0,.25)}
-.btn-yellow:hover{transform:translateY(3px);box-shadow:0 5px 0 #CA8A04,0 12px 22px rgba(0,0,0,.25)}
-.btn-red{background:var(--red);color:#fff;box-shadow:0 8px 0 var(--red-dark),0 16px 26px rgba(220,38,38,.3)}
-.btn-red:hover{transform:translateY(3px);box-shadow:0 5px 0 var(--red-dark),0 10px 18px rgba(220,38,38,.3)}
-.pulse{animation:pulse 2s infinite}
-@keyframes pulse{0%,100%{transform:scale(1)}50%{transform:scale(1.045)}}
- 
-/* TOP BAR */
-.topbar{position:fixed;inset:0 0 auto 0;z-index:50;background:rgba(127,29,29,.88);backdrop-filter:blur(10px);color:#fff}
-.topbar .container{display:flex;align-items:center;justify-content:space-between;height:64px}
-.logo{font:800 26px 'Baloo 2';letter-spacing:.5px}
-.logo b{color:var(--yellow)}
-.topbar a.btn{padding:10px 22px;font-size:14px;box-shadow:none}
- 
-/* HERO */
-.hero{position:relative;min-height:100vh;padding:130px 0 120px;color:#fff;overflow:hidden;
-  background:
-   radial-gradient(circle at 85% 15%,rgba(250,204,21,.35),transparent 40%),
-   radial-gradient(circle at 10% 90%,rgba(0,0,0,.35),transparent 45%),
-   linear-gradient(135deg,var(--red) 0%,#B91C1C 55%,var(--red-deep) 100%)}
-.hero::before{content:"";position:absolute;inset:0;opacity:.12;
-  background-image:radial-gradient(#fff 2px,transparent 2px);background-size:34px 34px}
-.hero .container{position:relative;display:grid;grid-template-columns:1.1fr .9fr;gap:40px;align-items:center}
-.badge{display:inline-flex;align-items:center;gap:8px;background:var(--yellow);color:var(--red-deep);font-weight:700;font-size:14px;padding:9px 20px;border-radius:999px;margin-bottom:24px;box-shadow:0 6px 18px rgba(0,0,0,.25)}
-.hero h1{font-size:clamp(34px,5.2vw,64px);font-weight:800;text-shadow:0 4px 18px rgba(0,0,0,.25)}
-.hero h1 span{color:var(--yellow);display:inline-block;position:relative}
-.hero h1 span::after{content:"";position:absolute;left:0;right:0;bottom:-2px;height:8px;background:rgba(250,204,21,.35);border-radius:6px;z-index:-1}
-.hero p.sub{font-size:19px;margin:24px 0 36px;max-width:560px;color:#FEE2E2}
-.hero-stats{display:flex;flex-wrap:wrap;gap:28px;margin-top:44px}
-.hero-stats div{border-left:3px solid var(--yellow);padding-left:14px}
-.hero-stats strong{display:block;font:800 30px 'Baloo 2';color:var(--yellow)}
-.hero-stats small{font-size:13px;color:#FECACA}
- 
-/* hero art */
-.art{position:relative;aspect-ratio:1;max-width:520px;margin-inline:auto;width:100%}
-.art .blob{position:absolute;inset:6%;background:linear-gradient(145deg,#fff,#FEE2E2);border-radius:42% 58% 55% 45%/50% 45% 55% 50%;box-shadow:0 30px 70px rgba(0,0,0,.35);animation:morph 9s ease-in-out infinite}
-@keyframes morph{50%{border-radius:58% 42% 45% 55%/45% 55% 45% 55%}}
-.art svg.kid{position:absolute;inset:0;width:100%;height:100%}
-.float{position:absolute;font:800 44px 'Baloo 2';width:78px;height:78px;border-radius:22px;display:grid;place-items:center;color:#fff;box-shadow:0 12px 24px rgba(0,0,0,.3);animation:float 5s ease-in-out infinite}
-.float.f1{top:2%;left:4%;background:var(--red);transform:rotate(-12deg)}
-.float.f2{top:10%;right:0;background:var(--yellow);color:var(--red-deep);animation-delay:-1.2s;transform:rotate(10deg)}
-.float.f3{bottom:12%;left:-2%;background:#fff;color:var(--red);animation-delay:-2.4s;transform:rotate(8deg)}
-.float.f4{bottom:2%;right:8%;background:var(--red-dark);animation-delay:-3.6s;transform:rotate(-8deg)}
-@keyframes float{50%{translate:0 -16px}}
-.wave{position:absolute;bottom:-1px;left:0;width:100%;line-height:0}
-.wave svg{width:100%;height:80px}
- 
-/* SECTION HEAD */
-.sec-head{text-align:center;max-width:720px;margin:0 auto 52px}
-.sec-head .tag{display:inline-block;color:var(--red);background:var(--red-light);font-weight:700;font-size:13px;letter-spacing:1px;text-transform:uppercase;padding:6px 16px;border-radius:999px;margin-bottom:14px}
-.sec-head h2{font-size:clamp(28px,4vw,44px);font-weight:800}
-.sec-head h2 em{font-style:normal;color:var(--red)}
- 
-/* PROBLEM */
-.problem{background:var(--red-soft)}
-.pain{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-bottom:56px}
-.pain div{background:#fff;border-radius:var(--radius);padding:30px 26px;box-shadow:0 6px 24px rgba(0,0,0,.06);border-top:5px solid var(--red);font-weight:500}
-.pain .ic{font-size:38px;margin-bottom:10px}
-.solution{background:linear-gradient(135deg,var(--red),var(--red-deep));border-radius:28px;padding:48px;color:#fff;box-shadow:var(--shadow)}
-.solution h3{font-size:30px;text-align:center;margin-bottom:32px;color:var(--yellow)}
-.sol-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
-.sol-grid div{background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.25);border-radius:18px;padding:26px}
-.sol-grid strong{display:block;font:700 21px 'Baloo 2';color:var(--yellow);margin-bottom:8px}
-.sol-grid p{font-size:15px;color:#FEE2E2}
- 
-/* PRICING */
-.countdown{display:flex;justify-content:center;gap:14px;margin:0 auto 14px}
-.countdown div{background:var(--red);color:#fff;border-radius:16px;min-width:84px;padding:12px 8px;text-align:center;box-shadow:0 8px 0 var(--red-dark)}
-.countdown b{display:block;font:800 36px 'Baloo 2';line-height:1}
-.countdown span{font-size:12px;text-transform:uppercase;letter-spacing:1px}
-.cd-note{text-align:center;color:var(--muted);margin-bottom:44px;font-size:15px}
-.cards{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;align-items:stretch}
-.card{position:relative;background:#fff;border:2px solid #F3F4F6;border-radius:var(--radius);padding:30px 22px 26px;text-align:center;display:flex;flex-direction:column;box-shadow:0 6px 22px rgba(0,0,0,.05);transition:.3s}
-.card:hover{transform:translateY(-6px);box-shadow:var(--shadow)}
-.card.hot{border:3px solid var(--red);background:linear-gradient(180deg,#fff,var(--red-soft));box-shadow:var(--shadow)}
-.ribbon{position:absolute;top:-15px;left:50%;translate:-50% 0;background:var(--red);color:#fff;font-size:12px;font-weight:700;padding:6px 16px;border-radius:999px;white-space:nowrap;box-shadow:0 5px 12px rgba(220,38,38,.4)}
-.card h3{font-size:26px;color:var(--red)}
-.card .sessions{color:var(--muted);font-size:14px;margin-bottom:14px}
-.off{display:inline-block;background:var(--yellow);color:var(--red-deep);font-weight:800;border-radius:10px;padding:2px 12px;font-size:14px;margin-bottom:12px}
-.off.none{background:#F3F4F6;color:var(--muted)}
-.old{color:var(--muted);text-decoration:line-through;font-size:15px}
-.price{font:800 34px 'Baloo 2';color:var(--red);line-height:1.2;margin:2px 0}
-.save{font-size:14px;color:#15803D;font-weight:600;margin-bottom:16px}
-.gift{margin-top:auto;border-top:2px dashed #FCA5A5;padding-top:14px;font-size:13.5px;text-align:left}
-.gift b{display:block;color:var(--red);margin-bottom:4px}
-.gift ul{padding-left:18px}
-.gift .nogift{color:var(--muted);text-align:center;list-style:none;margin-left:-18px}
-.alt-note{margin-top:30px;background:#fff;border:2px dashed #FCA5A5;border-radius:16px;padding:18px 24px;text-align:center;font-size:15px;color:#4B5563}
-.table-wrap{margin-top:44px;overflow-x:auto;border-radius:var(--radius);box-shadow:0 6px 22px rgba(0,0,0,.06)}
-table{width:100%;border-collapse:collapse;min-width:720px;background:#fff}
-th{background:var(--red);color:#fff;padding:16px 14px;font-weight:600;font-size:14.5px}
-td{padding:15px 14px;text-align:center;border-bottom:1px solid #F3F4F6;font-size:15px}
-tr.hl td{background:var(--red-soft);font-weight:600}
-td.pay{color:var(--red);font-weight:800}
- 
-/* QUALITY */
-.quality{background:var(--red-soft)}
-.gallery{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-bottom:44px}
-.ph{aspect-ratio:4/3;border-radius:var(--radius);background:linear-gradient(135deg,#FCA5A5,var(--red));display:grid;place-items:center;color:#fff;text-align:center;padding:16px;font-weight:600;box-shadow:0 6px 22px rgba(0,0,0,.1);position:relative;overflow:hidden}
-.ph::after{content:"";position:absolute;inset:0;background:radial-gradient(circle at 80% 20%,rgba(255,255,255,.3),transparent 50%)}
-.ph span{position:relative;font-size:15px}
-.ph span i{display:block;font-style:normal;font-size:44px;margin-bottom:6px}
-.commit{display:grid;grid-template-columns:repeat(2,1fr);gap:22px}
-.commit div{display:flex;gap:18px;background:#fff;border-radius:var(--radius);padding:28px;box-shadow:0 6px 22px rgba(0,0,0,.06);align-items:flex-start}
-.check{flex:none;width:44px;height:44px;border-radius:50%;background:var(--red);color:#fff;display:grid;place-items:center;font-size:22px;font-weight:700}
- 
-/* REGISTER */
-.register .grid{display:grid;grid-template-columns:1fr 1fr;gap:30px}
-.box{border-radius:28px;padding:38px}
-.bank{background:linear-gradient(135deg,var(--red),var(--red-deep));color:#fff;box-shadow:var(--shadow)}
-.bank h3{font-size:28px;color:var(--yellow);margin-bottom:20px}
-.row{display:flex;justify-content:space-between;gap:14px;padding:12px 0;border-bottom:1px solid rgba(255,255,255,.2);font-size:15px}
-.row span:first-child{color:#FECACA;flex:none}
-.row span:last-child{text-align:right;font-weight:600}
-.acc{font:800 30px 'Baloo 2';color:var(--yellow);letter-spacing:2px}
-.copy{background:var(--yellow);color:var(--red-deep);border:0;border-radius:10px;padding:5px 14px;font:700 13px 'Be Vietnam Pro';cursor:pointer;margin-left:8px}
-.syntax{margin-top:20px;background:rgba(0,0,0,.25);border-radius:14px;padding:16px;font-size:14px}
-.syntax code{display:block;margin-top:6px;color:var(--yellow);font-weight:600}
-.form{background:#fff;border:2px solid var(--red-light);box-shadow:0 6px 22px rgba(0,0,0,.06)}
-.form h3{font-size:28px;color:var(--red);margin-bottom:6px}
-.form p.s{color:var(--muted);margin-bottom:22px;font-size:15px}
-label{display:block;font-weight:600;font-size:14px;margin:14px 0 6px}
-input,select{width:100%;padding:14px 16px;border:2px solid #E5E7EB;border-radius:12px;font:500 15px 'Be Vietnam Pro';outline:0;transition:.2s;background:#fff}
-input:focus,select:focus{border-color:var(--red);box-shadow:0 0 0 4px rgba(220,38,38,.12)}
-.form .btn{width:100%;justify-content:center;margin-top:24px}
-.ok{display:none;margin-top:16px;background:#DCFCE7;color:#166534;padding:14px;border-radius:12px;font-weight:600;text-align:center}
-.campus{margin-top:56px;text-align:center}
-.campus h3{font-size:26px;margin-bottom:20px}
-.chips{display:flex;flex-wrap:wrap;gap:12px;justify-content:center}
-.chips span{background:var(--red-soft);border:2px solid var(--red-light);color:var(--red-dark);font-weight:600;padding:10px 20px;border-radius:999px}
-.chips span::before{content:"📍 "}
- 
-footer{background:var(--red-deep);color:#FECACA;text-align:center;padding:30px 16px;font-size:14px}
-.sticky{display:none}
- 
-@media(max-width:960px){
-  .hero .container,.register .grid{grid-template-columns:1fr}
-  .art{max-width:380px;order:-1}
-  .cards{grid-template-columns:repeat(2,1fr)}
-  .pain,.sol-grid,.gallery{grid-template-columns:1fr}
-  .commit{grid-template-columns:1fr}
-  .hero{padding-top:110px}
-}
-@media(max-width:560px){
-  section{padding:56px 0}
-  .cards{grid-template-columns:1fr}
-  .countdown{gap:8px}.countdown div{min-width:68px}.countdown b{font-size:28px}
-  .solution,.box{padding:28px 20px}
-  .sticky{display:block;position:fixed;bottom:0;left:0;right:0;z-index:60;padding:10px 16px;background:#fff;box-shadow:0 -6px 20px rgba(0,0,0,.15)}
-  .sticky a{width:100%;justify-content:center;padding:14px}
-  body{padding-bottom:70px}
-  .float{width:56px;height:56px;font-size:30px}
-}
+  html{scroll-behavior:smooth;scroll-padding-top:130px}
+  body{font-family:'Be Vietnam Pro',system-ui,sans-serif}
+
+  /* ===== Styles hỗ trợ cho HEADER ===== */
+  .nav-link{position:relative;transition:color .25s,background-color .25s}
+  .nav-link:hover{color:#DC2626;background-color:#FEF2F2}
+  .dropdown-panel{opacity:0;visibility:hidden;pointer-events:none;transition:opacity .25s ease,visibility .25s ease}
+  .group:hover > .dropdown-panel,.group:focus-within > .dropdown-panel{opacity:1;visibility:visible;pointer-events:auto}
+  .hamburger-line{transition:transform .3s ease,opacity .3s ease}
+  .hamburger.active .line-1{transform:translateY(7px) rotate(45deg)}
+  .hamburger.active .line-2{opacity:0}
+  .hamburger.active .line-3{transform:translateY(-7px) rotate(-45deg)}
+  #mobileMenu{max-height:calc(100vh - 120px);overflow-y:auto}
+
+  /* ===== Hiệu ứng chung ===== */
+  .card-hover{transition:transform .3s ease,box-shadow .3s ease}
+  .card-hover:hover{transform:translateY(-4px);box-shadow:0 20px 40px -12px rgba(127,29,29,.18)}
+  .grid-bg{background-image:linear-gradient(rgba(255,255,255,.09) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.09) 1px,transparent 1px);background-size:44px 44px}
+  .pulse-soft{animation:pulseSoft 2.4s ease-in-out infinite}
+  @keyframes pulseSoft{0%,100%{box-shadow:0 0 0 0 rgba(251,191,36,.55)}50%{box-shadow:0 0 0 12px rgba(251,191,36,0)}}
 </style>
 </head>
-<body>
- 
-<header class="topbar">
-  <div class="container">
-    <div class="logo">Điểm <b>10+</b></div>
-    <a class="btn btn-yellow" href="#dang-ky">Đăng ký ngay</a>
-  </div>
-</header>
- 
-<!-- ========== 1. HERO ========== -->
-<section class="hero" id="top">
-  <div class="container">
-    <div>
-      <div class="badge">🔥 Chương Trình Đặc Biệt Tháng 11.2026 – Điểm 10+</div>
-      <h1>HÀNH TRANG CHUẨN BỊ VÀO LỚP 1 CHO BÉ – <span>VỮNG VÀNG TÂM THẾ,</span> TỰ TIN KHỞI ĐẦU</h1>
-      <p class="sub">Chuẩn bị tâm thế vững vàng, rèn luyện kỹ năng tập trung, làm quen chữ cái, con số và nền tảng tư duy đầu đời cho các bé sinh năm 2020, 2021, 2022.</p>
-      <a class="btn btn-yellow pulse" href="#dang-ky">ĐĂNG KÝ TƯ VẤN NHẬN ƯU ĐÃI →</a>
-      <div class="hero-stats">
-        <div><strong>6–16</strong><small>học sinh / lớp</small></div>
-        <div><strong>90–110'</strong><small>mỗi buổi học</small></div>
-        <div><strong>-15%</strong><small>ưu đãi tối đa T11</small></div>
-      </div>
-    </div>
- 
-    <div class="art" aria-hidden="true">
-      <div class="blob"></div>
-      <div class="float f1">A</div>
-      <div class="float f2">1</div>
-      <div class="float f3">B</div>
-      <div class="float f4">2</div>
-      <svg class="kid" viewBox="0 0 400 400">
-        <!-- bàn -->
-        <rect x="70" y="262" width="260" height="22" rx="11" fill="#991B1B"/>
-        <rect x="100" y="284" width="16" height="70" rx="8" fill="#7F1D1D"/>
-        <rect x="284" y="284" width="16" height="70" rx="8" fill="#7F1D1D"/>
-        <!-- sách -->
-        <rect x="120" y="226" width="160" height="38" rx="6" fill="#fff" stroke="#DC2626" stroke-width="4"/>
-        <line x1="200" y1="226" x2="200" y2="264" stroke="#DC2626" stroke-width="4"/>
-        <text x="160" y="254" font-family="Baloo 2" font-weight="800" font-size="22" fill="#DC2626" text-anchor="middle">ABC</text>
-        <text x="240" y="254" font-family="Baloo 2" font-weight="800" font-size="22" fill="#DC2626" text-anchor="middle">123</text>
-        <!-- thân -->
-        <path d="M150 232 Q150 160 200 160 Q250 160 250 232 Z" fill="#DC2626"/>
-        <!-- tay -->
-        <path d="M156 205 Q130 235 160 240" stroke="#FCD9B6" stroke-width="16" fill="none" stroke-linecap="round"/>
-        <path d="M244 205 Q270 235 240 240" stroke="#FCD9B6" stroke-width="16" fill="none" stroke-linecap="round"/>
-        <!-- đầu -->
-        <circle cx="200" cy="118" r="52" fill="#FCD9B6"/>
-        <path d="M148 112 Q150 62 200 62 Q252 62 252 112 Q232 84 200 88 Q168 84 148 112Z" fill="#3F2A1D"/>
-        <circle cx="180" cy="122" r="6" fill="#1F2937"/><circle cx="220" cy="122" r="6" fill="#1F2937"/>
-        <circle cx="182" cy="120" r="2" fill="#fff"/><circle cx="222" cy="120" r="2" fill="#fff"/>
-        <ellipse cx="166" cy="140" rx="9" ry="6" fill="#FCA5A5"/><ellipse cx="234" cy="140" rx="9" ry="6" fill="#FCA5A5"/>
-        <path d="M184 144 Q200 162 216 144" stroke="#991B1B" stroke-width="4" fill="#fff" stroke-linecap="round"/>
-        <!-- bút chì -->
-        <g transform="rotate(35 300 190)"><rect x="288" y="130" width="16" height="80" rx="3" fill="#FACC15"/><polygon points="288,210 304,210 296,232" fill="#FCD9B6"/><polygon points="293,222 299,222 296,232" fill="#1F2937"/><rect x="288" y="130" width="16" height="14" rx="3" fill="#DC2626"/></g>
-        <!-- sao -->
-        <polygon points="70,90 76,106 94,106 80,116 85,133 70,123 55,133 60,116 46,106 64,106" fill="#FACC15"/>
-      </svg>
-    </div>
-  </div>
-  <div class="wave"><svg viewBox="0 0 1440 80" preserveAspectRatio="none"><path d="M0 40 Q360 100 720 40 T1440 40 V80 H0Z" fill="#FEF2F2"/></svg></div>
-</section>
- 
-<!-- ========== 2. VẤN ĐỀ & GIẢI PHÁP ========== -->
-<section class="problem">
-  <div class="container">
-    <div class="sec-head">
-      <span class="tag">Nỗi lo của bố mẹ</span>
-      <h2>Bố mẹ có đang <em>lo lắng</em> khi con bước vào lớp 1?</h2>
-    </div>
-    <div class="pain">
-      <div><div class="ic">🪑</div>Con chưa quen với nề nếp ngồi học tập trung trong thời gian dài?</div>
-      <div><div class="ic">✏️</div>Bỡ ngỡ với mặt chữ, cách cầm bút, hay các con số cơ bản?</div>
-      <div><div class="ic">🏃</div>Sợ con tụt lại phía sau so với các bạn đồng trang lứa?</div>
-    </div>
-    <div class="solution">
-      <h3>✨ Giải pháp vượt trội từ Điểm 10+</h3>
-      <div class="sol-grid">
-        <div><strong>Sĩ số lớp siêu nhỏ<br>(6–16 học sinh)</strong><p>Giúp giáo viên theo sát từng đường nét chữ, uốn nắn từng tư thế ngồi của con.</p></div>
-        <div><strong>Thời lượng chuẩn khoa học<br>90 – 110 phút/buổi</strong><p>Cân bằng giữa học tập và tương tác vui chơi, giúp con không bị áp lực.</p></div>
-        <div><strong>"HỌC THẬT – THI THẬT<br>– ĐIỂM SỐ THẬT"</strong><p>Phương pháp xây dựng phản xạ tư duy tự nhiên cho con.</p></div>
-      </div>
-    </div>
-  </div>
-</section>
- 
-<!-- ========== 3. HỌC PHÍ ========== -->
-<section id="hoc-phi">
-  <div class="container">
-    <div class="sec-head">
-      <span class="tag">Ưu đãi tháng 11/2026</span>
-      <h2>Bảng học phí chính thức & <em>ưu đãi hấp dẫn</em></h2>
-    </div>
- 
-    <div class="countdown" id="cd">
-      <div><b id="d">00</b><span>Ngày</span></div>
-      <div><b id="h">00</b><span>Giờ</span></div>
-      <div><b id="m">00</b><span>Phút</span></div>
-      <div><b id="s">00</b><span>Giây</span></div>
-    </div>
-    <p class="cd-note">⏰ Ưu đãi kết thúc vào ngày 30.11.2026 – số suất quà tặng có hạn!</p>
- 
-    <div class="cards">
-      <div class="card">
-        <h3>08 Tuần</h3><div class="sessions">16 buổi</div>
-        <div><span class="off none">Không ưu đãi</span></div>
-        <div class="old">Học phí gốc 1.400.000₫</div>
-        <div class="price">1.350.000₫</div>
-        <div class="save">Tiết kiệm 50.000₫</div>
-        <div class="gift"><ul><li class="nogift">Không tặng quà</li></ul></div>
-      </div>
- 
-      <div class="card">
-        <h3>12 Tuần</h3><div class="sessions">24 buổi</div>
-        <div><span class="off">-5%</span></div>
-        <div class="old">Học phí gốc 2.100.000₫</div>
-        <div class="price">1.995.000₫</div>
-        <div class="save">Tiết kiệm 105.000₫</div>
-        <div class="gift"><ul><li class="nogift">Không tặng quà</li></ul></div>
-      </div>
- 
-      <div class="card hot">
-        <div class="ribbon">⭐ NỔI BẬT – QUÀ TẶNG HẤP DẪN</div>
-        <h3>16 Tuần</h3><div class="sessions">32 buổi</div>
-        <div><span class="off">-8%</span></div>
-        <div class="old">Học phí gốc 2.800.000₫</div>
-        <div class="price">2.576.000₫</div>
-        <div class="save">Tiết kiệm 224.000₫</div>
-        <div class="gift"><b>🎁 Quà tặng độc quyền</b>
-          <ul><li><b style="display:inline">10 suất đầu/CS:</b> 01 buổi học môn khác + 01 gối chữ U</li>
-          <li><b style="display:inline">Từ suất thứ 11:</b> 01 buổi học môn khác</li></ul></div>
-      </div>
- 
-      <div class="card hot">
-        <div class="ribbon">🔥 ƯU ĐÃI CAO NHẤT -15%</div>
-        <h3>24 Tuần</h3><div class="sessions">48 buổi</div>
-        <div><span class="off">-15%</span></div>
-        <div class="old">Học phí gốc 4.200.000₫</div>
-        <div class="price">3.570.000₫</div>
-        <div class="save">Tiết kiệm 630.000₫</div>
-        <div class="gift"><b>🎁 Quà tặng độc quyền</b>
-          <ul><li><b style="display:inline">10 suất đầu/CS:</b> 02 buổi học môn khác + 01 gối chữ U</li>
-          <li><b style="display:inline">Từ suất thứ 11:</b> 02 buổi học môn khác</li></ul></div>
-      </div>
-    </div>
- 
-    <div class="alt-note">
-      💡 Hoặc tùy chọn gói học tập thay thế theo biểu phí chi tiết tương ứng: <b>Gói 8 tuần 24 buổi, 12 tuần 36 buổi, 16 tuần 48 buổi, 24 tuần 72 buổi</b> với mức học phí dao động từ <b>1.450.000đ đến 3.825.000đ</b> tùy theo lựa chọn khóa học của phụ huynh.
-    </div>
- 
-    <div class="table-wrap">
-      <table>
-        <thead><tr><th>Khóa học</th><th>Ưu đãi T11</th><th>Học phí gốc</th><th>Tiết kiệm</th><th>Học phí phải đóng</th></tr></thead>
-        <tbody>
-          <tr><td>08 Tuần (16 buổi)</td><td>-</td><td>1.400.000₫</td><td>50.000₫</td><td class="pay">1.350.000₫</td></tr>
-          <tr><td>12 Tuần (24 buổi)</td><td>5%</td><td>2.100.000₫</td><td>105.000₫</td><td class="pay">1.995.000₫</td></tr>
-          <tr class="hl"><td>16 Tuần (32 buổi) ⭐</td><td>8%</td><td>2.800.000₫</td><td>224.000₫</td><td class="pay">2.576.000₫</td></tr>
-          <tr class="hl"><td>24 Tuần (48 buổi) ⭐</td><td>15%</td><td>4.200.000₫</td><td>630.000₫</td><td class="pay">3.570.000₫</td></tr>
-        </tbody>
-      </table>
-    </div>
- 
-    <div style="text-align:center;margin-top:44px"><a class="btn btn-red" href="#dang-ky">GIỮ SUẤT ƯU ĐÃI NGAY →</a></div>
-  </div>
-</section>
- 
-<!-- ========== 4. KHÔNG GIAN & CAM KẾT ========== -->
-<section class="quality">
-  <div class="container">
-    <div class="sec-head">
-      <span class="tag">Cam kết chất lượng</span>
-      <h2>Không gian lớp học <em>an toàn, sáng sủa</em></h2>
-    </div>
-    <!-- Thay các khối .ph bằng <img src="..."> hình ảnh thực tế của lớp học -->
-    <div class="gallery">
-      <div class="ph"><span><i>🏫</i>Lớp học nhỏ, ấm cúng</span></div>
-      <div class="ph"><span><i>👩‍🏫</i>Giáo viên theo sát từng bé</span></div>
-      <div class="ph"><span><i>🎨</i>Học mà chơi, chơi mà học</span></div>
-    </div>
-    <div class="commit">
-      <div><div class="check">✓</div><p><b>Cam kết đầu ra</b><br>Con nắm vững quy tắc viết chữ, làm toán tư duy nhanh nhẹn.</p></div>
-      <div><div class="check">✓</div><p><b>Tự tin đến trường</b><br>Tự tin phát biểu, hào hứng khi đến lớp, không còn cảm giác sợ hãi khi bước vào môi trường tiểu học.</p></div>
-    </div>
-  </div>
-</section>
- 
-<!-- ========== 5. ĐĂNG KÝ ========== -->
-<section class="register" id="dang-ky">
-  <div class="container">
-    <div class="sec-head">
-      <span class="tag">Đăng ký</span>
-      <h2>Hướng dẫn đăng ký & <em>thông tin chuyển khoản</em></h2>
-    </div>
-    <div class="grid">
-      <div class="box bank">
-        <h3>💳 Thông tin chuyển khoản</h3>
-        <div class="row"><span>Ngân hàng</span><span>BIDV – Chi nhánh SGD2, PGD Trần Quốc Thảo</span></div>
-        <div class="row"><span>Tên tài khoản</span><span>CT TNHH ĐT GIÁO DỤC VÀ CÔNG NGHỆ BẢN VIỆT</span></div>
-        <div class="row"><span>Số tài khoản</span><span><span class="acc" id="acc">8600128787</span><button class="copy" id="copy" type="button">Sao chép</button></span></div>
-        <div class="syntax">Cú pháp chuyển tiền mẫu:
-          <code>CS[Tên cơ sở] [Tên học sinh], Lớp Tiền Tiểu Học, [Tên Khóa]</code>
-          <span style="color:#FECACA">Ví dụ: CS1 Nguyen Thi Hoa, Lop Tien Tieu Hoc, Khoa 16 tuan</span>
+<body class="bg-slate-100 text-slate-800 antialiased">
+
+<!-- ======================================================= -->
+<!-- ===================== HEADER (của bạn) ================ -->
+<!-- ======================================================= -->
+  <header id="mainHeader" class="sticky top-0 z-50 bg-white transition-shadow duration-300">
+
+    <!-- ===================================================== -->
+    <!-- ===== TẦNG 1: TOP BAR (Thông báo & Tiện ích) ===== -->
+    <!-- ===================================================== -->
+    <div class="bg-brand-dark text-white">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex items-center justify-between h-9 text-[12.5px] font-medium gap-4">
+
+          <!-- BÊN TRÁI: Thông báo -->
+          <div class="flex items-center gap-2 min-w-0">
+            <i data-lucide="megaphone" class="w-3.5 h-3.5 text-gold shrink-0"></i>
+            <p class="truncate">
+              <span class="hidden sm:inline">Khai giảng lớp mới & Ưu đãi học phí đến </span>
+              <span class="font-bold text-gold">25%</span>
+              <span class="hidden sm:inline"> tháng này</span>
+              <span class="hidden md:inline"> — Đăng ký học thử miễn phí ngay!</span>
+            </p>
+          </div>
+
+          <!-- BÊN PHẢI: Liên hệ + Social -->
+          <div class="flex items-center gap-4 shrink-0">
+            <!-- Email (ẩn trên mobile nhỏ) -->
+            <a href="mailto:tvkh.diem10cong@gmail.com" class="hidden lg:flex items-center gap-1.5 hover:text-gold transition-colors">
+              <i data-lucide="mail" class="w-3.5 h-3.5"></i>
+              <span>tvkh.diem10cong@gmail.com</span>
+            </a>
+
+            <!-- Hotline -->
+            <a href="tel:0933398787" class="hidden sm:flex items-center gap-1.5 hover:text-gold transition-colors">
+              <i data-lucide="phone" class="w-3.5 h-3.5"></i>
+              <span class="font-semibold">0933 39 87 87</span>
+            </a>
+
+            <!-- Divider -->
+            <span class="hidden sm:block w-px h-4 bg-white/25"></span>
+
+            <!-- Social icons -->
+            <div class="flex items-center gap-2.5">
+              <a href="#" aria-label="Facebook" class="hover:text-gold transition-colors hover:scale-110 transform duration-200">
+                <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+              </a>
+              <a href="#" aria-label="TikTok" class="hover:text-gold transition-colors hover:scale-110 transform duration-200">
+                <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5 20.1a6.34 6.34 0 0 0 10.86-4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1-.1z"/></svg>
+              </a>
+              <a href="#" aria-label="Zalo" class="hover:text-gold transition-colors hover:scale-110 transform duration-200">
+                <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M12 0C5.373 0 0 5.373 0 12c0 2.006.498 3.894 1.375 5.555L.043 23.957l6.557-1.314A11.94 11.94 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm5.977 16.851c-.238.666-1.393 1.275-1.917 1.32-.524.045-1.016.245-3.415-.706-2.884-1.152-4.71-4.13-4.855-4.32-.144-.19-1.157-1.539-1.157-2.936 0-1.397.733-2.084 1.005-2.371.272-.286.594-.358.793-.358.198 0 .397.002.571.011.183.008.428-.07.667.513.245.595.831 2.03.905 2.178.073.148.122.32.024.516-.099.196-.148.318-.297.49-.148.173-.31.386-.443.519-.148.147-.303.307-.13.601.173.294.771 1.271 1.656 2.059 1.137 1.012 2.094 1.325 2.389 1.475.295.148.469.124.642-.074.173-.198.741-.865.94-1.162.198-.297.397-.247.667-.148.272.099 1.717.81 2.012.957.295.148.492.222.566.346.074.123.074.716-.164 1.382z"/></svg>
+              </a>
+            </div>
+          </div>
         </div>
       </div>
- 
-      <div class="box form">
-        <h3>📞 Đăng ký tư vấn</h3>
-        <p class="s">Để lại thông tin, Điểm 10+ sẽ liên hệ tư vấn lộ trình & giữ suất ưu đãi cho bé.</p>
-        <form id="f">
-          <label for="n">Họ tên phụ huynh</label>
-          <input id="n" required placeholder="Nguyễn Văn A">
-          <label for="p">Số điện thoại</label>
-          <input id="p" type="tel" required pattern="[0-9 +]{9,13}" placeholder="09xx xxx xxx">
-          <label for="y">Năm sinh của bé</label>
-          <select id="y"><option>2020</option><option>2021</option><option>2022</option></select>
-          <label for="k">Khóa học quan tâm</label>
-          <select id="k"><option>08 Tuần (16 buổi)</option><option>12 Tuần (24 buổi)</option><option selected>16 Tuần (32 buổi)</option><option>24 Tuần (48 buổi)</option></select>
-          <button class="btn btn-red" type="submit">ĐĂNG KÝ TƯ VẤN NHẬN ƯU ĐÃI</button>
-          <div class="ok" id="ok">✅ Cảm ơn bố mẹ! Điểm 10+ sẽ liên hệ trong thời gian sớm nhất.</div>
+    </div>
+
+    <!-- ===================================================== -->
+    <!-- ===== TẦNG 2: MAIN NAVIGATION ===== -->
+    <!-- ===================================================== -->
+    <div class="border-b border-gray-200">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex items-center justify-between h-[78px] lg:h-[86px]">
+
+          <!-- ===== CÁNH TRÁI: LOGO ===== -->
+          <a href="index.html" class="flex items-center gap-3 shrink-0 group">
+            <!-- Logo lớn, rõ chi tiết -->
+            <div class="relative w-16 h-16 lg:w-[72px] lg:h-[72px] flex items-center justify-center group-hover:scale-105 transition-transform duration-300">
+              <img
+                src="logo.png"
+                alt="Logo Trung Tâm Điểm 10+"
+                class="w-full h-full object-contain drop-shadow-sm"
+                onerror="this.style.display='none'; this.nextElementSibling.style.display='block';"
+              />
+              <!-- Fallback SVG vòng nguyệt quế + 10+ -->
+              <svg xmlns="http://www.w3.org/2000/svg" class="w-12 h-12 text-brand hidden" style="display:none" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M5 16L3 5l5.5 5L12 4l3.5 6L21 5l-2 11H5zm14 3c0 .6-.4 1-1 1H6c-.6 0-1-.4-1-1v-1h14v1z"/>
+              </svg>
+            </div>
+            <!-- Text Logo -->
+            <div class="leading-tight">
+              <div class="text-[16px] sm:text-[17px] lg:text-[18px] font-extrabold tracking-tight text-brand-deeper">
+                TRUNG TÂM ĐIỂM 10+
+              </div>
+              <p class="text-[11px] sm:text-[12px] font-medium text-gray-700 mt-0.5">
+                Vững kiến thức, chắc tư duy
+              </p>
+            </div>
+          </a>
+
+          <!-- ===== Ở GIỮA: MENU ===== -->
+          <nav class="hidden lg:flex items-center gap-1">
+            <!-- GIỚI THIỆU -->
+            <a href="gioi-thieu.html" class="nav-link px-3.5 py-2 rounded-md text-[14.5px] font-semibold text-gray-800">
+              Giới thiệu
+            </a>
+
+            <!-- CÁC KHÓA HỌC (Dropdown) -->
+            <div class="group relative">
+              <a href="#" class="nav-link px-3.5 py-2 rounded-md text-[14.5px] font-semibold text-gray-800 inline-flex items-center gap-1">
+                Các khóa học
+                <i data-lucide="chevron-down" class="w-4 h-4 transition-transform duration-300 group-hover:rotate-180"></i>
+              </a>
+
+              <!-- Dropdown Panel -->
+              <div class="dropdown-panel absolute top-full left-1/2 -translate-x-1/2 pt-3 w-[560px]">
+                <div class="bg-white rounded-xl shadow-xl border-t-[3px] border-brand-dark overflow-hidden">
+                  <div class="p-2 grid grid-cols-2 gap-1">
+                    <a href="#" class="flex items-start gap-3 p-3 rounded-lg hover:bg-brand-soft transition-colors group/item">
+                      <div class="w-9 h-9 rounded-lg bg-blue-50 flex items-center justify-center shrink-0">
+                        <i data-lucide="pencil" class="w-4 h-4 text-blue-500"></i>
+                      </div>
+                      <div>
+                        <p class="text-sm font-semibold text-gray-800 group-hover/item:text-brand transition">Lớp chuẩn bị vào lớp 1</p>
+                        <p class="text-xs text-gray-500 mt-0.5">Lớp 1 - Lớp 5</p>
+                      </div>
+                    </a>
+                    <a href="#" class="flex items-start gap-3 p-3 rounded-lg hover:bg-brand-soft transition-colors group/item">
+                      <div class="w-9 h-9 rounded-lg bg-emerald-50 flex items-center justify-center shrink-0">
+                        <i data-lucide="book-open" class="w-4 h-4 text-emerald-500"></i>
+                      </div>
+                      <div>
+                        <p class="text-sm font-semibold text-gray-800 group-hover/item:text-brand transition">Tuyển sinh lớp bồi dưỡng cấp 2</p>
+                        <p class="text-xs text-gray-500 mt-0.5">Lớp 6 - Lớp 9</p>
+                      </div>
+                    </a>
+                    <a href="#" class="flex items-start gap-3 p-3 rounded-lg hover:bg-brand-soft transition-colors group/item">
+                      <div class="w-9 h-9 rounded-lg bg-purple-50 flex items-center justify-center shrink-0">
+                        <i data-lucide="graduation-cap" class="w-4 h-4 text-purple-500"></i>
+                      </div>
+                      <div>
+                        <p class="text-sm font-semibold text-gray-800 group-hover/item:text-brand transition">Luyện thi tuyển sinh lớp 10</p>
+                        <p class="text-xs text-gray-500 mt-0.5">Lớp 10 - Lớp 12</p>
+                      </div>
+                    </a>
+                    <a href="#" class="flex items-start gap-3 p-3 rounded-lg hover:bg-brand-soft transition-colors group/item">
+                      <div class="w-9 h-9 rounded-lg bg-brand-soft flex items-center justify-center shrink-0">
+                        <i data-lucide="award" class="w-4 h-4 text-brand"></i>
+                      </div>
+                      <div>
+                        <p class="text-sm font-semibold text-gray-800 group-hover/item:text-brand transition">Tuyển sinh lớp bồi dưỡng cấp 3</p>
+                        <p class="text-xs text-gray-500 mt-0.5">Chinh phục điểm cao</p>
+                      </div>
+                    </a>
+                    <a href="#" class="flex items-start gap-3 p-3 rounded-lg hover:bg-brand-soft transition-colors group/item">
+                      <div class="w-9 h-9 rounded-lg bg-brand-soft flex items-center justify-center shrink-0">
+                        <i data-lucide="award" class="w-4 h-4 text-brand"></i>
+                      </div>
+                      <div>
+                        <p class="text-sm font-semibold text-gray-800 group-hover/item:text-brand transition">Luyện thi tốt nghiệp THPT</p>
+                        <p class="text-xs text-gray-500 mt-0.5">Chinh phục điểm cao</p>
+                      </div>
+                    </a>
+                    <a href="#" class="flex items-start gap-3 p-3 rounded-lg hover:bg-brand-soft transition-colors group/item">
+                      <div class="w-9 h-9 rounded-lg bg-brand-soft flex items-center justify-center shrink-0">
+                        <i data-lucide="award" class="w-4 h-4 text-brand"></i>
+                      </div>
+                      <div>
+                        <p class="text-sm font-semibold text-gray-800 group-hover/item:text-brand transition">Hè bổ ích</p>
+                        <p class="text-xs text-gray-500 mt-0.5">Chinh phục điểm cao</p>
+                      </div>
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <a href="he-thong-co-so.html" class="nav-link px-3.5 py-2 rounded-md text-[14.5px] font-semibold text-gray-800">Hệ thống cơ sở</a>
+            <a href="tai-lieu.html" class="nav-link px-3.5 py-2 rounded-md text-[14.5px] font-semibold text-gray-800">Tài liệu</a>
+            <a href="tin-tuc.html" class="nav-link px-3.5 py-2 rounded-md text-[14.5px] font-semibold text-gray-800">Tin tức</a>
+            <a href="lien-he.html" class="nav-link px-3.5 py-2 rounded-md text-[14.5px] font-semibold text-gray-800">Liên hệ</a>
+          </nav>
+
+          <!-- ===== CÁNH PHẢI: CTA + HAMBURGER ===== -->
+          <div class="flex items-center gap-2.5">
+            <!-- CTA Desktop (đã trỏ về form đăng ký trên trang) -->
+            <a href="#dang-ky" class="hidden md:inline-flex items-center gap-2 px-5 py-2.5 rounded-lg bg-brand hover:bg-brand-dark text-white text-[14px] font-bold shadow-sm hover:shadow-md transition-all duration-300 hover:scale-105">
+              <i data-lucide="user-plus" class="w-4 h-4"></i>
+              <span>Đăng Ký Học Thử</span>
+            </a>
+
+            <!-- Mobile: hotline -->
+            <a href="tel:0933398787" class="md:hidden inline-flex items-center justify-center w-10 h-10 rounded-lg bg-brand-soft text-brand">
+              <i data-lucide="phone" class="w-5 h-5"></i>
+            </a>
+
+            <!-- Hamburger -->
+            <button id="hamburgerBtn" aria-label="Mở menu" class="hamburger lg:hidden flex flex-col justify-center items-center w-10 h-10 rounded-lg hover:bg-gray-100 transition">
+              <span class="hamburger-line line-1 block w-6 h-[2px] bg-gray-800 rounded mb-[5px]"></span>
+              <span class="hamburger-line line-2 block w-6 h-[2px] bg-gray-800 rounded mb-[5px]"></span>
+              <span class="hamburger-line line-3 block w-6 h-[2px] bg-gray-800 rounded"></span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+<!-- Menu mobile (mở bằng hamburger) -->
+<div id="mobileMenu" class="hidden fixed inset-x-0 z-40 bg-white border-b border-gray-200 shadow-xl lg:hidden">
+  <nav class="max-w-7xl mx-auto px-4 py-3 flex flex-col">
+    <a href="gioi-thieu.html" class="py-3 px-2 font-semibold text-gray-800 border-b border-gray-100">Giới thiệu</a>
+    <details class="border-b border-gray-100">
+      <summary class="py-3 px-2 font-semibold text-gray-800 cursor-pointer flex items-center justify-between list-none">Các khóa học <i data-lucide="chevron-down" class="w-4 h-4"></i></summary>
+      <div class="pb-2 pl-4 flex flex-col text-sm text-gray-600">
+        <a href="#" class="py-2">Lớp chuẩn bị vào lớp 1</a>
+        <a href="#" class="py-2">Tuyển sinh lớp bồi dưỡng cấp 2</a>
+        <a href="#" class="py-2">Luyện thi tuyển sinh lớp 10</a>
+        <a href="#" class="py-2">Tuyển sinh lớp bồi dưỡng cấp 3</a>
+        <a href="#" class="py-2">Luyện thi tốt nghiệp THPT</a>
+        <a href="#" class="py-2">Hè bổ ích</a>
+      </div>
+    </details>
+    <a href="he-thong-co-so.html" class="py-3 px-2 font-semibold text-gray-800 border-b border-gray-100">Hệ thống cơ sở</a>
+    <a href="tai-lieu.html" class="py-3 px-2 font-semibold text-gray-800 border-b border-gray-100">Tài liệu</a>
+    <a href="tin-tuc.html" class="py-3 px-2 font-semibold text-gray-800 border-b border-gray-100">Tin tức</a>
+    <a href="lien-he.html" class="py-3 px-2 font-semibold text-gray-800">Liên hệ</a>
+    <a href="#dang-ky" class="mt-3 inline-flex items-center justify-center gap-2 px-5 py-3 rounded-lg bg-brand text-white font-bold"><i data-lucide="user-plus" class="w-4 h-4"></i>Đăng Ký Học Thử</a>
+  </nav>
+</div>
+
+<main>
+
+<!-- ======================================================= -->
+<!-- ================= 1. HERO – BENTO GRID ================= -->
+<!-- ======================================================= -->
+<section id="top" class="pt-5 pb-6 lg:pt-6">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 lg:gap-5">
+
+      <!-- Card chính -->
+      <div class="relative overflow-hidden rounded-3xl bg-gradient-to-br from-brand via-brand-dark to-brand-deeper text-white p-7 sm:p-10 lg:p-12 sm:col-span-2 lg:row-span-2 flex flex-col justify-between min-h-[500px]">
+        <div class="absolute inset-0 grid-bg opacity-70 [mask-image:linear-gradient(135deg,transparent_5%,#000_50%,transparent_95%)]"></div>
+        <div class="absolute -right-24 -top-24 w-80 h-80 rounded-full bg-white/10 blur-sm"></div>
+        <div class="absolute -right-10 -bottom-28 text-[240px] sm:text-[300px] font-black leading-none text-white/[.07] select-none pointer-events-none">10+</div>
+
+        <div class="relative">
+          <span class="inline-flex items-center gap-2 rounded-full bg-gold text-brand-deeper text-[12.5px] font-bold px-4 py-2 pulse-soft">
+            <i data-lucide="sparkles" class="w-4 h-4"></i>
+            Chương Trình Đặc Biệt Tháng 11.2026 – Điểm 10+
+          </span>
+          <h1 class="mt-6 text-[30px] sm:text-4xl lg:text-[44px] font-extrabold leading-relaxed tracking-normal">
+            HÀNH TRANG CHUẨN BỊ VÀO LỚP 1 CHO BÉ – <span class="text-gold">VỮNG VÀNG TÂM THẾ,</span> TỰ TIN KHỞI ĐẦU
+          </h1>
+          <p class="mt-5 text-[15.5px] sm:text-[17px] text-red-100 max-w-xl leading-relaxed">
+            Chuẩn bị tâm thế vững vàng, rèn luyện kỹ năng tập trung, làm quen chữ cái, con số và nền tảng tư duy đầu đời cho các bé sinh năm 2020, 2021, 2022.
+          </p>
+          <a href="#dang-ky" class="mt-8 inline-flex items-center gap-3 rounded-xl bg-white text-brand-dark hover:bg-gold hover:text-brand-deeper font-bold text-[15px] px-7 py-4 shadow-lg transition-all duration-300 hover:-translate-y-0.5">
+            ĐĂNG KÝ TƯ VẤN NHẬN ƯU ĐÃI
+            <i data-lucide="arrow-right" class="w-5 h-5"></i>
+          </a>
+        </div>
+
+        <div class="relative mt-10 flex flex-wrap gap-2.5">
+          <span class="inline-flex items-center gap-2 rounded-lg bg-white/12 border border-white/20 px-3.5 py-2 text-[13px] font-medium backdrop-blur"><i data-lucide="target" class="w-4 h-4 text-gold"></i>Kỹ năng tập trung</span>
+          <span class="inline-flex items-center gap-2 rounded-lg bg-white/12 border border-white/20 px-3.5 py-2 text-[13px] font-medium backdrop-blur"><i data-lucide="type" class="w-4 h-4 text-gold"></i>Chữ cái &amp; con số</span>
+          <span class="inline-flex items-center gap-2 rounded-lg bg-white/12 border border-white/20 px-3.5 py-2 text-[13px] font-medium backdrop-blur"><i data-lucide="lightbulb" class="w-4 h-4 text-gold"></i>Nền tảng tư duy</span>
+        </div>
+      </div>
+
+      <!-- Card đếm ngược -->
+      <div class="sm:col-span-2 rounded-3xl bg-white border border-slate-200 p-6 lg:p-7 flex flex-col justify-between card-hover">
+        <div class="flex items-center gap-3">
+          <span class="w-10 h-10 rounded-xl bg-brand-soft text-brand flex items-center justify-center"><i data-lucide="timer" class="w-5 h-5"></i></span>
+          <div>
+            <p class="text-[12px] font-semibold tracking-wider uppercase text-slate-500">Ưu đãi tháng 11.2026</p>
+            <p class="text-[15px] font-bold text-slate-900">Kết thúc vào ngày 30.11.2026</p>
+          </div>
+        </div>
+        <div class="mt-5 grid grid-cols-4 gap-3 text-center">
+          <div class="rounded-xl bg-slate-50 border border-slate-200 py-3"><b data-cd="d" class="block text-2xl lg:text-3xl font-extrabold text-brand">00</b><span class="text-[11px] uppercase tracking-wider text-slate-500">Ngày</span></div>
+          <div class="rounded-xl bg-slate-50 border border-slate-200 py-3"><b data-cd="h" class="block text-2xl lg:text-3xl font-extrabold text-brand">00</b><span class="text-[11px] uppercase tracking-wider text-slate-500">Giờ</span></div>
+          <div class="rounded-xl bg-slate-50 border border-slate-200 py-3"><b data-cd="m" class="block text-2xl lg:text-3xl font-extrabold text-brand">00</b><span class="text-[11px] uppercase tracking-wider text-slate-500">Phút</span></div>
+          <div class="rounded-xl bg-slate-50 border border-slate-200 py-3"><b data-cd="s" class="block text-2xl lg:text-3xl font-extrabold text-brand">00</b><span class="text-[11px] uppercase tracking-wider text-slate-500">Giây</span></div>
+        </div>
+      </div>
+
+      <!-- Card số liệu 1 -->
+      <div class="rounded-3xl bg-brand-soft border border-red-100 p-6 flex flex-col justify-between min-h-[170px] card-hover">
+        <span class="w-10 h-10 rounded-xl bg-white text-brand flex items-center justify-center shadow-sm"><i data-lucide="percent" class="w-5 h-5"></i></span>
+        <div>
+          <p class="text-4xl lg:text-5xl font-black text-brand tracking-tight">15%</p>
+          <p class="text-[13.5px] font-medium text-slate-600 mt-1">Ưu đãi tối đa tháng 11</p>
+        </div>
+      </div>
+
+      <!-- Card số liệu 2 -->
+      <div class="rounded-3xl bg-slate-900 text-white p-6 flex flex-col justify-between min-h-[170px] card-hover">
+        <span class="w-10 h-10 rounded-xl bg-white/10 text-gold flex items-center justify-center"><i data-lucide="users" class="w-5 h-5"></i></span>
+        <div>
+          <p class="text-4xl lg:text-5xl font-black tracking-tight">6–16</p>
+          <p class="text-[13.5px] font-medium text-slate-300 mt-1">Học sinh mỗi lớp</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ======================================================= -->
+<!-- ========== 2. VẤN ĐỀ PHỤ HUYNH & GIẢI PHÁP ============ -->
+<!-- ======================================================= -->
+<section class="py-14 lg:py-20">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+    <div class="max-w-2xl">
+      <span class="text-[12.5px] font-bold tracking-widest uppercase text-brand">Vấn đề của phụ huynh</span>
+      <h2 class="mt-3 text-3xl lg:text-4xl font-extrabold tracking-tight text-slate-900">Bố mẹ có đang lo lắng khi con bước vào lớp 1?</h2>
+    </div>
+
+    <div class="mt-9 grid grid-cols-1 md:grid-cols-3 gap-4 lg:gap-5">
+      <div class="rounded-3xl bg-white border border-slate-200 p-7 card-hover">
+        <span class="w-12 h-12 rounded-2xl bg-brand-soft text-brand flex items-center justify-center"><i data-lucide="clock" class="w-6 h-6"></i></span>
+        <p class="mt-5 text-[17px] font-semibold text-slate-900 leading-snug">Con chưa quen với nề nếp ngồi học tập trung trong thời gian dài?</p>
+      </div>
+      <div class="rounded-3xl bg-white border border-slate-200 p-7 card-hover">
+        <span class="w-12 h-12 rounded-2xl bg-brand-soft text-brand flex items-center justify-center"><i data-lucide="pencil" class="w-6 h-6"></i></span>
+        <p class="mt-5 text-[17px] font-semibold text-slate-900 leading-snug">Bỡ ngỡ với mặt chữ, cách cầm bút, hay các con số cơ bản?</p>
+      </div>
+      <div class="rounded-3xl bg-white border border-slate-200 p-7 card-hover">
+        <span class="w-12 h-12 rounded-2xl bg-brand-soft text-brand flex items-center justify-center"><i data-lucide="trending-down" class="w-6 h-6"></i></span>
+        <p class="mt-5 text-[17px] font-semibold text-slate-900 leading-snug">Sợ con tụt lại phía sau so với các bạn đồng trang lứa?</p>
+      </div>
+    </div>
+
+    <!-- Giải pháp -->
+    <div class="mt-5 rounded-3xl bg-brand-deeper text-white p-6 sm:p-9 lg:p-10 relative overflow-hidden">
+      <div class="absolute -right-20 -top-20 w-72 h-72 rounded-full bg-brand/30 blur-2xl"></div>
+      <div class="relative flex flex-col lg:flex-row lg:items-end lg:justify-between gap-3">
+        <div>
+          <span class="text-[12.5px] font-bold tracking-widest uppercase text-gold">Giải pháp từ Điểm 10+</span>
+          <h3 class="mt-2 text-2xl lg:text-3xl font-extrabold">Giải pháp vượt trội từ Điểm 10+</h3>
+        </div>
+      </div>
+      <div class="relative mt-8 grid grid-cols-1 md:grid-cols-3 gap-4">
+        <div class="rounded-2xl bg-white/[.07] border border-white/15 p-6 hover:bg-white/10 transition">
+          <span class="w-11 h-11 rounded-xl bg-gold text-brand-deeper flex items-center justify-center"><i data-lucide="users" class="w-5 h-5"></i></span>
+          <h4 class="mt-4 text-lg font-bold">Sĩ số lớp siêu nhỏ (6–16 học sinh)</h4>
+          <p class="mt-2 text-[14.5px] text-red-100 leading-relaxed">Giúp giáo viên theo sát từng đường nét chữ, uốn nắn từng tư thế ngồi của con.</p>
+        </div>
+        <div class="rounded-2xl bg-white/[.07] border border-white/15 p-6 hover:bg-white/10 transition">
+          <span class="w-11 h-11 rounded-xl bg-gold text-brand-deeper flex items-center justify-center"><i data-lucide="timer" class="w-5 h-5"></i></span>
+          <h4 class="mt-4 text-lg font-bold">Thời lượng chuẩn khoa học: 90–110 phút/buổi</h4>
+          <p class="mt-2 text-[14.5px] text-red-100 leading-relaxed">Cân bằng giữa học tập và tương tác vui chơi, giúp con không bị áp lực.</p>
+        </div>
+        <div class="rounded-2xl bg-white/[.07] border border-white/15 p-6 hover:bg-white/10 transition">
+          <span class="w-11 h-11 rounded-xl bg-gold text-brand-deeper flex items-center justify-center"><i data-lucide="badge-check" class="w-5 h-5"></i></span>
+          <h4 class="mt-4 text-lg font-bold">“HỌC THẬT – THI THẬT – ĐIỂM SỐ THẬT”</h4>
+          <p class="mt-2 text-[14.5px] text-red-100 leading-relaxed">Phương pháp xây dựng phản xạ tư duy tự nhiên cho con.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ======================================================= -->
+<!-- ================ 3. BẢNG HỌC PHÍ & ƯU ĐÃI ============= -->
+<!-- ======================================================= -->
+<section id="hoc-phi" class="py-14 lg:py-20 bg-white border-y border-slate-200">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+    <div class="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-6">
+      <div class="max-w-2xl">
+        <span class="text-[12.5px] font-bold tracking-widest uppercase text-brand">Học phí chính thức</span>
+        <h2 class="mt-3 text-3xl lg:text-4xl font-extrabold tracking-tight text-slate-900">Bảng học phí & ưu đãi tháng 11/2026</h2>
+        <p class="mt-3 text-slate-600">Minh bạch học phí gốc, mức tiết kiệm, số tiền phải đóng và quà tặng cho từng khóa học.</p>
+      </div>
+      <div class="inline-flex items-center gap-3 rounded-2xl bg-brand-soft border border-red-100 px-5 py-4 self-start">
+        <i data-lucide="alarm-clock" class="w-6 h-6 text-brand shrink-0"></i>
+        <div class="text-[14px] leading-snug">
+          <p class="font-bold text-brand-dark">Còn <span data-cd="d">00</span> ngày <span data-cd="h">00</span>:<span data-cd="m">00</span>:<span data-cd="s">00</span></p>
+          <p class="text-slate-600">Ưu đãi kết thúc 30.11.2026</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="mt-10 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 lg:gap-5">
+
+      <!-- 8 tuần -->
+      <div class="relative flex flex-col rounded-3xl bg-slate-50 border border-slate-200 p-6 card-hover">
+        <p class="text-[12px] font-bold tracking-widest uppercase text-slate-500">16 buổi</p>
+        <h3 class="mt-1 text-2xl font-extrabold text-slate-900">08 Tuần</h3>
+        <span class="mt-3 self-start rounded-md bg-slate-200 text-slate-600 text-[12px] font-bold px-2.5 py-1">Không ưu đãi</span>
+        <p class="mt-5 text-[14px] text-slate-500 line-through">1.400.000₫</p>
+        <p class="text-[12px] font-semibold uppercase tracking-wider text-slate-500 mt-1">Học phí phải đóng</p>
+        <p class="text-3xl font-black text-brand-dark tracking-tight">1.350.000₫</p>
+        <p class="mt-1 text-[13.5px] font-semibold text-emerald-600">Tiết kiệm 50.000₫</p>
+        <div class="mt-auto pt-5">
+          <div class="rounded-xl bg-white border border-dashed border-slate-300 p-3 text-[13px] text-slate-500 text-center">Không tặng quà</div>
+        </div>
+      </div>
+
+      <!-- 12 tuần -->
+      <div class="relative flex flex-col rounded-3xl bg-slate-50 border border-slate-200 p-6 card-hover">
+        <p class="text-[12px] font-bold tracking-widest uppercase text-slate-500">24 buổi</p>
+        <h3 class="mt-1 text-2xl font-extrabold text-slate-900">12 Tuần</h3>
+        <span class="mt-3 self-start rounded-md bg-brand-soft text-brand text-[12px] font-bold px-2.5 py-1">Ưu đãi 5%</span>
+        <p class="mt-5 text-[14px] text-slate-500 line-through">2.100.000₫</p>
+        <p class="text-[12px] font-semibold uppercase tracking-wider text-slate-500 mt-1">Học phí phải đóng</p>
+        <p class="text-3xl font-black text-brand-dark tracking-tight">1.995.000₫</p>
+        <p class="mt-1 text-[13.5px] font-semibold text-emerald-600">Tiết kiệm 105.000₫</p>
+        <div class="mt-auto pt-5">
+          <div class="rounded-xl bg-white border border-dashed border-slate-300 p-3 text-[13px] text-slate-500 text-center">Không tặng quà</div>
+        </div>
+      </div>
+
+      <!-- 16 tuần (nổi bật) -->
+      <div class="relative flex flex-col rounded-3xl bg-white border-2 border-brand p-6 shadow-xl shadow-red-100 card-hover">
+        <span class="absolute -top-3 left-6 rounded-full bg-brand text-white text-[11.5px] font-bold tracking-wide uppercase px-3.5 py-1.5 flex items-center gap-1.5"><i data-lucide="gift" class="w-3.5 h-3.5"></i>Nhiều quà tặng</span>
+        <p class="text-[12px] font-bold tracking-widest uppercase text-slate-500">32 buổi</p>
+        <h3 class="mt-1 text-2xl font-extrabold text-slate-900">16 Tuần</h3>
+        <span class="mt-3 self-start rounded-md bg-brand text-white text-[12px] font-bold px-2.5 py-1">Ưu đãi 8%</span>
+        <p class="mt-5 text-[14px] text-slate-500 line-through">2.800.000₫</p>
+        <p class="text-[12px] font-semibold uppercase tracking-wider text-slate-500 mt-1">Học phí phải đóng</p>
+        <p class="text-3xl font-black text-brand tracking-tight">2.576.000₫</p>
+        <p class="mt-1 text-[13.5px] font-semibold text-emerald-600">Tiết kiệm 224.000₫</p>
+        <div class="mt-auto pt-5">
+          <div class="rounded-xl bg-brand-soft border border-red-100 p-3.5 text-[13px] text-slate-700 space-y-1.5">
+            <p class="text-[11px] font-bold uppercase tracking-wider text-brand flex items-center gap-1.5"><i data-lucide="gift" class="w-3.5 h-3.5"></i>Quà tặng độc quyền</p>
+            <p><b>10 suất đầu/CS:</b> Tặng 01 buổi học môn khác + 01 gối chữ U</p>
+            <p><b>Từ suất thứ 11:</b> Tặng 01 buổi học môn khác</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- 24 tuần (nổi bật) -->
+      <div class="relative flex flex-col rounded-3xl bg-gradient-to-br from-brand to-brand-deeper text-white p-6 shadow-xl shadow-red-200 card-hover">
+        <span class="absolute -top-3 left-6 rounded-full bg-gold text-brand-deeper text-[11.5px] font-bold tracking-wide uppercase px-3.5 py-1.5 flex items-center gap-1.5"><i data-lucide="flame" class="w-3.5 h-3.5"></i>Ưu đãi cao nhất</span>
+        <p class="text-[12px] font-bold tracking-widest uppercase text-red-200">48 buổi</p>
+        <h3 class="mt-1 text-2xl font-extrabold">24 Tuần</h3>
+        <span class="mt-3 self-start rounded-md bg-gold text-brand-deeper text-[12px] font-bold px-2.5 py-1">Ưu đãi 15%</span>
+        <p class="mt-5 text-[14px] text-red-200 line-through">4.200.000₫</p>
+        <p class="text-[12px] font-semibold uppercase tracking-wider text-red-200 mt-1">Học phí phải đóng</p>
+        <p class="text-3xl font-black tracking-tight">3.570.000₫</p>
+        <p class="mt-1 text-[13.5px] font-semibold text-gold">Tiết kiệm 630.000₫</p>
+        <div class="mt-auto pt-5">
+          <div class="rounded-xl bg-white/10 border border-white/20 p-3.5 text-[13px] text-red-50 space-y-1.5">
+            <p class="text-[11px] font-bold uppercase tracking-wider text-gold flex items-center gap-1.5"><i data-lucide="gift" class="w-3.5 h-3.5"></i>Quà tặng độc quyền</p>
+            <p><b>10 suất đầu/CS:</b> Tặng 02 buổi học môn khác + 01 gối chữ U</p>
+            <p><b>Từ suất thứ 11:</b> Tặng 02 buổi học môn khác</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Gói thay thế -->
+    <div class="mt-5 rounded-2xl bg-slate-50 border border-slate-200 p-5 flex gap-4 items-start">
+      <span class="w-10 h-10 rounded-xl bg-white border border-slate-200 text-brand flex items-center justify-center shrink-0"><i data-lucide="info" class="w-5 h-5"></i></span>
+      <p class="text-[14.5px] text-slate-600 leading-relaxed">Hoặc tùy chọn gói học tập thay thế theo biểu phí chi tiết tương ứng: <b class="text-slate-900">Gói 8 tuần 24 buổi, 12 tuần 36 buổi, 16 tuần 48 buổi, 24 tuần 72 buổi</b> với mức học phí dao động từ <b class="text-slate-900">1.450.000đ đến 3.825.000đ</b> tùy theo lựa chọn khóa học của phụ huynh.</p>
+    </div>
+
+    <!-- Bảng tổng hợp -->
+    <div class="mt-5 rounded-3xl border border-slate-200 overflow-hidden">
+      <div class="overflow-x-auto">
+        <table class="w-full min-w-[680px] text-[14.5px]">
+          <thead>
+            <tr class="bg-brand-deeper text-white text-[12.5px] uppercase tracking-wider">
+              <th class="text-left font-semibold px-6 py-4">Khóa học</th>
+              <th class="font-semibold px-4 py-4">Ưu đãi T11</th>
+              <th class="font-semibold px-4 py-4">Học phí gốc</th>
+              <th class="font-semibold px-4 py-4">Tiết kiệm</th>
+              <th class="font-semibold px-4 py-4">Học phí phải đóng</th>
+            </tr>
+          </thead>
+          <tbody class="text-center divide-y divide-slate-100">
+            <tr><td class="text-left px-6 py-4 font-semibold">08 Tuần (16 buổi)</td><td>–</td><td>1.400.000₫</td><td>50.000₫</td><td class="font-extrabold text-brand-dark">1.350.000₫</td></tr>
+            <tr><td class="text-left px-6 py-4 font-semibold">12 Tuần (24 buổi)</td><td>5%</td><td>2.100.000₫</td><td>105.000₫</td><td class="font-extrabold text-brand-dark">1.995.000₫</td></tr>
+            <tr class="bg-brand-soft/70"><td class="text-left px-6 py-4 font-semibold">16 Tuần (32 buổi)</td><td>8%</td><td>2.800.000₫</td><td>224.000₫</td><td class="font-extrabold text-brand-dark">2.576.000₫</td></tr>
+            <tr class="bg-brand-soft/70"><td class="text-left px-6 py-4 font-semibold">24 Tuần (48 buổi)</td><td>15%</td><td>4.200.000₫</td><td>630.000₫</td><td class="font-extrabold text-brand-dark">3.570.000₫</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="mt-8 text-center">
+      <a href="#dang-ky" class="inline-flex items-center gap-3 rounded-xl bg-brand hover:bg-brand-dark text-white font-bold px-8 py-4 shadow-lg shadow-red-200 transition-all hover:-translate-y-0.5">GIỮ SUẤT ƯU ĐÃI NGAY <i data-lucide="arrow-right" class="w-5 h-5"></i></a>
+    </div>
+  </div>
+</section>
+
+<!-- ======================================================= -->
+<!-- ============ 4. KHÔNG GIAN & CAM KẾT CHẤT LƯỢNG ======= -->
+<!-- ======================================================= -->
+<section class="py-14 lg:py-20">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="max-w-2xl">
+      <span class="text-[12.5px] font-bold tracking-widest uppercase text-brand">Cam kết chất lượng</span>
+      <h2 class="mt-3 text-3xl lg:text-4xl font-extrabold tracking-tight text-slate-900">Không gian lớp học sáng sủa, an toàn</h2>
+    </div>
+
+    <!-- Thay các khối .ph bằng <img src="..." class="absolute inset-0 w-full h-full object-cover"> ảnh thực tế của lớp học -->
+    <div class="mt-9 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 lg:gap-5">
+      <div class="ph relative overflow-hidden rounded-3xl bg-gradient-to-br from-brand to-brand-deeper text-white sm:col-span-2 h-64 lg:h-72 p-6 flex items-end card-hover">
+        <i data-lucide="school" class="absolute right-6 top-6 w-20 h-20 text-white/20"></i>
+        <div><p class="text-[12px] font-semibold uppercase tracking-widest text-gold">Hệ thống Điểm 10+</p><p class="mt-1 text-xl font-bold">Lớp học nhỏ, cơ sở vật chất sáng sủa</p></div>
+      </div>
+      <div class="ph relative overflow-hidden rounded-3xl bg-slate-900 text-white h-64 lg:h-72 p-6 flex items-end card-hover">
+        <i data-lucide="user-check" class="absolute right-5 top-5 w-14 h-14 text-white/15"></i>
+        <p class="text-lg font-bold leading-snug">Giáo viên theo sát từng bé</p>
+      </div>
+      <div class="ph relative overflow-hidden rounded-3xl bg-brand-soft border border-red-100 h-64 lg:h-72 p-6 flex items-end card-hover">
+        <i data-lucide="shield-check" class="absolute right-5 top-5 w-14 h-14 text-brand/20"></i>
+        <p class="text-lg font-bold leading-snug text-brand-deeper">Môi trường an toàn cho trẻ</p>
+      </div>
+
+      <div class="sm:col-span-2 rounded-3xl bg-white border border-slate-200 p-7 flex gap-5 card-hover">
+        <span class="w-12 h-12 rounded-2xl bg-brand text-white flex items-center justify-center shrink-0"><i data-lucide="check" class="w-6 h-6"></i></span>
+        <div><h3 class="text-lg font-extrabold text-slate-900">Cam kết đầu ra</h3><p class="mt-2 text-slate-600 leading-relaxed">Con nắm vững quy tắc viết chữ, làm toán tư duy nhanh nhẹn.</p></div>
+      </div>
+      <div class="sm:col-span-2 rounded-3xl bg-white border border-slate-200 p-7 flex gap-5 card-hover">
+        <span class="w-12 h-12 rounded-2xl bg-brand text-white flex items-center justify-center shrink-0"><i data-lucide="smile" class="w-6 h-6"></i></span>
+        <div><h3 class="text-lg font-extrabold text-slate-900">Tự tin bước vào tiểu học</h3><p class="mt-2 text-slate-600 leading-relaxed">Tự tin phát biểu, hào hứng khi đến lớp, không còn cảm giác sợ hãi khi bước vào môi trường tiểu học.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ======================================================= -->
+<!-- ================= 5. ĐĂNG KÝ & CHUYỂN KHOẢN ============ -->
+<!-- ======================================================= -->
+<section id="dang-ky" class="py-14 lg:py-20 bg-white border-t border-slate-200">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="max-w-2xl mx-auto text-center">
+      <span class="text-[12.5px] font-bold tracking-widest uppercase text-brand">Đăng ký</span>
+      <h2 class="mt-3 text-3xl lg:text-4xl font-extrabold tracking-tight text-slate-900">Đăng ký tư vấn & giữ suất ưu đãi</h2>
+      <p class="mt-3 text-slate-600">Để lại thông tin hoặc đến trực tiếp cơ sở gần nhất để ghi danh cho bé.</p>
+    </div>
+
+    <div class="mt-9 max-w-2xl mx-auto">
+
+      <!-- Form -->
+      <div class="rounded-3xl bg-slate-50 border border-slate-200 p-7 sm:p-9">
+        <div class="flex items-center gap-3">
+          <span class="w-11 h-11 rounded-xl bg-brand text-white flex items-center justify-center"><i data-lucide="user-plus" class="w-5 h-5"></i></span>
+          <h3 class="text-xl font-extrabold text-slate-900">Đăng ký tư vấn nhận ưu đãi</h3>
+        </div>
+        <p class="mt-3 text-[14.5px] text-slate-600">Để lại thông tin, Điểm 10+ sẽ liên hệ tư vấn lộ trình và giữ suất ưu đãi cho bé.</p>
+
+        <form id="regForm" class="mt-6 grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <label class="block sm:col-span-2"><span class="text-[13px] font-semibold text-slate-700">Họ tên phụ huynh</span>
+            <input required type="text" placeholder="Nguyễn Văn A" class="mt-1.5 w-full rounded-xl border border-slate-300 bg-white px-4 py-3 outline-none focus:border-brand focus:ring-4 focus:ring-red-100 transition"></label>
+          <label class="block sm:col-span-2"><span class="text-[13px] font-semibold text-slate-700">Số điện thoại</span>
+            <input required type="tel" pattern="[0-9 +]{9,13}" placeholder="09xx xxx xxx" class="mt-1.5 w-full rounded-xl border border-slate-300 bg-white px-4 py-3 outline-none focus:border-brand focus:ring-4 focus:ring-red-100 transition"></label>
+          <label class="block"><span class="text-[13px] font-semibold text-slate-700">Năm sinh của bé</span>
+            <select class="mt-1.5 w-full rounded-xl border border-slate-300 bg-white px-4 py-3 outline-none focus:border-brand focus:ring-4 focus:ring-red-100 transition"><option>2020</option><option>2021</option><option>2022</option></select></label>
+          <label class="block"><span class="text-[13px] font-semibold text-slate-700">Khóa học quan tâm</span>
+            <select class="mt-1.5 w-full rounded-xl border border-slate-300 bg-white px-4 py-3 outline-none focus:border-brand focus:ring-4 focus:ring-red-100 transition"><option>08 Tuần (16 buổi)</option><option>12 Tuần (24 buổi)</option><option selected>16 Tuần (32 buổi)</option><option>24 Tuần (48 buổi)</option></select></label>
+          <button type="submit" class="sm:col-span-2 inline-flex items-center justify-center gap-3 rounded-xl bg-brand hover:bg-brand-dark text-white font-bold py-4 shadow-lg shadow-red-200 transition">ĐĂNG KÝ TƯ VẤN NHẬN ƯU ĐÃI <i data-lucide="send" class="w-5 h-5"></i></button>
+          <p id="formOk" class="hidden sm:col-span-2 rounded-xl bg-emerald-50 border border-emerald-200 text-emerald-700 text-[14px] font-medium px-4 py-3">Cảm ơn quý phụ huynh! Điểm 10+ sẽ liên hệ trong thời gian sớm nhất.</p>
         </form>
       </div>
     </div>
- 
-    <div class="campus">
-      <h3>Hệ thống cơ sở Điểm 10+ tại TPHCM</h3>
-      <div class="chips">
-        <span>Quang Trung</span><span>Nguyễn Cửu Vân</span><span>Tân Canh</span><span>Lũy Bán Bích</span><span>Nguyễn Văn Đậu</span><span>Huỳnh Tấn Phát</span><span>Lê Văn Sỹ</span>
+
+    <!-- Hệ thống cơ sở -->
+    <div class="mt-5 rounded-3xl bg-slate-50 border border-slate-200 p-7 sm:p-9">
+      <div class="flex items-center gap-3">
+        <span class="w-11 h-11 rounded-xl bg-brand-soft text-brand flex items-center justify-center"><i data-lucide="map-pin" class="w-5 h-5"></i></span>
+        <h3 class="text-xl font-extrabold text-slate-900">Hệ thống cơ sở Điểm 10+ tại TPHCM</h3>
+      </div>
+      <div class="mt-6 grid grid-cols-2 md:grid-cols-4 gap-3">
+        <a href="he-thong-co-so.html" class="rounded-xl bg-white border border-slate-200 hover:border-brand hover:text-brand px-4 py-3.5 text-[14.5px] font-semibold flex items-center gap-2 transition"><i data-lucide="map-pin" class="w-4 h-4 text-brand shrink-0"></i>Quang Trung</a>
+        <a href="he-thong-co-so.html" class="rounded-xl bg-white border border-slate-200 hover:border-brand hover:text-brand px-4 py-3.5 text-[14.5px] font-semibold flex items-center gap-2 transition"><i data-lucide="map-pin" class="w-4 h-4 text-brand shrink-0"></i>Nguyễn Cửu Vân</a>
+        <a href="he-thong-co-so.html" class="rounded-xl bg-white border border-slate-200 hover:border-brand hover:text-brand px-4 py-3.5 text-[14.5px] font-semibold flex items-center gap-2 transition"><i data-lucide="map-pin" class="w-4 h-4 text-brand shrink-0"></i>Tân Canh</a>
+        <a href="he-thong-co-so.html" class="rounded-xl bg-white border border-slate-200 hover:border-brand hover:text-brand px-4 py-3.5 text-[14.5px] font-semibold flex items-center gap-2 transition"><i data-lucide="map-pin" class="w-4 h-4 text-brand shrink-0"></i>Lũy Bán Bích</a>
+        <a href="he-thong-co-so.html" class="rounded-xl bg-white border border-slate-200 hover:border-brand hover:text-brand px-4 py-3.5 text-[14.5px] font-semibold flex items-center gap-2 transition"><i data-lucide="map-pin" class="w-4 h-4 text-brand shrink-0"></i>Nguyễn Văn Đậu</a>
+        <a href="he-thong-co-so.html" class="rounded-xl bg-white border border-slate-200 hover:border-brand hover:text-brand px-4 py-3.5 text-[14.5px] font-semibold flex items-center gap-2 transition"><i data-lucide="map-pin" class="w-4 h-4 text-brand shrink-0"></i>Huỳnh Tấn Phát</a>
+        <a href="he-thong-co-so.html" class="rounded-xl bg-white border border-slate-200 hover:border-brand hover:text-brand px-4 py-3.5 text-[14.5px] font-semibold flex items-center gap-2 transition"><i data-lucide="map-pin" class="w-4 h-4 text-brand shrink-0"></i>Lê Văn Sỹ</a>
       </div>
     </div>
   </div>
 </section>
- 
-<footer>© 2026 Điểm 10+ – Lớp Tiền Tiểu Học. Chương trình ưu đãi áp dụng đến hết 30.11.2026.</footer>
- 
-<div class="sticky"><a class="btn btn-red" href="#dang-ky">ĐĂNG KÝ TƯ VẤN NHẬN ƯU ĐÃI</a></div>
- 
+
+</main>
+
+<footer class="bg-brand-deeper text-red-100">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 flex flex-col md:flex-row md:items-center md:justify-between gap-5 text-[14px]">
+    <div>
+      <p class="text-white font-extrabold text-lg">TRUNG TÂM ĐIỂM 10+</p>
+      <p class="mt-1">Vững kiến thức, chắc tư duy</p>
+    </div>
+    <div class="flex flex-col sm:flex-row gap-3 sm:gap-8">
+      <a href="tel:0933398787" class="inline-flex items-center gap-2 hover:text-gold transition"><i data-lucide="phone" class="w-4 h-4"></i>0933 39 87 87</a>
+      <a href="mailto:tvkh.diem10cong@gmail.com" class="inline-flex items-center gap-2 hover:text-gold transition"><i data-lucide="mail" class="w-4 h-4"></i>tvkh.diem10cong@gmail.com</a>
+    </div>
+  </div>
+  <div class="border-t border-white/15 py-4 text-center text-[12.5px] text-red-200">© 2026 Trung tâm Điểm 10+ · Ưu đãi áp dụng đến hết 30.11.2026</div>
+</footer>
+
+<!-- CTA cố định trên mobile -->
+<div class="md:hidden fixed bottom-0 inset-x-0 z-40 bg-white border-t border-slate-200 p-3">
+  <a href="#dang-ky" class="flex items-center justify-center gap-2 rounded-xl bg-brand text-white font-bold py-3.5"><i data-lucide="user-plus" class="w-5 h-5"></i>ĐĂNG KÝ TƯ VẤN NHẬN ƯU ĐÃI</a>
+</div>
+<div class="md:hidden h-20"></div>
+
 <script>
-// Đếm ngược đến 23:59:59 ngày 30/11/2026 (giờ Việt Nam)
-const end = new Date('2026-11-30T23:59:59+07:00').getTime();
-const pad = n => String(n).padStart(2,'0');
-function tick(){
-  let t = Math.max(0, end - Date.now());
-  const d = Math.floor(t/864e5); t -= d*864e5;
-  const h = Math.floor(t/36e5);  t -= h*36e5;
-  const m = Math.floor(t/6e4);   t -= m*6e4;
-  const s = Math.floor(t/1e3);
-  document.getElementById('d').textContent = pad(d);
-  document.getElementById('h').textContent = pad(h);
-  document.getElementById('m').textContent = pad(m);
-  document.getElementById('s').textContent = pad(s);
-}
-tick(); setInterval(tick,1000);
- 
-// Sao chép số tài khoản
-document.getElementById('copy').addEventListener('click', e=>{
-  const b = e.currentTarget;
-  navigator.clipboard?.writeText(document.getElementById('acc').textContent.trim());
-  b.textContent = 'Đã chép ✓'; setTimeout(()=>b.textContent='Sao chép',1800);
-});
- 
-// Form: hiện tại chỉ hiển thị thông báo. Thay bằng fetch() tới API / Google Form / CRM của bạn.
-document.getElementById('f').addEventListener('submit', e=>{
-  e.preventDefault();
-  // fetch('YOUR_ENDPOINT', {method:'POST', body: new FormData(e.target)});
-  document.getElementById('ok').style.display = 'block';
-  e.target.reset();
-});
+  // Icon Lucide
+  lucide.createIcons();
+
+  // Header: đổ bóng khi cuộn
+  const header = document.getElementById('mainHeader');
+  const onScroll = () => header.classList.toggle('shadow-md', window.scrollY > 10);
+  window.addEventListener('scroll', onScroll, { passive: true }); onScroll();
+
+  // Hamburger + menu mobile
+  const burger = document.getElementById('hamburgerBtn');
+  const mobileMenu = document.getElementById('mobileMenu');
+  function placeMenu(){ mobileMenu.style.top = header.getBoundingClientRect().bottom + 'px'; }
+  function toggleMenu(force){
+    const open = force ?? mobileMenu.classList.contains('hidden');
+    if (open) placeMenu();
+    mobileMenu.classList.toggle('hidden', !open);
+    burger.classList.toggle('active', open);
+  }
+  burger.addEventListener('click', () => toggleMenu());
+  mobileMenu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => toggleMenu(false)));
+  window.addEventListener('resize', () => { if (window.innerWidth >= 1024) toggleMenu(false); else if (!mobileMenu.classList.contains('hidden')) placeMenu(); });
+
+  // Đếm ngược đến 23:59:59 ngày 30/11/2026 (giờ Việt Nam)
+  const end = new Date('2026-11-30T23:59:59+07:00').getTime();
+  const pad = n => String(n).padStart(2, '0');
+  function tick(){
+    let t = Math.max(0, end - Date.now());
+    const d = Math.floor(t / 864e5); t -= d * 864e5;
+    const h = Math.floor(t / 36e5);  t -= h * 36e5;
+    const m = Math.floor(t / 6e4);   t -= m * 6e4;
+    const s = Math.floor(t / 1e3);
+    const v = { d: pad(d), h: pad(h), m: pad(m), s: pad(s) };
+    document.querySelectorAll('[data-cd]').forEach(el => el.textContent = v[el.dataset.cd]);
+  }
+  tick(); setInterval(tick, 1000);
+
+  // Form: hiện chỉ hiển thị thông báo. Thay bằng fetch() tới API / Google Form / CRM của bạn.
+  document.getElementById('regForm').addEventListener('submit', e => {
+    e.preventDefault();
+    // fetch('YOUR_ENDPOINT', { method: 'POST', body: new FormData(e.target) });
+    document.getElementById('formOk').classList.remove('hidden');
+    e.target.reset();
+  });
 </script>
 </body>
 </html>
- 
