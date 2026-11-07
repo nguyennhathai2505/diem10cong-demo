@@ -1,0 +1,16 @@
+nội dung footer gọn lại, thêm chi nhánh
+bỏ các hiệu ứng AI
+- home page
++ word h1 home page- bỏ đồng hành cùng học sinh: x
++ bỏ  3 tick:x
+
+- không gian học tâp:
++ wording lại text và hiệu ứng AI: x
+
+- feedback
++ card bỏ liên kết nguồn:x
++ bỏ ngày:x
++ bỏ dòng - Đánh giá được tổng hợp từ Google, Facebook và Zalo của phụ huynh & học sinh Điểm 10+ : x
++ wording lại dòng - Thước đo chất lượng quan trọng nhất của chúng tôi là sự hài lòng của quý phụ huynh & học sinh: x
+
+ở trang tài liệu và tin tức - box nhỏ lại: x
